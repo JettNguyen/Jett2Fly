@@ -20,6 +20,9 @@
             padding: 0;
         }
         nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
             background-color: #1a1a1a; /* Darker gray for nav */
             padding: 10px;
             text-align: center;
@@ -99,6 +102,18 @@
             height: 40px;
             margin-right: 10px; /* Space between image and text */
             border-radius: 3px; /* Optional: slight rounding */
+        }
+
+        .embed-container {
+            margin-top: 20px;
+            max-width: 400px; /* Ensure the embeds are consistent in size */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .embed-container iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
         }
 
         .scroll-container {
@@ -193,14 +208,29 @@
                 <img src="images/awtside-min.png" alt="Awtside Cover">
                 Awtside
             </a>
+            <div class="embed-container">
+                <!-- Example Embed (Replace with actual embed code) -->
+                <iframe src="https://open.spotify.com/embed/track/4FlsGRkkZtgZ4Q1EhKzJ4J?utm_source=generator" title="Awtside"></iframe>
+            </div>
+
             <a href="https://distrokid.com/hyperfollow/sywavy/imma-floridian" class="release-button">
                 <img src="images/furnish cover 4 exp.png" alt="Imma Floridian Cover">
                 Imma Floridian
             </a>
+            <div class="embed-container">
+                <!-- Example Embed (Replace with actual embed code) -->
+                <iframe src="https://open.spotify.com/embed/track/3AtAktzZTzkO558GB4JoYB?utm_source=generator" title="Imma Floridian"></iframe>
+            </div>
+
             <a href="https://distrokid.com/hyperfollow/sywavy/flight-370" class="release-button">
                 <img src="images/IMG_2743.jpeg" alt="Flight 370 Cover">
                 Flight 370
             </a>
+            <div class="embed-container">
+                <!-- Example Embed (Replace with actual embed code) -->
+                <iframe src="https://open.spotify.com/embed/album/4B3OKpetlnrHKDg6HPNTUU?utm_source=generator" title="Flight 370"></iframe>
+            </div>
+            
         </div>
         <div style="margin-top: 20px;">
             <a href="/latest" style="color: darkgray; text-decoration: underline;">
