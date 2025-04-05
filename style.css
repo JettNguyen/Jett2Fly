@@ -61,16 +61,17 @@ nav a:hover {
 
 /* Release Buttons */
 .release-button {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     background-color: #1a1a1a;
     color: #ffffff;
-    padding: 10px 20px;
-    margin: 10px;
+    padding: 15px;
+    margin: 15px auto;
     text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s;
+    border-radius: 8px;
+    max-width: 600px;
+    transition: background-color 0.2s;
+    text-align: left;
 }
 
 .release-button:hover {
@@ -79,10 +80,11 @@ nav a:hover {
 }
 
 .release-button img {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-    border-radius: 3px;
+    width: 80px;
+      height: 80px;
+      margin-right: 20px;
+      border-radius: 5px;
+      object-fit: cover;
 }
 
 /* Logo and Headings */
