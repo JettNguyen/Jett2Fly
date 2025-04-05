@@ -103,19 +103,20 @@
         .scroll-container {
             overflow: hidden; /* Hide overflowing content */
             margin-top: 40px;
-            padding: 0px 0;
+            padding: 0;
             width: 100%; /* Ensure it spans the full width */
         }
 
         .scroll-images-wrapper {
             display: flex;
             animation: scroll-left 5s linear infinite; /* Adjust duration for speed */
+            width: fit-content; /* Ensure wrapper fits content */
         }
 
         .scroll-images {
             display: inline-flex; /* Keep images in a single row */
             flex-shrink: 0; /* Prevent shrinking */
-            min-width: 100%; /* Ensure each set is at least full-width */
+            width: calc(120px * 21 + 10px * 20); /* 21 images * 120px + 20 gaps * 10px */
         }
 
         .scroll-image {
@@ -131,7 +132,7 @@
                 transform: translateX(0);
             }
             100% {
-                transform: translateX(-100%); /* Move the container to the left */
+                transform: translateX(-50%); /* Move the container to the left */
             }
         }
     </style>
