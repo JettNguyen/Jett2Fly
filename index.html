@@ -8,6 +8,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
+         .releases {
+            margin-top: 30px; /* Space above buttons */
+        }
+        .release-button {
+            display: inline-flex; /* Flexbox for image and text alignment */
+            align-items: center; /* Vertically center content */
+            background-color: #1a1a1a; /* Matches nav color */
+            color: #ffffff;
+            padding: 10px 20px; /* Vertical and horizontal padding */
+            margin: 10px; /* Space between buttons */
+            text-decoration: none; /* No underline */
+            border-radius: 5px; /* Rounded corners */
+            font-weight: bold;
+            transition: background-color 0.3s; /* Smooth hover effect */
+        }
+        .release-button:hover {
+            background-color: #cccccc; /* Light gray on hover */
+            color: #1a1a1a; /* Dark text on hover for contrast */
+        }
+        .release-button img {
+            width: 40px; /* Adjust image size */
+            height: 40px;
+            margin-right: 10px; /* Space between image and text */
+            border-radius: 3px; /* Optional: slight rounding */
+        }
         .scroll-container {
             display: flex;
             overflow: hidden; /* Hide the overflowing images */
