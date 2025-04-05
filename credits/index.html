@@ -34,23 +34,30 @@
             padding: 20px;
             text-align: center;
         }
+        .clickable-image {
+            width: 80%; /* You can adjust this width as needed */
+            max-width: 800px; /* Optional: limit the max size of the image */
+            cursor: pointer; /* Indicate that the image is clickable */
+            transition: transform 0.3s ease; /* Optional: smooth zoom effect */
+        }
+        .clickable-image:hover {
+            transform: scale(1.05); /* Optional: slightly zoom image on hover */
+        }
     </style>
 </head>
 <body>
     <nav>
         <a href="/">Home</a>
-        <a href="/releases">Latest</a>
+        <a href="/latest">Latest</a>
         <a href="/credits">Prod. Credits</a>
         <a href="/videos">Videos</a>
     </nav>
     <div class="content">
         <h1>Production Credits</h1>
-        <p>Artists and projects I’ve worked with:</p>
-        <ul style="list-style: none; padding: 0;">
-            <li>Artist 1 - Song Title</li>
-            <li>Artist 2 - Album Name</li>
-            <li>Artist 3 - Single</li>
-        </ul>
+        <p>Check out the "Prod. Jett2Fly" playlist:</p>
+        <a href="https://open.spotify.com/playlist/3A7pDOj3iWVYk1KKR8LjWJ?si=5901ac9fb9764568" target="_blank">
+            <img src="../images/prod.jpg" alt="Jett2Fly Playlist" class="clickable-image">
+        </a>
     </div>
 </body>
 </html>
