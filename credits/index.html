@@ -1,83 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jett2Fly Production Credits</title>
-    <link rel="icon" href="../images/jett2fly logo.png" type="image/x-icon">
-    <style>
-        body {
-            background-image: url('../images/flbg.png'); /* Path to your image */
-            background-size: cover; /* Scales image to cover the entire background */
-            background-position: center; /* Centers the image */
-            background-repeat: no-repeat; /* Prevents tiling */
-            background-attachment: fixed; /* Optional: Keeps image fixed while scrolling */
-            color: #ffffff;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        nav {
-            background-color: #1a1a1a;
-            padding: 10px;
-            text-align: center;
-        }
-        nav a {
-            color: #ffffff;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-        }
-        nav a:hover {
-            color: #cccccc;
-        }
-        .content {
-            padding: 20px;
-            text-align: center;
-        }
-        .button-row {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px; /* spacing between buttons */
-            margin-top: 20px;
-        }
-        .clickable-image {
-            width: 240px;
-            height: auto;
-            cursor: pointer;
-            transition: transform 0.2s ease;
-            border-radius: 10px;
-        }
-        .clickable-image:hover {
-            transform: scale(1.02); /* Optional: slightly zoom image on hover */
-        }
-        .youtube-embed {
-            width: 320px;
-            height: 180px;
-            border: none;
-            border-radius: 10px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jett2Fly Production Credits</title>
+  <link rel="icon" href="../images/jett2fly logo.png" type="image/x-icon" />
+  <style>
+    body {
+      background-image: url('../images/flbg.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background-color: #1a1a1a;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #cccccc;
+    }
+
+    .content {
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    .media-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .image-box {
+      width: 250px;
+      height: 250px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    .image-box:hover {
+      transform: scale(1.03);
+    }
+
+    .youtube-embed {
+      width: 400px;
+      height: 250px;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      .media-container {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .youtube-embed {
+        width: 100%;
+        max-width: 90vw;
+        height: 220px;
+      }
+
+      .image-box {
+        width: 90vw;
+        height: 90vw;
+      }
+    }
+  </style>
 </head>
 <body>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/latest">Latest</a>
-        <a href="/credits">Prod. Credits</a>
-        <a href="/videos">Videos</a>
-    </nav>
-    <div class="content">
-        <h1>Production Credits</h1>
-        <p>Check out the "Prod. Jett2Fly" playlist:</p>
-        <a href="https://open.spotify.com/playlist/3A7pDOj3iWVYk1KKR8LjWJ?si=5901ac9fb9764568" target="_blank">
-            <img src="../images/prod.png" alt="Jett2Fly Playlist" class="clickable-image">
-        </a>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/latest">Latest</a>
+    <a href="/credits">Prod. Credits</a>
+    <a href="/videos">Videos</a>
+  </nav>
 
-        <iframe class="youtube-embed"
-            src="https://www.youtube.com/embed/videoseries?si=BUID_V62Y-Ll-OPR&amp;list=PL432doK1hhpubIcc0Kdg3wfapa7ErJLAR"
-            allowfullscreen>
-        </iframe>
+  <div class="content">
+    <h1>Production Credits</h1>
+    <p>Check out the "Prod. Jett2Fly" playlist:</p>
+
+    <div class="media-container">
+      <a href="https://open.spotify.com/playlist/3A7pDOj3iWVYk1KKR8LjWJ?si=5901ac9fb9764568" target="_blank" class="image-box">
+        <img src="../images/prod.png" alt="Jett2Fly Playlist Cover" />
+      </a>
+
+      <iframe class="youtube-embed"
+        src="https://www.youtube.com/embed/videoseries?si=BUID_V62Y-Ll-OPR&amp;list=PL432doK1hhpubIcc0Kdg3wfapa7ErJLAR"
+        allowfullscreen>
+      </iframe>
     </div>
+  </div>
 </body>
 </html>
