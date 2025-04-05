@@ -77,3 +77,26 @@ p {
     margin-right: 10px; /* Space between image and text */
     border-radius: 3px; /* Optional: slight rounding */
 }
+
+.social-links {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.social-button {
+    display: inline-block;
+    margin: 10px;
+    width: 50px; /* Adjust the size of the icon */
+    height: 50px; /* Ensure it's square */
+    transition: transform 0.3s ease;
+}
+
+.social-button:hover {
+    transform: scale(1.1); /* Slightly increase size on hover */
+}
+
+.social-icon {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; /* Optional: makes the icon circular */
+}
