@@ -101,13 +101,12 @@
         }
 
         .scroll-container {
-            background-color: black;
             overflow: hidden; /* Hide overflowing content */
             margin-top: 40px;
             padding: 0;
             margin-left: auto;
             margin-right: auto; /* Center horizontally */
-            width: 110%; /* Ensure it spans the full width */
+            width: 100%; /* Ensure it spans the full width */
             position: relative;
         }
 
@@ -133,7 +132,7 @@
         .scroll-images-wrapper {
             display: flex;
             animation: scroll-left 30s linear infinite; /* Adjust duration for speed */
-            width: fit-content; /* Ensure wrapper fits content */
+            width: max-content; /* Ensure wrapper fits content */
         }
 
         .scroll-images {
