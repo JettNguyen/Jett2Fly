@@ -33,6 +33,7 @@
             margin-right: 10px; /* Space between image and text */
             border-radius: 3px; /* Optional: slight rounding */
         }
+
         .scroll-container {
             display: flex;
             overflow: hidden; /* Hide the overflowing images */
@@ -40,9 +41,13 @@
             padding: 10px 0; /* Space around the images */
         }
 
+        .scroll-images-wrapper {
+            display: flex;
+            animation: scroll-left 30s linear infinite; /* Infinite scrolling animation */
+        }
+
         .scroll-images {
             display: flex;
-            animation: scroll-left 20s linear infinite; /* Infinite scrolling animation */
         }
 
         .scroll-image {
