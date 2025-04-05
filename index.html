@@ -36,6 +36,28 @@
             padding: 20px;
             text-align: center;
         }
+        .social-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 10px 20px;
+            margin: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            font-size: 1.2em;
+        }
+        .social-button:hover {
+            background-color: #cccccc;
+            color: #1a1a1a;
+        }
+        .social-button i {
+            margin-right: 8px;
+            font-size: 1.5em;
+        }
         h1 {
             font-size: 2.5em;
         }
@@ -86,7 +108,22 @@
         <img src="images/jett2fly logo.png" alt="Jett2Fly Logo" class="logo">
         <h1>Jett2Fly</h1>
         <p>Producer | Beatmaker | Sound Designer</p>
-        <p>Explore my latest tracks, credits, and videos below.</p>
+
+        <div class="social-links">
+            <a href="https://www.instagram.com/jett2fly" class="social-button" target="_blank">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+            <a href="https://www.youtube.com/@jett2fly" class="social-button" target="_blank">
+                <i class="fab fa-youtube"></i> YouTube
+            </a>
+            <a href="https://www.tiktok.com/@jett2fly" class="social-button" target="_blank">
+                <i class="fab fa-tiktok"></i> TikTok
+            </a>
+            <a href="https://open.spotify.com/artist/1Q0CQN1Z6DCWk3MtXseWtr" class="social-button" target="_blank">
+                <i class="fab fa-spotify"></i> Spotify
+            </a>
+        </div>
+        
         <div class="releases">
             <h2>Latest Releases</h2>
             <a href="https://distrokid.com/hyperfollow/sywavy/awtside" class="release-button">
