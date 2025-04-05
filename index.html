@@ -105,11 +105,31 @@
             margin-top: 40px;
             padding: 0;
             width: 100%; /* Ensure it spans the full width */
+            position: relative;
+        }
+
+        /* Fade effect on both ends */
+        .scroll-container::before,
+        .scroll-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100px; /* Width of fade area */
+            z-index: 1;
+        }
+        .scroll-container::before {
+            left: 0;
+            background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); /* Fade from black to transparent */
+        }
+        .scroll-container::after {
+            right: 0;
+            background: linear-gradient(to left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); /* Fade from black to transparent */
         }
 
         .scroll-images-wrapper {
             display: flex;
-            animation: scroll-left 20s linear infinite; /* Adjust duration for speed */
+            animation: scroll-left 30s linear infinite; /* Adjust duration for speed */
             width: fit-content; /* Ensure wrapper fits content */
         }
 
