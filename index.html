@@ -116,7 +116,7 @@
         .scroll-images {
             display: flex; /* Keep images in a single row */
             flex-shrink: 0; /* Prevent shrinking */
-            width: calc(120px * 21 + 10px * 20);
+            width: calc(120px * 21 + 10px * 21);
         }
 
         .scroll-image {
@@ -125,11 +125,6 @@
             margin-right: 10px; /* Space between images */
             border-radius: 8px; /* Optional: rounded corners */
             flex-shrink: 0; /* Prevent image compression */
-        }
-
-        /* Remove margin-right from the last image in each set to avoid extra gap */
-        .scroll-images .scroll-image:last-child {
-            margin-right: 0;
         }
 
         @keyframes scroll-left {
