@@ -35,23 +35,25 @@
         }
 
         .scroll-container {
-            display: flex;
-            overflow: hidden; /* Hide the overflowing images */
-            margin-top: 50px; /* Space between images and other content */
-            padding: 10px 0; /* Space around the images */
+            overflow: hidden; /* Hide overflowing content */
+            margin-top: 50px;
+            padding: 10px 0;
+            width: 100%; /* Ensure it spans the full width */
         }
 
         .scroll-images-wrapper {
             display: flex;
-            animation: scroll-left 60s linear infinite; /* Infinite scrolling animation */
+            animation: scroll-left 30s linear infinite; /* Adjust duration for speed */
+            white-space: nowrap; /* Prevent wrapping */
         }
 
         .scroll-images {
-            display: flex;
+            display: inline-flex; /* Keep images in a single row */
+            flex-shrink: 0; /* Prevent shrinking */
         }
 
         .scroll-image {
-            width: 150px; /* Adjust the width of the image */
+            width: 120px; /* Adjust the width of the image */
             height: auto; /* Maintain the aspect ratio */
             margin-right: 10px; /* Space between images */
             border-radius: 8px; /* Optional: rounded corners */
@@ -62,7 +64,7 @@
                 transform: translateX(0);
             }
             100% {
-                transform: translateX(-100%); /* Move the container to the left */
+                transform: translateX(-50%); /* Move the container to the left */
             }
         }
     </style>
