@@ -7,7 +7,35 @@
     <link rel="icon" href="images/jett2fly logo.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .scroll-container {
+            display: flex;
+            overflow: hidden; /* Hide the overflowing images */
+            margin-top: 50px; /* Space between images and other content */
+            padding: 10px 0; /* Space around the images */
+        }
 
+        .scroll-images {
+            display: flex;
+            animation: scroll-left 20s linear infinite; /* Infinite scrolling animation */
+        }
+
+        .scroll-image {
+            width: 150px; /* Adjust the width of the image */
+            height: auto; /* Maintain the aspect ratio */
+            margin-right: 10px; /* Space between images */
+            border-radius: 8px; /* Optional: rounded corners */
+        }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%); /* Move the container to the left */
+            }
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -55,6 +83,53 @@
             <a href="/latest" style="color: darkgray; text-decoration: underline;">
                 View All Releases →
             </a>
+        </div>
+        <div class="scroll-container">
+            <div class="scroll-images">
+                <img src="images/keys.jpg" alt="Image 1" class="scroll-image">
+                <img src="images/ear.jpg" alt="Image 2" class="scroll-image">
+                <img src="images/sat.jpg" alt="Image 3" class="scroll-image">
+                <img src="images/red.jpg" alt="Image 4" class="scroll-image">
+                <img src="images/14th.jpg" alt="Image 5" class="scroll-image">
+                <img src="images/fam.jpg" alt="Image 6" class="scroll-image">
+                <img src="images/whyme.jpg" alt="Image 7" class="scroll-image">
+                <img src="images/phonto (2).JPG" alt="Image 8" class="scroll-image">
+                <img src="images/olym.jpg" alt="Image 9" class="scroll-image">
+                <img src="images/LIV.jpg" alt="Image 10" class="scroll-image">
+                <img src="images/night.jpg" alt="Image 11" class="scroll-image">
+                <img src="images/IMG_5893.jpg" alt="Image 12" class="scroll-image">
+                <img src="images/high.jpg" alt="Image 13" class="scroll-image">
+                <img src="images/the.jpg" alt="Image 14" class="scroll-image">
+                <img src="images/wl.jpg" alt="Image 15" class="scroll-image">
+                <img src="images/alchemy.jpg" alt="Image 16" class="scroll-image">
+                <img src="images/cover 2.png" alt="Image 17" class="scroll-image">
+                <img src="images/gfds.jpg" alt="Image 18" class="scroll-image">
+                <img src="images/IMG_2743.jpeg" alt="Image 19" class="scroll-image">
+                <img src="images/furnish cover 4 exp.png" alt="Image 20" class="scroll-image">
+                <img src="images/awtside-min.png" alt="Image 21" class="scroll-image">
+                <!-- Repeat images to ensure seamless scrolling -->
+                <img src="images/keys.jpg" alt="Image 1" class="scroll-image">
+                <img src="images/ear.jpg" alt="Image 2" class="scroll-image">
+                <img src="images/sat.jpg" alt="Image 3" class="scroll-image">
+                <img src="images/red.jpg" alt="Image 4" class="scroll-image">
+                <img src="images/14th.jpg" alt="Image 5" class="scroll-image">
+                <img src="images/fam.jpg" alt="Image 6" class="scroll-image">
+                <img src="images/whyme.jpg" alt="Image 7" class="scroll-image">
+                <img src="images/phonto (2).JPG" alt="Image 8" class="scroll-image">
+                <img src="images/olym.jpg" alt="Image 9" class="scroll-image">
+                <img src="images/LIV.jpg" alt="Image 10" class="scroll-image">
+                <img src="images/night.jpg" alt="Image 11" class="scroll-image">
+                <img src="images/IMG_5893.jpg" alt="Image 12" class="scroll-image">
+                <img src="images/high.jpg" alt="Image 13" class="scroll-image">
+                <img src="images/the.jpg" alt="Image 14" class="scroll-image">
+                <img src="images/wl.jpg" alt="Image 15" class="scroll-image">
+                <img src="images/alchemy.jpg" alt="Image 16" class="scroll-image">
+                <img src="images/cover 2.png" alt="Image 17" class="scroll-image">
+                <img src="images/gfds.jpg" alt="Image 18" class="scroll-image">
+                <img src="images/IMG_2743.jpeg" alt="Image 19" class="scroll-image">
+                <img src="images/furnish cover 4 exp.png" alt="Image 20" class="scroll-image">
+                <img src="images/awtside-min.png" alt="Image 21" class="scroll-image">
+            </div>
         </div>
     </div>
 </body>
