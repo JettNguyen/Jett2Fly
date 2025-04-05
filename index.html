@@ -102,15 +102,14 @@
         }
 
         .scroll-container {
-            position: fixed;
-            bottom: 0;  /* Sticks the container to the bottom */
-            overflow: hidden; /* Hide overflowing content */
-            margin-top: 25px;
-            padding: 0;
-            margin-left: auto;
-            margin-right: auto; /* Center horizontally */
+            position: fixed; /* Fixes the container to the bottom */
+            bottom: 0;  /* Stick it to the bottom */
+            left: 0;    /* Align it to the left side of the page */
             width: 100%; /* Ensure it spans the full width */
-            position: relative;
+            z-index: 10; /* Ensure it stays on top of other content */
+            background-color: black;
+            padding: 0;
+            margin: 0;
         }
 
         /* Fade effect on both ends */
