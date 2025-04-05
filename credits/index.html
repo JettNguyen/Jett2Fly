@@ -35,14 +35,28 @@
             padding: 20px;
             text-align: center;
         }
+        .button-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px; /* spacing between buttons */
+            margin-top: 20px;
+        }
         .clickable-image {
-            width: 80%; /* You can adjust this width as needed */
-            max-width: 600px; /* Optional: limit the max size of the image */
-            cursor: pointer; /* Indicate that the image is clickable */
-            transition: transform 0.2s ease; /* Optional: smooth zoom effect */
+            width: 240px;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            border-radius: 10px;
         }
         .clickable-image:hover {
             transform: scale(1.02); /* Optional: slightly zoom image on hover */
+        }
+        .youtube-embed {
+            width: 320px;
+            height: 180px;
+            border: none;
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -59,6 +73,11 @@
         <a href="https://open.spotify.com/playlist/3A7pDOj3iWVYk1KKR8LjWJ?si=5901ac9fb9764568" target="_blank">
             <img src="../images/prod.png" alt="Jett2Fly Playlist" class="clickable-image">
         </a>
+
+        <iframe class="youtube-embed"
+            src="https://www.youtube.com/embed/videoseries?si=BUID_V62Y-Ll-OPR&amp;list=PL432doK1hhpubIcc0Kdg3wfapa7ErJLAR"
+            allowfullscreen>
+        </iframe>
     </div>
 </body>
 </html>
