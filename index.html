@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YourName - Music Producer</title>
+    <title>Jett2Fly</title>
     <style>
         body {
             background-color: #333333; /* Dark gray */
@@ -41,7 +41,24 @@
             height: auto;
             margin: 20px auto;
             display: block;
-
+        }
+        .releases {
+            margin-top: 30px; /* Space above buttons */
+        }
+        .release-button {
+            display: inline-block; /* Buttons side by side */
+            background-color: #1a1a1a; /* Matches nav color */
+            color: #ffffff;
+            padding: 10px 20px; /* Vertical and horizontal padding */
+            margin: 10px; /* Space between buttons */
+            text-decoration: none; /* No underline */
+            border-radius: 5px; /* Rounded corners */
+            font-weight: bold;
+            transition: background-color 0.3s; /* Smooth hover effect */
+        }
+        .release-button:hover {
+            background-color: #cccccc; /* Light gray on hover */
+            color: #1a1a1a; /* Dark text on hover for contrast */
         }
     </style>
 </head>
@@ -54,8 +71,14 @@
     </nav>
     <div class="content">
         <img src="jett2fly logo.png" alt="Jett2Fly Logo" class="logo">
-        <h1>Welcome to Jett2Fly's Music Hub</h1>
+        <h1>Jett2Fly</h1>
         <p>Producer | Beatmaker | Sound Designer</p>
         <p>Explore my latest tracks, credits, and videos below.</p>
+        <div class="releases">
+            <h2>Latest Releases</h2>
+            <a href="https://distrokid.com/hyperfollow/sywavy/awtside" class="release-button">Track 1</a>
+            <a href="https://distrokid.com/hyperfollow/sywavy/imma-floridian" class="release-button">Track 2</a>
+            <a href="https://distrokid.com/hyperfollow/sywavy/flight-370" class="release-button">Track 3</a>
+        </div>
     </div>
 </body>
