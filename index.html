@@ -109,14 +109,16 @@
 
         .scroll-images-wrapper {
             display: flex;
-            animation: scroll-left 5s linear infinite; /* Adjust duration for speed */
+            animation: scroll-left 10s linear infinite; /* Adjust duration for speed */
             width: fit-content; /* Ensure wrapper fits content */
         }
 
         .scroll-images {
-            display: inline-flex; /* Keep images in a single row */
+            display: flex; /* Keep images in a single row */
             flex-shrink: 0; /* Prevent shrinking */
-            width: calc(120px * 21 + 10px * 20); /* 21 images * 120px + 20 gaps * 10px */
+            width: 100vw; /* Full viewport width */
+            justify-content: space-between; /* Distribute images evenly */
+            box-sizing: border-box; /* Include padding/margins in width */
         }
 
         .scroll-image {
@@ -125,6 +127,11 @@
             margin-right: 10px; /* Space between images */
             border-radius: 8px; /* Optional: rounded corners */
             flex-shrink: 0; /* Prevent image compression */
+        }
+
+        /* Remove margin-right from the last image in each set to avoid extra gap */
+        .scroll-images .scroll-image:last-child {
+            margin-right: 0;
         }
 
         @keyframes scroll-left {
