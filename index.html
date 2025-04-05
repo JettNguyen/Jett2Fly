@@ -46,7 +46,8 @@
             margin-top: 30px; /* Space above buttons */
         }
         .release-button {
-            display: inline-block; /* Buttons side by side */
+            display: inline-flex; /* Flexbox for image and text alignment */
+            align-items: center; /* Vertically center content */
             background-color: #1a1a1a; /* Matches nav color */
             color: #ffffff;
             padding: 10px 20px; /* Vertical and horizontal padding */
@@ -59,6 +60,12 @@
         .release-button:hover {
             background-color: #cccccc; /* Light gray on hover */
             color: #1a1a1a; /* Dark text on hover for contrast */
+        }
+        .release-button img {
+            width: 40px; /* Adjust image size */
+            height: 40px;
+            margin-right: 10px; /* Space between image and text */
+            border-radius: 3px; /* Optional: slight rounding */
         }
     </style>
 </head>
@@ -76,9 +83,18 @@
         <p>Explore my latest tracks, credits, and videos below.</p>
         <div class="releases">
             <h2>Latest Releases</h2>
-            <a href="https://distrokid.com/hyperfollow/sywavy/awtside" class="release-button">Track 1</a>
-            <a href="https://distrokid.com/hyperfollow/sywavy/imma-floridian" class="release-button">Track 2</a>
-            <a href="https://distrokid.com/hyperfollow/sywavy/flight-370" class="release-button">Track 3</a>
+            <a href="https://distrokid.com/hyperfollow/sywavy/awtside" class="release-button">
+                <img src="awtside-min.jpg" alt="Awtside Cover">
+                Awtside
+            </a>
+            <a href="https://distrokid.com/hyperfollow/sywavy/imma-floridian" class="release-button">
+                <img src="furnish cover 4 exp.png" alt="Imma Floridian Cover">
+                Imma Floridian
+            </a>
+            <a href="https://distrokid.com/hyperfollow/sywavy/flight-370" class="release-button">
+                <img src="IMG_2743.jpeg" alt="Flight 370 Cover">
+                Flight 370
+            </a>
         </div>
     </div>
 </body>
