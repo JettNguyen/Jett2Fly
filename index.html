@@ -20,9 +20,34 @@
             padding: 0;
         }
 
-        header {
-            text-align: center;
-            padding: 20px;
+        .header {
+            display: flex;
+            align-items: center;  /* Vertically center the content */
+            justify-content: space-between; /* Align elements to left and right */
+            background-color: #1a1a1a;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .menu-container {
+            flex: 1; /* Push the menu to the left */
+        }
+
+        .menu-dropdown {
+            background-color: #1a1a1a;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 150px;
+        }
+
+        .menu-dropdown option {
+            background-color: #1a1a1a;
+            color: white;
         }
 
         nav {
@@ -191,18 +216,14 @@
     </style>
 </head>
 <body>
-    <header>
-        <h1>Jett2Fly</h1>
-        <p>Producer | Beatmaker | Sound Designer</p>
-    </header>
-    <nav>
-        <select onchange="window.location.href=this.value;">
+    <div class="menu-container">
+        <select class="menu-dropdown">
             <option value="/">Home</option>
             <option value="/latest">Latest</option>
             <option value="/credits">Prod. Credits</option>
             <option value="/videos">Videos</option>
         </select>
-    </nav>
+    </div>
     <div class="content">
         <img src="images/jett2fly logo.png" alt="Jett2Fly Logo" class="logo">
         <h1>Jett2Fly</h1>
