@@ -20,36 +20,6 @@
             padding: 0;
         }
 
-        .header {
-            display: flex;
-            align-items: center;  /* Vertically center the content */
-            justify-content: space-between; /* Align elements to left and right */
-            background-color: #1a1a1a;
-            padding: 10px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .menu-container {
-            flex: 1; /* Push the menu to the left */
-        }
-
-        .menu-dropdown {
-            background-color: #1a1a1a;
-            color: white;
-            border: none;
-            padding: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            width: 150px;
-        }
-
-        .menu-dropdown option {
-            background-color: #1a1a1a;
-            color: white;
-        }
-
         nav {
             position: sticky;
             top: 0;
@@ -58,27 +28,6 @@
             padding: 10px;
             text-align: center;
         }
-
-        select {
-            background-color: #1a1a1a;
-            color: #ffffff;
-            border: none;
-            font-size: 1.2em;
-            padding: 10px;
-            width: 200px;
-            cursor: pointer;
-        }
-
-        select option {
-            background-color: #1a1a1a;
-            color: #ffffff;
-            font-size: 1.2em;
-        }
-
-        select:hover {
-            background-color: #333333;
-        }
-
         nav a {
             color: #ffffff;
             text-decoration: none;
@@ -216,14 +165,12 @@
     </style>
 </head>
 <body>
-    <div class="menu-container">
-        <select class="menu-dropdown">
-            <option value="/">Home</option>
-            <option value="/latest">Latest</option>
-            <option value="/credits">Prod. Credits</option>
-            <option value="/videos">Videos</option>
-        </select>
-    </div>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/latest">Latest</a>
+        <a href="/credits">Prod. Credits</a>
+        <a href="/videos">Videos</a>
+    </nav>
     <div class="content">
         <img src="images/jett2fly logo.png" alt="Jett2Fly Logo" class="logo">
         <h1>Jett2Fly</h1>
