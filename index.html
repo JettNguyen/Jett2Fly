@@ -18,6 +18,9 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
+            min-height: 100vh; /* full viewport height */
+            display: flex;
+            flex-direction: column;
         }
 
         nav {
@@ -162,6 +165,12 @@
                 transform: translateX(-50%); /* Move the container to the left */
             }
         }
+
+        .main-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
     </style>
 </head>
 <body>
@@ -172,47 +181,49 @@
         <a href="/videos">Videos</a>
     </nav>
     <div class="content">
-        <img src="images/jett2fly logo.png" alt="Jett2Fly Logo" class="logo">
-        <h1>Jett2Fly</h1>
-        <p>Producer | Beatmaker | Sound Designer</p>
+        <div class="main-wrapper">
+            <img src="images/jett2fly logo.png" alt="Jett2Fly Logo" class="logo">
+            <h1>Jett2Fly</h1>
+            <p>Producer | Beatmaker | Sound Designer</p>
 
-        <div class="social-links">
-            <a href="https://www.instagram.com/jett2fly" class="social-button" target="_blank">
-                <img src="images/instagram-icon.png" alt="Instagram" class="social-icon">
-            </a>
-            <a href="https://www.youtube.com/@jett2fly" class="social-button" target="_blank">
-                <img src="images/yt-icon.png" alt="YouTube" class="social-icon">
-            </a>
-            <a href="https://www.tiktok.com/@jett2fly" class="social-button" target="_blank">
-                <img src="images/tiktok-icon.png" alt="TikTok" class="social-icon">
-            </a>
-            <a href="https://open.spotify.com/artist/1Q0CQN1Z6DCWk3MtXseWtr" class="social-button" target="_blank">
-                <img src="images/spotify-icon.png" alt="Spotify" class="social-icon">
-            </a>
-        </div>
-        
-        <div class="releases">
-            <h2>Latest Releases</h2>
-            <a href="https://distrokid.com/hyperfollow/sywavy/awtside" class="release-button">
-                <img src="images/awtside-min.png" alt="Awtside Cover">
-                Awtside
-            </a>
-
-            <a href="https://distrokid.com/hyperfollow/sywavy/imma-floridian" class="release-button">
-                <img src="images/furnish cover 4 exp.png" alt="Imma Floridian Cover">
-                Imma Floridian
-            </a>
-
-            <a href="https://distrokid.com/hyperfollow/sywavy/flight-370" class="release-button">
-                <img src="images/IMG_2743.jpeg" alt="Flight 370 Cover">
-                Flight 370
-            </a>
+            <div class="social-links">
+                <a href="https://www.instagram.com/jett2fly" class="social-button" target="_blank">
+                    <img src="images/instagram-icon.png" alt="Instagram" class="social-icon">
+                </a>
+                <a href="https://www.youtube.com/@jett2fly" class="social-button" target="_blank">
+                    <img src="images/yt-icon.png" alt="YouTube" class="social-icon">
+                </a>
+                <a href="https://www.tiktok.com/@jett2fly" class="social-button" target="_blank">
+                    <img src="images/tiktok-icon.png" alt="TikTok" class="social-icon">
+                </a>
+                <a href="https://open.spotify.com/artist/1Q0CQN1Z6DCWk3MtXseWtr" class="social-button" target="_blank">
+                    <img src="images/spotify-icon.png" alt="Spotify" class="social-icon">
+                </a>
+            </div>
             
-        </div>
-        <div style="margin-top: 20px;">
-            <a href="/latest" style="color: darkgray; text-decoration: underline;">
-                View All Releases →
-            </a>
+            <div class="releases">
+                <h2>Latest Releases</h2>
+                <a href="https://distrokid.com/hyperfollow/sywavy/awtside" class="release-button">
+                    <img src="images/awtside-min.png" alt="Awtside Cover">
+                    Awtside
+                </a>
+
+                <a href="https://distrokid.com/hyperfollow/sywavy/imma-floridian" class="release-button">
+                    <img src="images/furnish cover 4 exp.png" alt="Imma Floridian Cover">
+                    Imma Floridian
+                </a>
+
+                <a href="https://distrokid.com/hyperfollow/sywavy/flight-370" class="release-button">
+                    <img src="images/IMG_2743.jpeg" alt="Flight 370 Cover">
+                    Flight 370
+                </a>
+                
+            </div>
+            <div style="margin-top: 20px;">
+                <a href="/latest" style="color: darkgray; text-decoration: underline;">
+                    View All Releases →
+                </a>
+            </div>
         </div>
         <div class="scroll-container">
             <div class="scroll-images-wrapper">
