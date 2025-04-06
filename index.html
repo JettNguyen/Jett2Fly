@@ -19,6 +19,12 @@
             margin: 0;
             padding: 0;
         }
+
+        header {
+            text-align: center;
+            padding: 20px;
+        }
+
         nav {
             position: sticky;
             top: 0;
@@ -27,6 +33,27 @@
             padding: 10px;
             text-align: center;
         }
+
+        select {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            border: none;
+            font-size: 1.2em;
+            padding: 10px;
+            width: 200px;
+            cursor: pointer;
+        }
+
+        select option {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            font-size: 1.2em;
+        }
+
+        select:hover {
+            background-color: #333333;
+        }
+
         nav a {
             color: #ffffff;
             text-decoration: none;
@@ -164,11 +191,17 @@
     </style>
 </head>
 <body>
+    <header>
+        <h1>Jett2Fly</h1>
+        <p>Producer | Beatmaker | Sound Designer</p>
+    </header>
     <nav>
-        <a href="/">Home</a>
-        <a href="/latest">Latest</a>
-        <a href="/credits">Prod. Credits</a>
-        <a href="/videos">Videos</a>
+        <select onchange="window.location.href=this.value;">
+            <option value="/">Home</option>
+            <option value="/latest">Latest</option>
+            <option value="/credits">Prod. Credits</option>
+            <option value="/videos">Videos</option>
+        </select>
     </nav>
     <div class="content">
         <img src="images/jett2fly logo.png" alt="Jett2Fly Logo" class="logo">
