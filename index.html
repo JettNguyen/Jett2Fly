@@ -10,16 +10,16 @@
     <style>
         body {
             background-color: #1a1a1a;
-            background-image: url('images/flbg.png'); /* Path to your image */
-            background-size: cover; /* Scales image to cover the entire background */
-            background-position: center; /* Centers the image */
-            background-repeat: no-repeat; /* Prevents tiling */
-            background-attachment: fixed; /* Optional: Keeps image fixed while scrolling */
-            color: #ffffff; /* White text */
+            background-image: url('images/flbg.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #ffffff;
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            min-height: 100vh; /* full viewport height */
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
@@ -28,7 +28,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            background-color: #1a1a1a; /* Darker gray for nav */
+            background-color: #1a1a1a;
             padding: 10px;
             text-align: center;
         }
@@ -39,7 +39,7 @@
             font-weight: bold;
         }
         nav a:hover {
-            color: #cccccc; /* Light gray on hover */
+            color: #cccccc;
             transition: 0.2s ease;
         }
         .content {
@@ -49,34 +49,34 @@
         }
         .social-links {
             display: flex;
-            justify-content: center; /* Centers the icons */
+            justify-content: center;
             margin-top: 20px;
         }
         .social-button {
             display: inline-block;
             margin: 10px;
-            width: 50px; /* Adjust the size of the icon */
-            height: 50px; /* Ensure it's square */
+            width: 50px;
+            height: 50px;
             transition: transform 0.2s ease;
         }
         .social-button img {
-            width: 100%; /* Ensure the icon fills the button */
-            height: 100%; /* Maintain square shape */
+            width: 100%;
+            height: 100%;
             object-fit: contain;
         }
         .social-button:hover {
-            transform: scale(1.1); /* Slightly increase size on hover */
+            transform: scale(1.1);
         }
 
         h1 {
             font-size: 2.5em;
             font-weight: bold;
-            margin: 0.2em; /* Reduce this value to bring the <p> closer */
+            margin: 0.2em;
         }
         p {
             font-size: 1.2em;
             color: darkgray;
-            margin: 0.2em; /* Reduce this too if needed */
+            margin: 0.2em;
         }
         .logo {
             max-width: 150px;
@@ -86,78 +86,77 @@
             border-radius: 50%;
         }
         .releases {
-            margin-top: 10px; /* Space above buttons */
+            margin-top: 10px;
         }
         .release-button {
-            display: inline-flex; /* Flexbox for image and text alignment */
-            align-items: center; /* Vertically center content */
-            background-color: #1a1a1a; /* Matches nav color */
+            display: inline-flex;
+            align-items: center;
+            background-color: #1a1a1a;
             color: #ffffff;
-            padding: 10px 20px; /* Vertical and horizontal padding */
-            margin: 10px; /* Space between buttons */
-            text-decoration: none; /* No underline */
-            border-radius: 5px; /* Rounded corners */
+            padding: 10px 20px;
+            margin: 10px;
+            text-decoration: none;
+            border-radius: 5px;
             font-weight: bold;
-            transition: background-color 0.3s; /* Smooth hover effect */
+            transition: background-color 0.3s;
         }
         .release-button:hover {
-            background-color: #cccccc; /* Light gray on hover */
-            color: #1a1a1a; /* Dark text on hover for contrast */
+            background-color: #cccccc;
+            color: #1a1a1a;
         }
         .release-button img {
-            width: 40px; /* Adjust image size */
+            width: 40px;
             height: 40px;
-            margin-right: 10px; /* Space between image and text */
-            border-radius: 3px; /* Optional: slight rounding */
+            margin-right: 10px;
+            border-radius: 3px;
         }
 
         .scroll-container {
-            position: fixed; /* Fixes the container to the bottom */
-            bottom: 0;  /* Stick it to the bottom */
-            left: 0;    /* Align it to the left side of the page */
-            width: 100%; /* Ensure it spans the full width */
-            z-index: 10; /* Ensure it stays on top of other content */
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
             padding: 0;
             margin: 0;
         }
 
-        /* Fade effect on both ends */
         .scroll-container::before,
         .scroll-container::after {
             content: '';
             position: absolute;
             top: 0;
             bottom: 0;
-            width: 100px; /* Width of fade area */
+            width: 100px;
             z-index: 1;
         }
         .scroll-container::before {
             left: 0;
-            background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); /* Fade from black to transparent */
+            background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
         }
         .scroll-container::after {
             right: 0;
-            background: linear-gradient(to left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); /* Fade from black to transparent */
+            background: linear-gradient(to left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
         }
 
         .scroll-images-wrapper {
             display: flex;
-            animation: scroll-left 30s linear infinite; /* Adjust duration for speed */
-            width: max-content; /* Ensure wrapper fits content */
+            animation: scroll-left 30s linear infinite;
+            width: max-content;
         }
 
         .scroll-images {
-            display: flex; /* Keep images in a single row */
-            flex-shrink: 0; /* Prevent shrinking */
-            width: calc(90px * 22 + 5px * 22);
+            display: flex;
+            flex-shrink: 0;
+            width: calc(90px * 23 + 5px * 23);
         }
 
         .scroll-image {
-            width: 90px; /* Adjust the width of the image */
-            height: auto; /* Maintain the aspect ratio */
-            margin-right: 5px; /* Space between images */
-            border-radius: 8px; /* Optional: rounded corners */
-            flex-shrink: 0; /* Prevent image compression */
+            width: 90px;
+            height: auto;
+            margin-right: 5px;
+            border-radius: 8px;
+            flex-shrink: 0;
         }
 
         @keyframes scroll-left {
@@ -165,7 +164,7 @@
                 transform: translateX(0);
             }
             100% {
-                transform: translateX(-50%); /* Move the container to the left */
+                transform: translateX(-50%);
             }
         }
 
@@ -206,14 +205,14 @@
             
             <div class="releases">
                 <h2>Latest Releases</h2>
+                <a href="https://distrokid.com/hyperfollow/sywavy/wavy-deagle" class="release-button">
+                    <img src="images/cover deagle.png" alt="Wavy Deagle Cover">
+                    Wavy Deagle
+                </a>
+
                 <a href="https://distrokid.com/hyperfollow/sywavy/put-it-on-feat-the-part-time-models" class="release-button">
                     <img src="images/cover.png" alt="Put It On! Cover">
                     Put It On!
-                </a>
-
-                <a href="https://distrokid.com/hyperfollow/sywavy/awtside" class="release-button">
-                    <img src="images/awtside-min.png" alt="Awtside Cover">
-                    Awtside
                 </a>
 
                 <a href="https://distrokid.com/hyperfollow/sywavy/flight-370" class="release-button">
@@ -253,6 +252,7 @@
                     <img src="images/furnish cover 4 exp.png" alt="Image 20" class="scroll-image">
                     <img src="images/awtside-min.png" alt="Image 21" class="scroll-image">
                     <img src="images/cover.png" alt="Image 22" class="scroll-image">
+                    <img src="images/cover deagle.png" alt="Image 23" class="scroll-image">
                 </div>
                     <!-- Repeat images to ensure seamless scrolling -->
                 <div class="scroll-images">
@@ -278,6 +278,7 @@
                     <img src="images/furnish cover 4 exp.png" alt="Image 20" class="scroll-image">
                     <img src="images/awtside-min.png" alt="Image 21" class="scroll-image">
                     <img src="images/cover.png" alt="Image 22" class="scroll-image">
+                    <img src="images/cover deagle.png" alt="Image 23" class="scroll-image">
                 </div>
             </div>
         </div>
