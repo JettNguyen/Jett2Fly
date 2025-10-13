@@ -5,43 +5,172 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jett2Fly Production Credits</title>
   <link rel="icon" href="../images/jett2fly logo.png" type="image/x-icon" />
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../style.css">
   <style>
+    /* Credits Page Specific Styles */
     body {
-      background-image: url('../images/flbg.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      color: #ffffff;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
+        background-image: 
+            radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+            radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+            url('../images/flbg.png');
+    }
+
+    .logo-container {
+        width: 60px;
+        height: 60px;
+        transition: transform 0.3s ease;
+    }
+
+    .logo-container:hover {
+        transform: scale(1.05);
+    }
+
+    .logo {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 50%;
     }
 
     nav {
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        background-color: #1a1a1a;
-        padding: 10px;
-        text-align: center;
+        display: flex;
+        gap: 2rem;
     }
 
     nav a {
-      color: #ffffff;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
+        color: var(--text-primary);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        position: relative;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
     }
 
-    nav a:hover {
-      color: #cccccc;
+    nav a:hover, nav a.active {
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--primary-color);
     }
 
     .content {
       padding: 30px 20px;
       text-align: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero-section {
+      margin-bottom: 4rem;
+    }
+
+    .hero-section h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 700;
+      margin: 0 0 1.5rem 0;
+      color: var(--text-primary);
+    }
+
+    .hero-description {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto 2rem auto;
+      line-height: 1.6;
+    }
+
+
+
+    .playlist-section {
+      margin-bottom: 3rem;
+    }
+
+    .playlist-section h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem;
+      font-weight: 600;
+      margin: 0 0 1rem 0;
+      color: var(--text-primary);
+    }
+
+    .playlist-section > p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin: 0 0 3rem 0;
+    }
+
+    .platform-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: 350px;
+      max-width: 100%;
+    }
+
+    .platform-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .platform-card.spotify:hover {
+      border-color: #1db954;
+    }
+
+    .platform-card.youtube:hover {
+      border-color: #ff0000;
+    }
+
+    .platform-icon {
+      font-size: 3rem;
+      min-width: 60px;
+    }
+
+    .platform-card.spotify .platform-icon {
+      color: #1db954;
+    }
+
+    .platform-card.youtube .platform-icon {
+      color: #ff0000;
+    }
+
+    .platform-info {
+      text-align: left;
+    }
+
+    .platform-info h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 0 0 0.5rem 0;
+      color: var(--text-primary);
+    }
+
+    .platform-info p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    .featured-video {
+      margin-top: 3rem;
+    }
+
+    .featured-video h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 0 0 1.5rem 0;
+      color: var(--text-primary);
     }
 
     .media-container {
@@ -98,30 +227,205 @@
         height: 90vw;
       }
     }
+
+    .floating-particles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .particle {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.6);
+        animation: float 8s ease-in-out infinite;
+        opacity: 0.6;
+        box-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
+    }
+
+    .particle-1 {
+        width: 4px;
+        height: 4px;
+        top: 20%;
+        left: 10%;
+        animation-delay: 0s;
+    }
+
+    .particle-2 {
+        width: 6px;
+        height: 6px;
+        top: 60%;
+        left: 80%;
+        animation-delay: -2s;
+    }
+
+    .particle-3 {
+        width: 3px;
+        height: 3px;
+        top: 80%;
+        left: 20%;
+        animation-delay: -4s;
+    }
+
+    .particle-4 {
+        width: 5px;
+        height: 5px;
+        top: 30%;
+        left: 70%;
+        animation-delay: -1.5s;
+    }
+
+    .particle-5 {
+        width: 4px;
+        height: 4px;
+        top: 70%;
+        left: 50%;
+        animation-delay: -3s;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+        25% { transform: translateY(-15px) translateX(10px) rotate(90deg); }
+        50% { transform: translateY(-30px) translateX(-5px) rotate(180deg); }
+        75% { transform: translateY(-15px) translateX(-10px) rotate(270deg); }
+        100% { transform: translateY(0px) translateX(0px) rotate(360deg); }
+    }
+
+    @media (max-width: 768px) {
+        .nav-container {
+            flex-direction: column;
+            gap: 1rem;
+            padding: 20px;
+        }
+
+        nav {
+            gap: 1rem;
+        }
+
+
+
+        .media-container {
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .platform-card {
+            min-width: auto;
+            width: 100%;
+        }
+    }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="/">Home</a>
-    <a href="/latest">Latest</a>
-    <a href="/credits">Prod. Credits</a>
-    <a href="/videos">Videos</a>
-  </nav>
+  <div class="cursor-dot"></div>
+  
+  <div class="nav-container">
+    <div class="logo-container">
+      <a href="../index.html" class="logo-link">
+        <img src="../images/jett2fly logo.png" alt="Jett2Fly Logo" class="logo">
+      </a>
+    </div>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../latest/index.html">Latest</a>
+      <a href="../credits/index.html" class="active">Prod. Credits</a>
+      <a href="../videos/index.html">Videos</a>
+    </nav>
+  </div>
 
   <div class="content">
-    <h1>Production Credits</h1>
-    <p>Check out the "Prod. Jett2Fly" playlist on Spotify or YouTube:</p>
+    <div class="hero-section">
+      <h1>Production Credits</h1>
+    </div>
 
-    <div class="media-container">
-      <a href="https://open.spotify.com/playlist/3A7pDOj3iWVYk1KKR8LjWJ?si=5901ac9fb9764568" target="_blank" class="image-box">
-        <img src="../images/prod.png" alt="Jett2Fly Playlist Cover" />
-      </a>
 
-      <iframe class="youtube-embed"
-        src="https://www.youtube.com/embed/MBIr637uDH8?si=nV1pwqn6CnNIlapR"
-        allowfullscreen>
-      </iframe>
+
+    <div class="playlist-section">
+      <h2>Featured Work</h2>
+      <p>Dive into my complete production catalog</p>
+      
+      <div class="media-container">
+        <a href="https://open.spotify.com/playlist/3A7pDOj3iWVYk1KKR8LjWJ?si=5901ac9fb9764568" target="_blank" class="platform-card spotify">
+          <div class="platform-icon">
+            <i class="fab fa-spotify"></i>
+          </div>
+          <div class="platform-info">
+            <h3>Spotify Playlist</h3>
+            <p>Stream all Jett2Fly tracks</p>
+          </div>
+        </a>
+
+        <a href="https://www.youtube.com/playlist?list=PL432doK1hhpubIcc0Kdg3wfapa7ErJLAR" target="_blank" class="platform-card youtube">
+          <div class="platform-icon">
+            <i class="fab fa-youtube"></i>
+          </div>
+          <div class="platform-info">
+            <h3>YouTube Playlist</h3>
+            <p>Watch music videos</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="featured-video">
+        <h3>Latest Production</h3>
+        <iframe class="youtube-embed"
+          src="https://www.youtube.com/embed/MBIr637uDH8?si=nV1pwqn6CnNIlapR"
+          allowfullscreen>
+        </iframe>
+      </div>
     </div>
   </div>
+
+  <!-- Floating particles for background effect -->
+  <div class="floating-particles">
+      <div class="particle particle-1"></div>
+      <div class="particle particle-2"></div>
+      <div class="particle particle-3"></div>
+      <div class="particle particle-4"></div>
+      <div class="particle particle-5"></div>
+  </div>
+
+  <script>
+    // Custom Cursor
+    const cursor = document.querySelector('.cursor-dot');
+    
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+    });
+
+    // Enhanced hover effects for interactive elements
+    const interactiveElements = document.querySelectorAll('a, .image-box');
+    
+    interactiveElements.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+            cursor.style.transform = 'scale(3)';
+            cursor.style.opacity = '0.8';
+        });
+        
+        element.addEventListener('mouseleave', () => {
+            cursor.style.transform = 'scale(1)';
+            cursor.style.opacity = '1';
+        });
+    });
+
+    // Mobile touch interactions
+    if ('ontouchstart' in window) {
+        document.addEventListener('touchstart', (e) => {
+            const touch = e.touches[0];
+            cursor.style.left = touch.clientX + 'px';
+            cursor.style.top = touch.clientY + 'px';
+            cursor.style.transform = 'scale(2)';
+        });
+
+        document.addEventListener('touchend', () => {
+            cursor.style.transform = 'scale(1)';
+        });
+    }
+  </script>
 </body>
 </html>
