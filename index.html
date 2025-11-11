@@ -508,15 +508,15 @@
 <body>
     <div class="nav-container">
         <div class="logo-container">
-            <a href="index.html" class="logo-link">
+            <a href="/" class="logo-link">
                 <img src="images/jett2fly logo.png" alt="Jett2Fly Logo" class="logo">
             </a>
         </div>
         <nav>
-            <a href="index.html" class="active">Home</a>
-            <a href="latest/index.html">Latest</a>
-            <a href="credits/index.html">Prod. Credits</a>
-            <a href="videos/index.html">Videos</a>
+            <a href="/" class="active">Home</a>
+            <a href="/latest">Latest</a>
+            <a href="/credits">Prod. Credits</a>
+            <a href="/videos">Videos</a>
         </nav>
     </div>
     <div class="content">
@@ -593,7 +593,7 @@
                     </a>
                 </div>
                 
-                <a href="latest/index.html" class="view-all-btn">
+                <a href="/latest" class="view-all-btn">
                     <span>View All Releases</span>
                 </a>
             </section>
@@ -648,20 +648,19 @@
         <script>
   document.addEventListener("DOMContentLoaded", () => {
     const particleContainer = document.querySelector(".floating-particles");
-    const layers = 3; // Number of layers for depth
-    const particleCount = 20; // Particles per layer
+    const layers = 3;
+    const particleCount = 20;
 
     for (let layer = 0; layer < layers; layer++) {
       for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement("div");
         particle.classList.add("particle", `layer-${layer}`);
 
-        // Randomize size, position, and animation duration
-        const size = Math.random() * 10 + 5 * (1 + layer * 0.5); // Larger particles for deeper layers
-        const top = Math.random() * 95; // Spread particles across 95% of the viewport height
-        const left = Math.random() * 95; // Spread particles across 95% of the viewport width
-        const duration = Math.random() * 5 + 5 * (1 + layer * 0.5); // Slower for deeper layers
-        const opacity = Math.random() * 0.3 + 0.2 * (1 - layer * 0.3); // Fainter for deeper layers
+        const size = Math.random() * 10 + 5 * (1 + layer * 0.5);
+        const top = Math.random() * 95;
+        const left = Math.random() * 95;
+        const duration = Math.random() * 5 + 5 * (1 + layer * 0.5);
+        const opacity = Math.random() * 0.3 + 0.2 * (1 - layer * 0.3);
 
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
@@ -681,13 +680,12 @@
     const maxScroll = document.body.scrollHeight - window.innerHeight;
     const scrollPercentage = scrollPosition / maxScroll;
 
-    const lightAngleX = 50 + scrollPercentage * 50; // Adjust light angle horizontally
-    const lightAngleY = 50 - scrollPercentage * 50; // Adjust light angle vertically
+    const lightAngleX = 50 + scrollPercentage * 50;
+    const lightAngleY = 50 - scrollPercentage * 50;
 
     document.body.style.setProperty("--light-angle-x", `${lightAngleX}%`);
     document.body.style.setProperty("--light-angle-y", `${lightAngleY}%`);
 
-    // Add inertia effect to particles
     const particles = document.querySelectorAll(".particle");
     particles.forEach((particle) => {
       const inertiaX = (Math.random() - 0.5) * 10 * scrollPercentage;

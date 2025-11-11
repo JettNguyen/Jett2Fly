@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../style.css">
     <style>
-      /* Small page-scoped tweaks only (no HTML inside styles) */
       body {
         background: 
           linear-gradient(45deg, #0a0a0a 0%, #1a1a1a 25%, #0a0a0a 50%, #1a1a1a 75%, #0a0a0a 100%),
@@ -110,13 +109,13 @@
   <body>
     <div class="nav-container">
       <div class="logo-container">
-        <a href="../index.html" class="logo-link"><img src="../images/jett2fly logo.png" alt="logo" class="logo"></a>
+        <a href="/" class="logo-link"><img src="../images/jett2fly logo.png" alt="logo" class="logo"></a>
       </div>
       <nav class="main-nav">
-        <a href="../index.html">Home</a>
-        <a href="../latest/index.html" class="active">Latest</a>
-        <a href="../credits/index.html">Prod. Credits</a>
-        <a href="../videos/index.html">Videos</a>
+        <a href="/">Home</a>
+        <a href="/latest" class="active">Latest</a>
+        <a href="/credits">Prod. Credits</a>
+        <a href="/videos">Videos</a>
       </nav>
     </div>
 
@@ -146,18 +145,18 @@
     </main>
 
     <script>
-      // dynamic loader: fetch releases.json (with cache-bust) and render
       let releases = [];
 
       async function loadReleases(){
-        try{
+        try {
           const resp = await fetch('releases.json?ts=' + Date.now());
           if(!resp.ok) throw new Error('HTTP '+resp.status);
           releases = await resp.json();
           console.log('Loaded releases.json — items:', releases.length);
-        }catch(err){
+        }
+        catch(err) {
           console.warn('Could not load releases.json, falling back to inline data', err);
-          // fallback: full inline copy so page still renders if fetch blocked
+          //fallback
           releases = [
             {
               "title": "Flame",
@@ -354,17 +353,14 @@
           ];
         }
 
-        // populate UI now we have data
         populateFilters();
         renderReleases();
 
-        // wire filters
         const yearSel = document.getElementById('year-filter');
         const typeSel = document.getElementById('type-filter');
         yearSel.addEventListener('change', e => renderReleases(e.target.value, typeSel.value));
         typeSel.addEventListener('change', e => renderReleases(yearSel.value, e.target.value));
 
-        // counters
         const total = releases.length;
         const albums = releases.filter(r => r.type === 'Album').length;
         const totalSongs = releases.reduce((sum, r) => sum + (r.songs || 1), 0);
@@ -420,20 +416,19 @@
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const particleContainer = document.querySelector(".floating-particles");
-        const layers = 3; // Number of layers for depth
-        const particleCount = 20; // Particles per layer
+        const layers = 3;
+        const particleCount = 20;
 
         for (let layer = 0; layer < layers; layer++) {
           for (let i = 0; i < particleCount; i++) {
             const particle = document.createElement("div");
             particle.classList.add("particle", `layer-${layer}`);
 
-            // Randomize size, position, and animation duration
-            const size = Math.random() * 10 + 5 * (1 + layer * 0.5); // Larger particles for deeper layers
-            const top = Math.random() * 95; // Spread particles across 95% of the viewport height
-            const left = Math.random() * 95; // Spread particles across 95% of the viewport width
-            const duration = Math.random() * 5 + 5 * (1 + layer * 0.5); // Slower for deeper layers
-            const opacity = Math.random() * 0.3 + 0.2 * (1 - layer * 0.3); // Fainter for deeper layers
+            const size = Math.random() * 10 + 5 * (1 + layer * 0.5);
+            const top = Math.random() * 95;
+            const left = Math.random() * 95;
+            const duration = Math.random() * 5 + 5 * (1 + layer * 0.5);
+            const opacity = Math.random() * 0.3 + 0.2 * (1 - layer * 0.3);
 
             particle.style.width = `${size}px`;
             particle.style.height = `${size}px`;
