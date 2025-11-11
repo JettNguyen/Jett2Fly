@@ -1,641 +1,424 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jett2Fly's Latest Releases</title>
-  <link rel="icon" href="../images/jett2fly logo.png" type="image/x-icon"/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="../style.css">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jett2Fly - Latest Releases</title>
+    <link rel="icon" href="../images/jett2fly logo.png" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
     <style>
-        /* Latest Page Specific Styles */
-        body {
-            background-image: 
-                radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
-                url('../images/flbg.png');
-        }
-
-        .content {
-        padding-bottom: 120px;
-        text-align: center;
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    .releases {
-        padding: 40px 20px;
-        text-align: center;
-    }
-
-    .releases h1 {
-        font-family: 'Poppins', sans-serif;
-        font-size: clamp(2.5rem, 6vw, 4rem);
-        font-weight: 700;
-        margin: 0 0 15px 0;
-        color: var(--text-primary);
-        letter-spacing: -1px;
-    }
-
-    .subtitle {
-        font-size: 1.1rem;
-        color: var(--text-secondary);
-        margin: 0 0 40px 0;
-        font-style: italic;
-    }
-
-    .stats-section {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        margin: 0 0 50px 0;
-        flex-wrap: wrap;
-    }
-
-    .stat-card {
-        background: var(--card-bg);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
-        padding: 1.5rem;
-        text-align: center;
-        min-width: 120px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .stat-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
-    }
-
-    .stat-number {
-        font-family: 'Poppins', sans-serif;
-        font-size: 2rem;
-        font-weight: 700;
-        color: var(--primary-color);
-        margin-bottom: 0.5rem;
-    }
-
-    .stat-label {
-        font-size: 0.9rem;
-        color: var(--text-secondary);
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-
-    .releases-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 25px;
-        margin-bottom: 30px;
-    }
-
-    .release-card {
-        background: var(--card-bg);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 15px;
-        padding: 20px;
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-        text-decoration: none;
-        color: inherit;
-    }
-
-    .release-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: var(--gradient-primary);
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        z-index: 1;
-    }
-
-    .release-card:hover::before {
-        opacity: 0.1;
-    }
-
-    .release-card:hover {
-        transform: translateY(-10px);
-        border-color: var(--primary-color);
-        box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
-    }
-
-    .release-content {
-        position: relative;
-        z-index: 2;
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
-
-    .release-card img {
-        width: 70px;
-        height: 70px;
-        border-radius: 10px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        transition: transform 0.3s ease;
-    }
-
-    .release-card:hover img {
-        transform: scale(1.1);
-    }
-
-    .release-info {
-        text-align: left;
-        flex: 1;
-    }
-
-    .release-title {
-        font-size: 1.2rem;
-        font-weight: 600;
-        margin-bottom: 5px;
-        color: var(--text-primary);
-    }
-
-    .release-meta {
-        font-size: 0.9rem;
-        color: var(--text-secondary);
-    }
-
-    .release-button {
-      display: flex;
-      align-items: center;
-      background-color: var(--card-bg);
-      color: #ffffff;
-      padding: 10px;
-      margin: 10px auto;
-      text-decoration: none;
-      border-radius: 8px;
-      max-width: 600px;
-      transition: background-color 0.3s;
-      text-align: left;
-    }
-
-    .release-button:hover {
-      background-color: #cccccc;
-      color: #1a1a1a;
-    }
-
-    .release-button img {
-      width: 80px;
-      height: 80px;
-      margin-right: 20px;
-      border-radius: 5px;
-      object-fit: cover;
-    }
-
-    .release-info {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .release-title {
-      font-size: 1.2em;
-      font-weight: bold;
-    }
-
-    .release-date {
-      font-size: 0.9em;
-      opacity: 0.8;
-    }
-    .kind-text {
-        font-size: 1em;
-        font-weight: bold;
-        opacity: 0.6;
-    }
-
-    .floating-particles {
+      /* Small page-scoped tweaks only (no HTML inside styles) */
+      body {
+        background: 
+          linear-gradient(45deg, #0a0a0a 0%, #1a1a1a 25%, #0a0a0a 50%, #1a1a1a 75%, #0a0a0a 100%),
+          radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+          radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+          radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.8) 0%, transparent 100%),
+          conic-gradient(from 0deg at 50% 50%, rgba(255, 255, 255, 0.01) 0deg, transparent 90deg, rgba(255, 255, 255, 0.01) 180deg, transparent 270deg);
+        background-attachment: fixed;
+      }
+      /* Particle Styles */
+      .floating-particles {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
         pointer-events: none;
-        z-index: 0;
-    }
-
-    .particle {
+        z-index: 1001;
+      }
+      .particle {
         position: absolute;
         border-radius: 50%;
         background: rgba(255, 255, 255, 0.6);
-        animation: float 8s ease-in-out infinite;
-        opacity: 0.6;
         box-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
-    }
-
-    .particle-1 {
-        width: 4px;
-        height: 4px;
-        top: 20%;
-        left: 10%;
-        animation-delay: 0s;
-    }
-
-    .particle-2 {
-        width: 6px;
-        height: 6px;
-        top: 60%;
-        left: 80%;
-        animation-delay: -2s;
-    }
-
-    .particle-3 {
-        width: 3px;
-        height: 3px;
-        top: 80%;
-        left: 20%;
-        animation-delay: -4s;
-    }
-
-    .particle-4 {
-        width: 5px;
-        height: 5px;
-        top: 30%;
-        left: 70%;
-        animation-delay: -1.5s;
-    }
-
-    .particle-5 {
-        width: 4px;
-        height: 4px;
-        top: 70%;
-        left: 50%;
-        animation-delay: -3s;
-    }
-
-    @keyframes float {
+      }
+      @keyframes float {
         0% { transform: translateY(0px) translateX(0px) rotate(0deg); }
         25% { transform: translateY(-15px) translateX(10px) rotate(90deg); }
         50% { transform: translateY(-30px) translateX(-5px) rotate(180deg); }
         75% { transform: translateY(-15px) translateX(-10px) rotate(270deg); }
         100% { transform: translateY(0px) translateX(0px) rotate(360deg); }
-    }
+      }
+      .content { padding: 28px 20px 120px; max-width:1100px; margin: 0 auto; }
+      .stats-section { display:flex; gap:1rem; justify-content:center; margin-bottom:18px; flex-wrap:wrap; }
+      .stat-card { background:var(--card-bg); padding:12px 18px; border-radius:10px; box-shadow:var(--card-shadow); text-align:center; min-width:120px; }
+      .stat-number { font-weight:700; font-size:1.4rem; }
+      .stat-label { font-size:0.85rem; color:var(--muted); }
+      .filter-bar { display:flex; gap:0.75rem; justify-content:center; margin-bottom:20px; flex-wrap:wrap; align-items:center; }
+      .filter-bar label { font-size:0.9rem; color:var(--muted); }
+      .year-header { 
+        font-size:1.25rem; 
+        font-weight:700; 
+        color:var(--primary-color); 
+        margin:18px 0 8px; 
+        text-align:center; 
+        background:var(--card-bg); 
+        padding:15px 30px; 
+        border-radius:12px; 
+        box-shadow:var(--card-shadow); 
+        width:100%; 
+        margin:20px 0 12px; 
+        z-index: 99999999; 
+        position: sticky; 
+        top: 90px; 
+        background: rgba(39, 39, 39, 0.85);
+      }
+      .releases-grid { display:flex; flex-wrap:wrap; padding: 20px 20px; gap:20px; justify-content:center;}
+      .release-card img{ width:100%; height:auto; display:block; border-radius:6px 6px 0 0; }
+      .release-card{ flex: 0 0 280px; display:block; background:var(--card-bg); padding:0; border-radius:8px; overflow:hidden; box-shadow:var(--card-shadow); text-decoration:none; color:inherit; transition:box-shadow .18s ease, transform .18s ease;}
+      .release-card:hover {
+    box-shadow: 0 0 20px 5px rgb(80, 80, 80), 0 0 0 3px rgb(0, 0, 0);
+    border-color: rgb(0, 0, 0);
+    transform: scale(1.04);
+}
+      .release-info{ padding:12px; }
+      .release-title{ font-weight:600; margin-bottom:6px; }
+      .release-date{ font-size:0.9rem; color:var(--muted); }
+      @media (max-width:520px){ .stats-section{ gap:.6rem; } .stat-card{ min-width:90px; padding:10px 12px; } }
 
-    @media (max-width: 768px) {
-        .nav-container {
-            flex-direction: column;
-            gap: 1rem;
-            padding: 20px;
-        }
+      body {
+        background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+        background-attachment: fixed;
+        color: var(--text-primary);
+        font-family: 'Inter', sans-serif;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden;
+        --light-angle-x: 50%;
+        --light-angle-y: 50%;
+      }
 
-        nav {
-            gap: 1rem;
-        }
-
-        .stats-section {
-            gap: 1rem;
-        }
-
-        .stat-card {
-            min-width: 100px;
-            padding: 1rem;
-        }
-
-        .stat-number {
-            font-size: 1.5rem;
-        }
-    }
-  </style>
-</head>
-<body>
-  <div class="cursor-dot"></div>
-  
-  <div class="nav-container">
-    <div class="logo-container">
-      <a href="../index.html" class="logo-link">
-        <img src="../images/jett2fly logo.png" alt="Jett2Fly Logo" class="logo">
-      </a>
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at var(--light-angle-x) var(--light-angle-y), rgba(255, 255, 255, 0.1), transparent);
+        z-index: -1;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav-container">
+      <div class="logo-container">
+        <a href="../index.html" class="logo-link"><img src="../images/jett2fly logo.png" alt="logo" class="logo"></a>
+      </div>
+      <nav class="main-nav">
+        <a href="../index.html">Home</a>
+        <a href="../latest/index.html" class="active">Latest</a>
+        <a href="../credits/index.html">Prod. Credits</a>
+        <a href="../videos/index.html">Videos</a>
+      </nav>
     </div>
-    <nav>
-      <a href="../index.html">Home</a>
-      <a href="../latest/index.html" class="active">Latest</a>
-      <a href="../credits/index.html">Prod. Credits</a>
-      <a href="../videos/index.html">Videos</a>
-    </nav>
-  </div>
 
-  <div class="content">
-    <div class="releases">
-      <h1>Latest Releases</h1>
-      
+    <div id="background-layer">
+      <div class="floating-particles">
+      </div>
+    </div>
+
+    <main class="content" role="main">
+      <h1 class="page-title">Latest Releases</h1>
+
       <div class="stats-section">
-        <div class="stat-card">
-          <div class="stat-number" id="releases-count">0</div>
-          <div class="stat-label">Releases</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number" id="albums-count">0</div>
-          <div class="stat-label">Albums</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number" id="years-active">0</div>
-          <div class="stat-label">Years Active</div>
-        </div>
+        <div class="stat-card"><div class="stat-number" id="releases-count">0</div><div class="stat-label">Releases</div></div>
+        <div class="stat-card"><div class="stat-number" id="albums-count">0</div><div class="stat-label">Albums</div></div>
+        <div class="stat-card"><div class="stat-number" id="years-active">0</div><div class="stat-label">Years Active</div></div>
       </div>
 
-    <a href="https://distrokid.com/hyperfollow/sywavy/wavy-deagle" class="release-button">
-      <img src="../images/cover deagle.png" alt="Wavy Deagle Cover" />
-      <div class="release-info">
-        <div class="release-title">Wavy Deagle <span class="kind-text">(Single)</span></div>
-        <div class="release-date">Released: July 25, 2025</div>
+      <div class="filter-bar" role="region" aria-label="Filters">
+        <label for="year-filter">Year:</label>
+        <select id="year-filter"><option value="all">All</option></select>
+        <label for="type-filter">Type:</label>
+        <select id="type-filter"><option value="all">All</option><option>Single</option><option>Album</option><option>EP</option><option>Mixtape</option></select>
       </div>
-    </a>
 
-    <a href="https://distrokid.com/hyperfollow/sywavy/put-it-on-feat-the-part-time-models" class="release-button">
-      <img src="../images/cover.png" alt="Put It On! Cover" />
-      <div class="release-info">
-        <div class="release-title">Put It On! <span class="kind-text">(Single)</span></div>
-        <div class="release-date">Released: May 9, 2025</div>
-      </div>
-    </a>
+      <div id="releases-structured" aria-live="polite"></div>
+    </main>
 
-    <a href="https://distrokid.com/hyperfollow/sywavy/awtside" class="release-button">
-      <img src="../images/awtside-min.png" alt="Awtside Cover" />
-      <div class="release-info">
-        <div class="release-title">Awtside <span class="kind-text">(Single)</span></div>
-        <div class="release-date">Released: Apr 4, 2025</div>
-      </div>
-    </a>
+    <script>
+      // dynamic loader: fetch releases.json (with cache-bust) and render
+      let releases = [];
 
-    <a href="https://distrokid.com/hyperfollow/sywavy/imma-floridian" class="release-button">
-      <img src="../images/furnish cover 4 exp.png" alt="Imma Floridian Cover" />
-      <div class="release-info">
-        <div class="release-title">Imma Floridian <span class="kind-text">(Single)</span></div>
-        <div class="release-date">Released: Feb 28, 2025</div>
-      </div>
-    </a>
-
-    <a href="https://distrokid.com/hyperfollow/sywavy/flight-370" class="release-button">
-      <img src="../images/IMG_2743.jpeg" alt="Flight 370 Cover" />
-      <div class="release-info">
-        <div class="release-title">Flight 370 <span class="kind-text">(Album)</span></div>
-        <div class="release-date">Released: Nov 29, 2024</div>
-      </div>
-    </a>
-
-    <a href="https://distrokid.com/hyperfollow/sywavy/gentleman-from-da-south" class="release-button">
-        <img src="../images/gfds.jpg" alt="Gentleman From Da South Cover" />
-        <div class="release-info">
-          <div class="release-title">Gentleman From Da South <span class="kind-text">(EP)</span></div>
-          <div class="release-date">Released: Jun 21, 2024</div>
-        </div>
-      </a>
-
-      <a href="https://distrokid.com/hyperfollow/sywavy/deep-voice-bastards" class="release-button">
-        <img src="../images/cover 2.png" alt="DVB Cover" />
-        <div class="release-info">
-          <div class="release-title">Deep Voice Bastards <span class="kind-text">(Mixtape)</span></div>
-          <div class="release-date">Released: Dec 22, 2023</div>
-        </div>
-      </a>
-
-      <a href="https://distrokid.com/hyperfollow/kkilla11/alchemy" class="release-button">
-        <img src="../images/alchemy.jpg" alt="Alchemy Cover" />
-        <div class="release-info">
-          <div class="release-title">Alchemy <span class="kind-text">(Album)</span></div>
-          <div class="release-date">Released: May 26, 2023</div>
-        </div>
-      </a>
-
-      <a href="https://distrokid.com/hyperfollow/sywavy/wavy-life" class="release-button">
-        <img src="../images/wl.jpg" alt="Wavy Life Cover" />
-        <div class="release-info">
-          <div class="release-title">Wavy Life <span class="kind-text">(Album)</span></div>
-          <div class="release-date">Released: Mar 17, 2023</div>
-        </div>
-      </a>
-
-      <a href="https://distrokid.com/hyperfollow/sywavy/the" class="release-button">
-        <img src="../images/the.jpg" alt="The Cover" />
-        <div class="release-info">
-          <div class="release-title">The <span class="kind-text">(EP)</span></div>
-          <div class="release-date">Released: Oct 12, 2022</div>
-        </div>
-      </a>
-
-      <a href="https://distrokid.com/hyperfollow/sywavy/high-speed" class="release-button">
-        <img src="../images/high.jpg" alt="High Speed Cover" />
-        <div class="release-info">
-          <div class="release-title">High Speed <span class="kind-text">(Single)</span></div>
-          <div class="release-date">Released: Jul 15, 2022</div>
-        </div>
-      </a>
-
-      <a href="https://distrokid.com/hyperfollow/sywavy/japanese-cherry-blossom-2" class="release-button">
-        <img src="../images/IMG_5893.jpg" alt="JCB Cover" />
-        <div class="release-info">
-          <div class="release-title">Japanese Cherry Blossom <span class="kind-text">(Album)</span></div>
-          <div class="release-date">Released: Apr 15, 2022</div>
-        </div>
-      </a>
-
-      <a href="https://distrokid.com/hyperfollow/sywavy/night-glow" class="release-button">
-        <img src="../images/night.jpg" alt="Night Glow Cover" />
-        <div class="release-info">
-          <div class="release-title">Night Glow <span class="kind-text">(Single)</span></div>
-          <div class="release-date">Released: Nov 26, 2021</div>
-        </div>
-      </a>
-
-      <a href="https://distrokid.com/hyperfollow/sywavy/life-is-verses" class="release-button">
-        <img src="../images/LIV.jpg" alt="LIV Cover" />
-        <div class="release-info">
-          <div class="release-title">Life Is Verses <span class="kind-text">(EP)</span></div>
-          <div class="release-date">Released: Sep 24, 2021</div>
-        </div>
-      </a>
-
-      <a href="https://distrokid.com/hyperfollow/sywavy/olympian" class="release-button">
-        <img src="../images/olym.jpg" alt="Olympian Cover" />
-        <div class="release-info">
-          <div class="release-title">Olympian <span class="kind-text">(Single)</span></div>
-          <div class="release-date">Released: Jul 2, 2021</div>
-        </div>
-      </a>
-
-      <a href="https://distrokid.com/hyperfollow/sywavy/hurts-to-heal" class="release-button">
-        <img src="../images/phonto (2).JPG" alt="Hurts to Heal Cover" />
-        <div class="release-info">
-          <div class="release-title">Hurts to Heal <span class="kind-text">(EP)</span></div>
-          <div class="release-date">Released: Apr 9, 2021</div>
-        </div>
-      </a>
-
-      <a href="https://distrokid.com/hyperfollow/sywavy/why-me" class="release-button">
-        <img src="../images/whyme.jpg" alt="Why Me Cover" />
-        <div class="release-info">
-          <div class="release-title">Why Me? <span class="kind-text">(EP)</span></div>
-          <div class="release-date">Released: Jan 15, 2021</div>
-        </div>
-      </a>
-
-      <a href="https://distrokid.com/hyperfollow/sywavy/family-ties-3" class="release-button">
-        <img src="../images/fam.jpg" alt="Family Ties Cover" />
-        <div class="release-info">
-          <div class="release-title">Family Ties <span class="kind-text">(Single)</span></div>
-          <div class="release-date">Released: Dec 9, 2020</div>
-        </div>
-      </a>
-
-      <a href="https://distrokid.com/hyperfollow/sywavy/14th" class="release-button">
-        <img src="../images/14th.jpg" alt="14th Cover" />
-        <div class="release-info">
-          <div class="release-title">14th <span class="kind-text">(Single)</span></div>
-          <div class="release-date">Released: Nov 14, 2020</div>
-        </div>
-      </a>
-
-      <a href="https://distrokid.com/hyperfollow/sywavy/red-lights-2" class="release-button">
-        <img src="../images/red.jpg" alt="Red Lights Cover" />
-        <div class="release-info">
-          <div class="release-title">Red Lights <span class="kind-text">(Single)</span></div>
-          <div class="release-date">Released: Sep 19, 2020</div>
-        </div>
-      </a>
-
-      <a href="https://distrokid.com/hyperfollow/sywavy/saturn" class="release-button">
-        <img src="../images/sat.jpg" alt="Saturn Cover" />
-        <div class="release-info">
-          <div class="release-title">Saturn <span class="kind-text">(EP)</span></div>
-          <div class="release-date">Released: Aug 14, 2020</div>
-        </div>
-      </a>
-
-      <a href="https://distrokid.com/hyperfollow/sywavy/ear-candi" class="release-button">
-        <img src="../images/ear.jpg" alt="Ear Candi Cover" />
-        <div class="release-info">
-          <div class="release-title">Ear Candi <span class="kind-text">(EP)</span></div>
-          <div class="release-date">Released: Jun 27, 2020</div>
-        </div>
-      </a>
-
-      <a href="https://distrokid.com/hyperfollow/sywavy/keys" class="release-button">
-        <img src="../images/keys.jpg" alt="Keys Cover" />
-        <div class="release-info">
-          <div class="release-title">Keys <span class="kind-text">(Single)</span></div>
-          <div class="release-date">Released: Mar 28, 2020</div>
-        </div>
-      </a>
-    </div>
-  </div>
-
-  <!-- Floating particles for background effect -->
-  <div class="floating-particles">
-      <div class="particle particle-1"></div>
-      <div class="particle particle-2"></div>
-      <div class="particle particle-3"></div>
-      <div class="particle particle-4"></div>
-      <div class="particle particle-5"></div>
-  </div>
-
-  <script>
-    // Custom Cursor
-    const cursor = document.querySelector('.cursor-dot');
-    
-    document.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-    });
-
-    // Enhanced hover effects for interactive elements
-    const interactiveElements = document.querySelectorAll('a, .release-card');
-    
-    interactiveElements.forEach(element => {
-        element.addEventListener('mouseenter', () => {
-            cursor.style.transform = 'scale(3)';
-            cursor.style.opacity = '0.8';
-        });
-        
-        element.addEventListener('mouseleave', () => {
-            cursor.style.transform = 'scale(1)';
-            cursor.style.opacity = '1';
-        });
-    });
-
-    // Mobile touch interactions
-    if ('ontouchstart' in window) {
-        document.addEventListener('touchstart', (e) => {
-            const touch = e.touches[0];
-            cursor.style.left = touch.clientX + 'px';
-            cursor.style.top = touch.clientY + 'px';
-            cursor.style.transform = 'scale(2)';
-        });
-
-        document.addEventListener('touchend', () => {
-            cursor.style.transform = 'scale(1)';
-        });
-    }
-
-    // Dynamic Counters
-    function animateCounter(element, target, duration = 2000) {
-        let start = 0;
-        const startTime = performance.now();
-        
-        function updateCounter(currentTime) {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            
-            // Easing function for smooth animation
-            const easedProgress = 1 - Math.pow(1 - progress, 3);
-            const current = Math.floor(start + (target - start) * easedProgress);
-            
-            element.textContent = current;
-            
-            if (progress < 1) {
-                requestAnimationFrame(updateCounter);
-            } else {
-                element.textContent = target;
+      async function loadReleases(){
+        try{
+          const resp = await fetch('releases.json?ts=' + Date.now());
+          if(!resp.ok) throw new Error('HTTP '+resp.status);
+          releases = await resp.json();
+          console.log('Loaded releases.json — items:', releases.length);
+        }catch(err){
+          console.warn('Could not load releases.json, falling back to inline data', err);
+          // fallback: full inline copy so page still renders if fetch blocked
+          releases = [
+            {
+              "title": "Flame",
+              "type": "Single",
+              "date": "2025-11-14",
+              "cover": "flame.jpeg",
+              "link": "https://distrokid.com/hyperfollow/sywavy/flame"
+            },
+            {
+              "title": "Wavy Deagle",
+              "type": "Single",
+              "date": "2025-07-25",
+              "cover": "cover deagle.png",
+              "link": "https://distrokid.com/hyperfollow/sywavy/wavy-deagle"
+            },
+            {
+              "title": "Put It On!",
+              "type": "Single",
+              "date": "2025-05-09",
+              "cover": "cover.png",
+              "link": "https://distrokid.com/hyperfollow/sywavy/put-it-on-feat-the-part-time-models"
+            },
+            {
+              "title": "Awtside",
+              "type": "Single",
+              "date": "2025-04-04",
+              "cover": "awtside-min.png",
+              "link": "https://distrokid.com/hyperfollow/sywavy/awtside"
+            },
+            {
+              "title": "Imma Floridian",
+              "type": "Single",
+              "date": "2025-02-28",
+              "cover": "furnish cover 4 exp.png",
+              "link": "https://distrokid.com/hyperfollow/sywavy/imma-floridian"
+            },
+            {
+              "title": "Flight 370",
+              "type": "Album",
+              "date": "2024-11-29",
+              "cover": "IMG_2743.jpeg",
+              "link": "https://distrokid.com/hyperfollow/sywavy/flight-370"
+            },
+            {
+              "title": "Gentleman From Da South",
+              "type": "EP",
+              "date": "2024-06-21",
+              "cover": "gfds.jpg",
+              "link": "https://distrokid.com/hyperfollow/sywavy/gentleman-from-da-south"
+            },
+            {
+              "title": "Deep Voice Bastards",
+              "type": "Mixtape",
+              "date": "2023-12-22",
+              "cover": "cover 2.png",
+              "link": "https://distrokid.com/hyperfollow/sywavy/deep-voice-bastards"
+            },
+            {
+              "title": "Alchemy",
+              "type": "Album",
+              "date": "2023-05-26",
+              "cover": "alchemy.jpg",
+              "link": "https://distrokid.com/hyperfollow/kkilla11/alchemy"
+            },
+            {
+              "title": "Wavy Life",
+              "type": "Album",
+              "date": "2023-03-17",
+              "cover": "wl.jpg",
+              "link": "https://distrokid.com/hyperfollow/sywavy/wavy-life"
+            },
+            {
+              "title": "The",
+              "type": "EP",
+              "date": "2022-10-12",
+              "cover": "the.jpg",
+              "link": "https://distrokid.com/hyperfollow/sywavy/the"
+            },
+            {
+              "title": "High Speed",
+              "type": "Single",
+              "date": "2022-07-15",
+              "cover": "high.jpg",
+              "link": "https://distrokid.com/hyperfollow/sywavy/high-speed"
+            },
+            {
+              "title": "Japanese Cherry Blossom",
+              "type": "Album",
+              "date": "2022-04-15",
+              "cover": "IMG_5893.jpg",
+              "link": "https://distrokid.com/hyperfollow/sywavy/japanese-cherry-blossom-2"
+            },
+            {
+              "title": "Night Glow",
+              "type": "Single",
+              "date": "2021-11-26",
+              "cover": "night.jpg",
+              "link": "https://distrokid.com/hyperfollow/sywavy/night-glow"
+            },
+            {
+              "title": "Life Is Verses",
+              "type": "EP",
+              "date": "2021-09-24",
+              "cover": "LIV.jpg",
+              "link": "https://distrokid.com/hyperfollow/sywavy/life-is-verses"
+            },
+            {
+              "title": "Olympian",
+              "type": "Single",
+              "date": "2021-07-02",
+              "cover": "olym.jpg",
+              "link": "https://distrokid.com/hyperfollow/sywavy/olympian"
+            },
+            {
+              "title": "Hurts to Heal",
+              "type": "EP",
+              "date": "2021-04-09",
+              "cover": "phonto (2).JPG",
+              "link": "https://distrokid.com/hyperfollow/sywavy/hurts-to-heal"
+            },
+            {
+              "title": "Why Me?",
+              "type": "EP",
+              "date": "2021-01-15",
+              "cover": "whyme.jpg",
+              "link": "https://distrokid.com/hyperfollow/sywavy/why-me"
+            },
+            {
+              "title": "Family Ties",
+              "type": "Single",
+              "date": "2020-12-09",
+              "cover": "fam.jpg",
+              "link": "https://distrokid.com/hyperfollow/sywavy/family-ties-3"
+            },
+            {
+              "title": "14th",
+              "type": "Single",
+              "date": "2020-11-14",
+              "cover": "14th.jpg",
+              "link": "https://distrokid.com/hyperfollow/sywavy/14th"
+            },
+            {
+              "title": "Red Lights",
+              "type": "Single",
+              "date": "2020-09-19",
+              "cover": "red.jpg",
+              "link": "https://distrokid.com/hyperfollow/sywavy/red-lights-2"
+            },
+            {
+              "title": "Saturn",
+              "type": "EP",
+              "date": "2020-08-14",
+              "cover": "sat.jpg",
+              "link": "https://distrokid.com/hyperfollow/sywavy/saturn"
+            },
+            {
+              "title": "Ear Candi",
+              "type": "EP",
+              "date": "2020-06-27",
+              "cover": "ear.jpg",
+              "link": "https://distrokid.com/hyperfollow/sywavy/ear-candi"
+            },
+            {
+              "title": "Keys",
+              "type": "Single",
+              "date": "2020-03-28",
+              "cover": "keys.jpg",
+              "link": "https://distrokid.com/hyperfollow/sywavy/keys"
             }
+          ];
         }
-        
-        requestAnimationFrame(updateCounter);
-    }
 
-    // Count releases and albums dynamically
-    function updateStats() {
-        // Count total releases
-        const releaseButtons = document.querySelectorAll('.release-button');
-        const totalReleases = releaseButtons.length;
-        
-        // Count albums specifically
-        const albumElements = document.querySelectorAll('.release-title .kind-text');
-        let albumCount = 0;
-        albumElements.forEach(element => {
-            if (element.textContent.includes('Album')) {
-                albumCount++;
-            }
+        // populate UI now we have data
+        populateFilters();
+        renderReleases();
+
+        // wire filters
+        const yearSel = document.getElementById('year-filter');
+        const typeSel = document.getElementById('type-filter');
+        yearSel.addEventListener('change', e => renderReleases(e.target.value, typeSel.value));
+        typeSel.addEventListener('change', e => renderReleases(yearSel.value, e.target.value));
+
+        // counters
+        const total = releases.length;
+        const albums = releases.filter(r => r.type === 'Album').length;
+        const yearsArr = releases.map(r => parseInt(r.date.slice(0,4),10));
+        const earliest = yearsArr.length ? Math.min(...yearsArr) : new Date().getFullYear();
+        const yearsActive = new Date().getFullYear() - earliest + 1;
+        setTimeout(()=>animateCounter(document.getElementById('releases-count'), total), 200);
+        setTimeout(()=>animateCounter(document.getElementById('albums-count'), albums), 400);
+        setTimeout(()=>animateCounter(document.getElementById('years-active'), yearsActive), 600);
+      }
+
+      function formatDate(d){ const dt = new Date(d); return dt.toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'}); }
+
+      function renderReleases(year='all', type='all'){
+        const out = document.getElementById('releases-structured'); out.innerHTML = '';
+        const grouped = releases.reduce((acc, r) => { const y = r.date.slice(0,4); (acc[y] = acc[y] || []).push(r); return acc; }, {});
+        Object.keys(grouped).sort((a,b)=>b-a).forEach(y=>{
+          if(year !== 'all' && y !== year) return;
+          const sec = document.createElement('section');
+          const h = document.createElement('div'); h.className = 'year-header'; h.textContent = y; sec.appendChild(h);
+          const g = document.createElement('div'); g.className = 'releases-grid';
+          grouped[y].forEach(r=>{
+            if(type !== 'all' && r.type !== type) return;
+            const a = document.createElement('a');
+            a.className='release-card';
+            a.href = r.link || '#';
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+            a.innerHTML = `<img loading="lazy" src="../images/${r.cover}" alt="${r.title}"><div class="release-info"><div class="release-title">${r.title} <span class="kind-text">(${r.type})</span></div><div class="release-date">Released: ${formatDate(r.date)}</div></div>`;
+            g.appendChild(a);
+          });
+          sec.appendChild(g); out.appendChild(sec);
         });
-        
-        // Calculate years active (started in 2020)
-        const startYear = 2020;
-        const currentYear = new Date().getFullYear();
-        const yearsActive = currentYear - startYear + 1;
-        
-        // Animate counters (faster loading)
-        setTimeout(() => {
-            animateCounter(document.getElementById('releases-count'), totalReleases, 1500);
-        }, 200);
-        
-        setTimeout(() => {
-            animateCounter(document.getElementById('albums-count'), albumCount, 1500);
-        }, 400);
-        
-        setTimeout(() => {
-            animateCounter(document.getElementById('years-active'), yearsActive, 1500);
-        }, 600);
-    }
+      }
 
-    // Run stats update when page loads
-    document.addEventListener('DOMContentLoaded', updateStats);
-  </script>
-</body>
+      function populateFilters(){
+        const years = [...new Set(releases.map(r=>r.date.slice(0,4)))].sort((a,b)=>b-a);
+        const sel = document.getElementById('year-filter'); sel.innerHTML = '<option value="all">All</option>';
+        years.forEach(y=>{ const o = document.createElement('option'); o.value = y; o.textContent = y; sel.appendChild(o); });
+      }
+
+      function animateCounter(el, target, duration = 900){
+        if(!el) return; const start = 0; const startTime = performance.now();
+        function tick(now){ const t = Math.min((now - startTime) / duration, 1); el.textContent = Math.floor(start + (target - start) * t); if(t < 1) requestAnimationFrame(tick); else el.textContent = target; }
+        requestAnimationFrame(tick);
+      }
+
+      document.addEventListener('DOMContentLoaded', ()=>{ 
+        loadReleases(); 
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const particleContainer = document.querySelector(".floating-particles");
+        const layers = 3; // Number of layers for depth
+        const particleCount = 20; // Particles per layer
+
+        for (let layer = 0; layer < layers; layer++) {
+          for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement("div");
+            particle.classList.add("particle", `layer-${layer}`);
+
+            // Randomize size, position, and animation duration
+            const size = Math.random() * 10 + 5 * (1 + layer * 0.5); // Larger particles for deeper layers
+            const top = Math.random() * 95; // Spread particles across 95% of the viewport height
+            const left = Math.random() * 95; // Spread particles across 95% of the viewport width
+            const duration = Math.random() * 5 + 5 * (1 + layer * 0.5); // Slower for deeper layers
+            const opacity = Math.random() * 0.3 + 0.2 * (1 - layer * 0.3); // Fainter for deeper layers
+
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.top = `${top}%`;
+            particle.style.left = `${left}%`;
+            particle.style.animation = `float ${duration}s ease-in-out infinite alternate`;
+            particle.style.opacity = opacity;
+
+            particleContainer.appendChild(particle);
+          }
+        }
+      });
+    </script>
+  </body>
 </html>

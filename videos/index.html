@@ -10,12 +10,6 @@
     <link rel="stylesheet" href="../style.css">
     <style>
         /* Videos Page Specific Styles */
-        body {
-            background-image: 
-                radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
-                url('../images/flbg.png');
-        }
 
         .hero-section {
             text-align: center;
@@ -141,10 +135,66 @@
                 height: 300px;
             }
         }
+
+        /* Particle Styles */
+        .floating-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1; /* Ensure particles are behind all other elements */
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            --light-angle-x: 50%;
+            --light-angle-y: 50%;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at var(--light-angle-x) var(--light-angle-y), rgba(255, 255, 255, 0.1), transparent);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        @keyframes scrollLight {
+            0% {
+            background-position: 50% 0%;
+            }
+            50% {
+            background-position: 50% 50%;
+            }
+            100% {
+            background-position: 50% 100%;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="cursor-dot"></div>
     <div class="nav-container">
         <div class="logo-container">
             <a href="../index.html" class="logo-link">
@@ -164,16 +214,15 @@
             <div class="hero-section">
                 <div class="hero-content">
                     <h1 class="hero-title">
-                        <span class="gradient-text">Video Portfolio</span>
+                        Video Portfolio
                     </h1>
-                    <p class="hero-subtitle">Behind the scenes & music videos</p>
                 </div>
             </div>
 
             <section class="videos-section">
                 <div class="section-header">
                     <h2>Featured Music Videos</h2>
-                    <p>Watch my latest visual productions</p>
+                    <p>Watch the latest visuals</p>
                 </div>
                 
                 <div class="video-grid">
@@ -223,47 +272,11 @@
                 </div>
             </section>
         </main>
-
-        <!-- Floating particles for background effect -->
-        <div class="floating-particles">
-            <div class="particle particle-1"></div>
-            <div class="particle particle-2"></div>
-            <div class="particle particle-3"></div>
-            <div class="particle particle-4"></div>
-            <div class="particle particle-5"></div>
-        </div>
     </div>
+
+    <div class="floating-particles"></div>
     
     <script>
-        // Custom cursor
-        const cursor = document.querySelector('.cursor-dot');
-        
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
-
-        // Enhanced hover effects for links and interactive elements
-        const hoverElements = document.querySelectorAll('a, button, iframe');
-        
-        hoverElements.forEach(element => {
-            element.addEventListener('mouseenter', () => {
-                cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
-                cursor.style.opacity = '0.8';
-            });
-            
-            element.addEventListener('mouseleave', () => {
-                cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-                cursor.style.opacity = '0.6';
-            });
-        });
-
-        // Hide cursor on mobile
-        const isMobile = window.matchMedia('(max-width: 768px)').matches;
-        if (isMobile) {
-            cursor.style.display = 'none';
-        }
-
         // Logo hover effect
         const logoContainer = document.querySelector('.logo-container');
         if (logoContainer) {
@@ -275,6 +288,55 @@
                 logoContainer.style.transform = 'scale(1)';
             });
         }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const particleContainer = document.querySelector(".floating-particles");
+            const layers = 3; // Number of layers for depth
+            const particleCount = 20; // Particles per layer
+
+            for (let layer = 0; layer < layers; layer++) {
+              for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement("div");
+                particle.classList.add("particle", `layer-${layer}`);
+
+                // Randomize size, position, and animation duration
+                const size = Math.random() * 10 + 5 * (1 + layer * 0.5); // Larger particles for deeper layers
+                const top = Math.random() * 95; // Spread particles across 95% of the viewport height
+                const left = Math.random() * 95; // Spread particles across 95% of the viewport width
+                const duration = Math.random() * 5 + 5 * (1 + layer * 0.5); // Slower for deeper layers
+                const opacity = Math.random() * 0.3 + 0.2 * (1 - layer * 0.3); // Fainter for deeper layers
+
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.top = `${top}%`;
+                particle.style.left = `${left}%`;
+                particle.style.animation = `float ${duration}s ease-in-out infinite alternate`;
+                particle.style.opacity = opacity;
+
+                particleContainer.appendChild(particle);
+              }
+            }
+          });
+
+          document.addEventListener("scroll", () => {
+            const scrollPosition = window.scrollY;
+            const maxScroll = document.body.scrollHeight - window.innerHeight;
+            const scrollPercentage = scrollPosition / maxScroll;
+
+            const lightAngleX = 50 + scrollPercentage * 50; // Adjust light angle horizontally
+            const lightAngleY = 50 - scrollPercentage * 50; // Adjust light angle vertically
+
+            document.body.style.setProperty("--light-angle-x", `${lightAngleX}%`);
+            document.body.style.setProperty("--light-angle-y", `${lightAngleY}%`);
+
+            // Add inertia effect to particles
+            const particles = document.querySelectorAll(".particle");
+            particles.forEach((particle) => {
+              const inertiaX = (Math.random() - 0.5) * 10 * scrollPercentage;
+              const inertiaY = (Math.random() - 0.5) * 10 * scrollPercentage;
+              particle.style.transform = `translate(${inertiaX}px, ${inertiaY}px)`;
+            });
+          });
     </script>
 </body>
 </html>
