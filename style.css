@@ -1,4 +1,4 @@
-/* Jett2Fly Music Website - Consolidated Styles */
+/* Styles */
 /* Filter Bar */
 .filter-bar {
     display: flex;
@@ -113,6 +113,11 @@
     --gradient-primary: linear-gradient(135deg, #ffffff, #cccccc);
     --gradient-secondary: linear-gradient(135deg, #cccccc, #888888);
 }
+html {
+    background: #0a0a0a;
+    overscroll-behavior: none;
+    min-height: 100vh;
+}
 
 /* Base Styles */
 * {
@@ -135,6 +140,7 @@ body {
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
+    overscroll-behavior: none;
 }
 
 /* Adaptive Background Effect */
