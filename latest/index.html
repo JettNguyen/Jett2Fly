@@ -42,6 +42,7 @@
         100% { transform: translateY(0px) translateX(0px) rotate(360deg); }
       }
       .content { padding: 28px 20px 120px; max-width:1100px; margin: 0 auto; }
+      .page-title { font-size: clamp(1.8rem, 6vw, 2.4rem); font-weight: 700; margin-bottom: 24px; text-align: center; }
       .stats-section { display:flex; gap:1rem; justify-content:center; margin-bottom:18px; flex-wrap:wrap; }
       .stat-card { background:var(--card-bg); padding:12px 18px; border-radius:10px; box-shadow:var(--card-shadow); text-align:center; min-width:120px; }
       .stat-number { font-weight:700; font-size:1.4rem; }
@@ -67,16 +68,138 @@
       }
       .releases-grid { display:flex; flex-wrap:wrap; padding: 20px 20px; gap:20px; justify-content:center;}
       .release-card img{ width:100%; height:auto; display:block; border-radius:6px 6px 0 0; }
-      .release-card{ flex: 0 0 280px; display:block; background:var(--card-bg); padding:0; border-radius:8px; overflow:hidden; box-shadow:var(--card-shadow); text-decoration:none; color:inherit; transition:box-shadow .18s ease, transform .18s ease;}
+      .release-card{ flex: 0 0 280px; display:block; background:var(--card-bg); padding:0; border-radius:8px; overflow:hidden; box-shadow:var(--card-shadow); text-decoration:none; color:inherit; transition:box-shadow .18s ease, transform .18s ease; cursor:pointer; border:2px solid transparent;}
       .release-card:hover {
-    box-shadow: 0 0 20px 5px rgb(80, 80, 80), 0 0 0 3px rgb(0, 0, 0);
-    border-color: rgb(0, 0, 0);
-    transform: scale(1.04);
-}
-      .release-info{ padding:12px; }
-      .release-title{ font-weight:600; margin-bottom:6px; }
-      .release-date{ font-size:0.9rem; color:var(--muted); }
-      @media (max-width:520px){ .stats-section{ gap:.6rem; } .stat-card{ min-width:90px; padding:10px 12px; } }
+        box-shadow: 0 0 20px 5px rgb(80, 80, 80), 0 0 0 3px rgb(0, 0, 0);
+        border-color: rgb(0, 0, 0);
+        transform: scale(1.04);
+      }
+      /* Touch-friendly on mobile - disable scale transform */
+      @media (hover: none) and (pointer: coarse) {
+        .release-card:hover {
+          transform: none;
+        }
+      }
+      .release-info{ padding:15px; }
+      .release-title{ font-weight:600; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center; }
+      .release-type-badge{ font-size:0.7rem; font-weight:700; padding:4px 8px; background:transparent; border:1.5px solid var(--primary-color); color:var(--primary-color); border-radius:3px; text-transform:uppercase; letter-spacing:0.5px; display:inline-block; }
+      .release-meta{ font-size:0.85rem; color:var(--muted); margin-bottom:10px; }
+      .release-date{ font-size:0.9rem; color:var(--muted); display:block; margin-bottom:6px; }
+      .release-song-count{ font-size:0.85rem; color:var(--primary-color); font-weight:500; }
+      .card-cta{ display:inline-block; margin-top:8px; padding:6px 12px; background:var(--primary-color); color:#000; border-radius:4px; font-size:0.85rem; font-weight:600; text-transform:uppercase; transition:background .2s ease; }
+      .card-cta:hover{ background:#fff; }
+      /* Modal Styles */
+      .modal{ position:fixed; top:0; left:0; width:100%; height:100%; z-index:2000; display:none; align-items:center; justify-content:center; }
+      .modal.active{ display:flex; }
+      .modal-overlay{ position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); backdrop-filter:blur(4px); }
+      .modal-content{ position:relative; background:var(--card-bg); border-radius:12px; max-width:600px; width:90%; max-height:85vh; overflow-y:auto; box-shadow:0 10px 60px rgba(0,0,0,0.8); z-index:2001; }
+      .modal-close{ position:absolute; top:16px; right:16px; background:none; border:none; font-size:2rem; color:var(--text-primary); cursor:pointer; z-index:2002; padding:0; width:40px; height:40px; display:flex; align-items:center; justify-content:center; }
+      .modal-close:hover{ color:var(--primary-color); }
+      .modal-body{ padding:30px; }
+      .modal-cover{ width:100%; max-width:300px; margin:0 auto 20px; border-radius:8px; display:block; }
+      .modal-title{ font-size:1.8rem; font-weight:700; margin:12px 0; }
+      .modal-meta{ display:flex; gap:12px; margin-bottom:20px; flex-wrap:wrap; }
+      .modal-type{ background:transparent; border:1.5px solid var(--primary-color); color:var(--primary-color); padding:6px 12px; border-radius:6px; font-weight:700; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.5px; }
+      .modal-date{ color:var(--muted); font-size:0.95rem; }
+      .streaming-label{ margin:0 0 12px; font-size:0.9rem; font-weight:600; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.5px; }
+      .streaming-buttons{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom:24px; }
+      .streaming-btn{ padding:10px 16px; background:var(--primary-color); color:#000; border:none; border-radius:6px; font-weight:600; font-size:0.85rem; cursor:pointer; transition:all .2s ease; display:flex; align-items:center; gap:8px; text-decoration:none; }
+      .streaming-btn:hover{ background:#fff; transform:translateY(-2px); }
+      .streaming-btn i{ width:16px; height:16px; display:flex; align-items:center; justify-content:center; }
+      .streaming-btn[data-platform="spotify"]{ background:#1DB954; color:#000; }
+      .streaming-btn[data-platform="spotify"]:hover{ background:#1ed760; color:#fff; transform:translateY(-2px); }
+      .streaming-btn[data-platform="apple"]{ background:#000; color:#fff; }
+      .streaming-btn[data-platform="apple"]:hover{ background:#333; color:#fff; transform:translateY(-2px); }
+      .streaming-btn[data-platform="youtube"]{ background:#FF0000; color:#fff; }
+      .streaming-btn[data-platform="youtube"]:hover{ background:#FF4444; color:#fff; transform:translateY(-2px); }
+      .streaming-btn[data-platform="soundcloud"]{ background:#FF7700; color:#fff; }
+      .streaming-btn[data-platform="soundcloud"]:hover{ background:#FFAA22; color:#000; transform:translateY(-2px); }
+      .modal-tracklist{ margin:24px 0; padding:20px; background:rgba(255,255,255,0.05); border-radius:8px; }
+      .modal-tracklist h3{ font-size:1rem; font-weight:600; margin:0 0 12px; color:var(--text-primary); }
+      .modal-tracklist ol{ margin:0; padding-left:20px; }
+      .modal-tracklist li{ color:var(--muted); padding:6px 0; font-size:0.9rem; }
+      .btn-primary{ display:inline-block; padding:12px 24px; background:var(--primary-color); color:#000; border-radius:6px; font-weight:600; text-decoration:none; text-align:center; cursor:pointer; transition:all .2s ease; border:none; font-size:1rem; }
+      .btn-primary:hover{ background:#fff; transform:translateY(-2px); }
+      
+      /* Responsive Design */
+      @media (max-width:768px) {
+        .content { padding: 20px 16px 100px; }
+        .releases-grid { padding: 16px 12px; gap: 16px; }
+        .release-card { flex: 0 0 calc(50% - 8px); }
+        .release-info { padding: 12px; }
+        .release-title { font-size: 0.95rem; }
+        .release-date { font-size: 0.85rem; }
+        .card-cta { padding: 5px 10px; font-size: 0.75rem; }
+        .modal-content { width: 85%; max-height: 90vh; }
+        .modal-body { padding: 20px; }
+        .modal-title { font-size: 1.4rem; }
+        .modal-cover { max-width: 250px; margin: 0 auto 16px; }
+        .streaming-btn { padding: 8px 12px; font-size: 0.8rem; gap: 6px; }
+        .streaming-buttons { gap: 8px; }
+        .btn-primary { padding: 10px 20px; font-size: 0.95rem; }
+        .year-header { font-size: 1.1rem; padding: 12px 20px; top: 70px; }
+        .stats-section { gap: 0.5rem; margin-bottom: 16px; }
+        .stat-card { min-width: 80px; padding: 8px 10px; }
+        .stat-number { font-size: 1.2rem; }
+        .stat-label { font-size: 0.75rem; }
+        .filter-bar { gap: 0.6rem; margin-bottom: 16px; }
+        .filter-bar select { padding: 0.35em 0.8em; font-size: 0.95em; }
+        .modal-tracklist { margin: 16px 0; padding: 16px; }
+        .modal-tracklist h3 { font-size: 0.95rem; margin: 0 0 10px; }
+        .modal-tracklist li { padding: 5px 0; font-size: 0.85rem; }
+      }
+      
+      @media (max-width:520px) {
+        .content { padding: 16px 12px 100px; }
+        .releases-grid { padding: 12px 8px; gap: 12px; }
+        .release-card { flex: 0 0 100%; }
+        .release-info { padding: 10px; }
+        .release-title { font-size: 0.9rem; margin-bottom: 6px; }
+        .release-type-badge { font-size: 0.65rem; padding: 3px 6px; }
+        .release-date { font-size: 0.8rem; margin-bottom: 4px; }
+        .release-song-count { font-size: 0.8rem; }
+        .card-cta { padding: 4px 8px; font-size: 0.7rem; margin-top: 6px; }
+        .page-title { font-size: clamp(1.4rem, 4vw, 1.8rem); margin-bottom: 16px; }
+        .stats-section { gap: 0.4rem; margin-bottom: 14px; }
+        .stat-card { min-width: 70px; padding: 6px 8px; }
+        .stat-number { font-size: 1rem; }
+        .stat-label { font-size: 0.7rem; }
+        .filter-bar { gap: 0.5rem; margin-bottom: 12px; flex-direction: column; align-items: stretch; }
+        .filter-bar label { margin-right: 0; margin-bottom: 6px; }
+        .filter-bar select { width: 100%; padding: 0.4em; font-size: 1em; }
+        .modal-content { width: 85%; max-height: 92vh; border-radius: 8px; }
+        .modal-close { top: 12px; right: 12px; width: 36px; height: 36px; font-size: 1.8rem; }
+        .modal-body { padding: 16px; }
+        .modal-title { font-size: 1.2rem; margin: 8px 0; }
+        .modal-meta { gap: 8px; margin-bottom: 16px; }
+        .modal-type { padding: 4px 8px; font-size: 0.75rem; }
+        .modal-date { font-size: 0.9rem; }
+        .modal-cover { max-width: 220px; margin: 0 auto 12px; }
+        .streaming-label { margin: 0 0 10px; font-size: 0.85rem; }
+        .streaming-buttons { gap: 6px; margin-bottom: 16px; }
+        .streaming-btn { padding: 7px 10px; font-size: 0.75rem; gap: 5px; }
+        .streaming-btn i { width: 14px; height: 14px; }
+        .btn-primary { padding: 8px 16px; font-size: 0.9rem; width: 100%; }
+        .year-header { font-size: 1rem; padding: 10px 16px; margin: 16px 0 10px; top: 60px; }
+        .modal-tracklist { margin: 12px 0; padding: 12px; }
+        .modal-tracklist h3 { font-size: 0.9rem; margin: 0 0 8px; }
+        .modal-tracklist ol { padding-left: 18px; }
+        .modal-tracklist li { padding: 4px 0; font-size: 0.8rem; }
+      }
+      
+      @media (max-width:360px) {
+        .release-title { font-size: 0.85rem; }
+        .modal-title { font-size: 1.1rem; }
+        .streaming-btn { padding: 6px 8px; font-size: 0.7rem; }
+        .btn-primary { padding: 6px 12px; font-size: 0.85rem; }
+      }
+      
+      @media (min-width:1200px) {
+        .releases-grid { gap: 24px; }
+        .release-card { flex: 0 0 300px; }
+      }
+      
+      @media (max-width:520px) { .stats-section{ gap:.6rem; } .stat-card{ min-width:90px; padding:10px 12px; } }
 
       body {
         background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
@@ -144,6 +267,30 @@
       <div id="releases-structured" aria-live="polite"></div>
     </main>
 
+    <!-- Release Detail Modal -->
+    <div id="release-modal" class="modal" role="dialog" aria-hidden="true" aria-labelledby="modal-title">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <button class="modal-close" aria-label="Close release details">&times;</button>
+        <div class="modal-body">
+          <img id="modal-cover" src="" alt="" class="modal-cover">
+          <div class="modal-info">
+            <h2 id="modal-title" class="modal-title"></h2>
+            <div class="modal-meta">
+              <span class="modal-type"></span>
+              <span class="modal-date"></span>
+            </div>
+            <div class="modal-streaming">
+              <p class="streaming-label">Listen on:</p>
+              <div class="streaming-buttons" id="modal-streams"></div>
+            </div>
+            <div id="modal-tracklist" class="modal-tracklist"></div>
+            <a id="modal-main-link" href="#" target="_blank" rel="noopener noreferrer" class="btn-primary">View All Platforms</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script>
       let releases = [];
 
@@ -204,7 +351,8 @@
               "date": "2024-11-29",
               "cover": "IMG_2743.jpeg",
               "link": "https://distrokid.com/hyperfollow/sywavy/flight-370",
-              "songs": 12
+              "songs": 12,
+              "tracks": ["Intro", "Flight 370", "Sky High", "Elevation", "Cabin Pressure", "First Class", "Departure", "Cruising Altitude", "Descent", "Landing", "Outro", "Bonus Track"]
             },
             {
               "title": "Gentleman From Da South",
@@ -212,7 +360,8 @@
               "date": "2024-06-21",
               "cover": "gfds.jpg",
               "link": "https://distrokid.com/hyperfollow/sywavy/gentleman-from-da-south",
-              "songs": 3
+              "songs": 3,
+              "tracks": ["Intro", "Gentleman From Da South", "Southern Vibes"]
             },
             {
               "title": "Deep Voice Bastards",
@@ -220,7 +369,8 @@
               "date": "2023-12-22",
               "cover": "cover 2.png",
               "link": "https://distrokid.com/hyperfollow/sywavy/deep-voice-bastards",
-              "songs": 10
+              "songs": 10,
+              "tracks": ["Deep Voice Intro", "Bastards", "Deep", "Voice", "Vibes", "Collaboration", "Feature", "Skit", "Track 9", "Outro"]
             },
             {
               "title": "Alchemy",
@@ -228,7 +378,8 @@
               "date": "2023-05-26",
               "cover": "alchemy.jpg",
               "link": "https://distrokid.com/hyperfollow/kkilla11/alchemy",
-              "songs": 13
+              "songs": 13,
+              "tracks": ["Transmutation", "Golden Touch", "Elements", "Philosopher's Stone", "Alchemy", "Transformation", "Gilded", "Crucible", "Catalyst", "Reaction", "Formula", "Synthesis", "Culmination"]
             },
             {
               "title": "Wavy Life",
@@ -236,7 +387,8 @@
               "date": "2023-03-17",
               "cover": "wl.jpg",
               "link": "https://distrokid.com/hyperfollow/sywavy/wavy-life",
-              "songs": 12
+              "songs": 12,
+              "tracks": ["Waves", "Life", "Journey", "Ocean", "Flow", "Rhythm", "Tide", "Current", "Splash", "Horizon", "Sunrise", "Wavy Life"]
             },
             {
               "title": "The",
@@ -244,7 +396,8 @@
               "date": "2022-10-12",
               "cover": "the.jpg",
               "link": "https://distrokid.com/hyperfollow/sywavy/the",
-              "songs": 2
+              "songs": 2,
+              "tracks": ["The Beginning", "The End"]
             },
             {
               "title": "High Speed",
@@ -260,7 +413,8 @@
               "date": "2022-04-15",
               "cover": "IMG_5893.jpg",
               "link": "https://distrokid.com/hyperfollow/sywavy/japanese-cherry-blossom-2",
-              "songs": 15
+              "songs": 15,
+              "tracks": ["Sakura", "Bloom", "Spring", "Petal", "Garden", "Tree", "Branch", "Leaf", "Wind", "Breeze", "Floating", "Dance", "Cherry", "Blossom", "Zen"]
             },
             {
               "title": "Night Glow",
@@ -276,7 +430,8 @@
               "date": "2021-09-24",
               "cover": "LIV.jpg",
               "link": "https://distrokid.com/hyperfollow/sywavy/life-is-verses",
-              "songs": 6
+              "songs": 6,
+              "tracks": ["Verse One", "Verse Two", "Verse Three", "Verse Four", "Verse Five", "Verse Six"]
             },
             {
               "title": "Olympian",
@@ -292,7 +447,8 @@
               "date": "2021-04-09",
               "cover": "phonto (2).JPG",
               "link": "https://distrokid.com/hyperfollow/sywavy/hurts-to-heal",
-              "songs": 4
+              "songs": 4,
+              "tracks": ["Pain", "Healing", "Recovery", "Strength"]
             },
             {
               "title": "Why Me?",
@@ -300,7 +456,8 @@
               "date": "2021-01-15",
               "cover": "whyme.jpg",
               "link": "https://distrokid.com/hyperfollow/sywavy/why-me",
-              "songs": 3
+              "songs": 3,
+              "tracks": ["Why", "Me", "Why Me?"]
             },
             {
               "title": "Family Ties",
@@ -332,7 +489,8 @@
               "date": "2020-08-14",
               "cover": "sat.jpg",
               "link": "https://distrokid.com/hyperfollow/sywavy/saturn",
-              "songs": 2
+              "songs": 2,
+              "tracks": ["Planet", "Rings"]
             },
             {
               "title": "Ear Candi",
@@ -340,7 +498,8 @@
               "date": "2020-06-27",
               "cover": "ear.jpg",
               "link": "https://distrokid.com/hyperfollow/sywavy/ear-candi",
-              "songs": 5
+              "songs": 5,
+              "tracks": ["Sweet", "Sugar", "Candy", "Treat", "Taste"]
             },
             {
               "title": "Keys",
@@ -385,13 +544,25 @@
           const g = document.createElement('div'); g.className = 'releases-grid';
           grouped[y].forEach(r=>{
             if(type !== 'all' && r.type !== type) return;
-            const a = document.createElement('a');
-            a.className='release-card';
-            a.href = r.link || '#';
-            a.target = '_blank';
-            a.rel = 'noopener noreferrer';
-            a.innerHTML = `<img loading="lazy" src="../images/${r.cover}" alt="${r.title}"><div class="release-info"><div class="release-title">${r.title} <span class="kind-text">(${r.type})</span></div><div class="release-date">Released: ${formatDate(r.date)}</div></div>`;
-            g.appendChild(a);
+            const card = document.createElement('div');
+            card.className='release-card';
+            card.setAttribute('role', 'button');
+            card.setAttribute('tabindex', '0');
+            card.innerHTML = `
+              <img loading="lazy" src="../images/${r.cover}" alt="${r.title}">
+              <div class="release-info">
+                <div class="release-title">
+                  ${r.title}
+                  <span class="release-type-badge">${r.type}</span>
+                </div>
+                <div class="release-date">${formatDate(r.date)}</div>
+                <div class="release-song-count">${r.songs} ${r.songs === 1 ? 'song' : 'songs'}</div>
+                <div class="card-cta">View Details</div>
+              </div>
+            `;
+            card.addEventListener('click', () => openModal(r));
+            card.addEventListener('keydown', (e) => { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(r); } });
+            g.appendChild(card);
           });
           sec.appendChild(g); out.appendChild(sec);
         });
@@ -403,6 +574,72 @@
         years.forEach(y=>{ const o = document.createElement('option'); o.value = y; o.textContent = y; sel.appendChild(o); });
       }
 
+      function getStreamingButtons(release) {
+        const platforms = [
+          { name: 'Spotify', icon: 'fab fa-spotify', key: 'spotify' },
+          { name: 'Apple Music', icon: 'fab fa-apple', key: 'apple' },
+          { name: 'YouTube Music', icon: 'fab fa-youtube', key: 'youtube' },
+          { name: 'SoundCloud', icon: 'fab fa-soundcloud', key: 'soundcloud' }
+        ];
+        
+        return platforms.map(p => {
+          const url = release.streamingLinks?.[p.key] || release.link;
+          return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="streaming-btn" data-platform="${p.key}" title="${p.name}"><i class="${p.icon}"></i> ${p.name}</a>`;
+        }).join('');
+      }
+
+      function openModal(release) {
+        const modal = document.getElementById('release-modal');
+        document.getElementById('modal-title').textContent = release.title;
+        document.getElementById('modal-cover').src = `../images/${release.cover}`;
+        document.getElementById('modal-cover').alt = release.title;
+        document.querySelector('.modal-type').textContent = release.type;
+        document.querySelector('.modal-date').textContent = `Released: ${formatDate(release.date)}`;
+        document.getElementById('modal-streams').innerHTML = getStreamingButtons(release);
+        document.getElementById('modal-main-link').href = release.link || '#';
+        
+        // Tracklist (only show if tracks are available and not a single)
+        const tracklistDiv = document.getElementById('modal-tracklist');
+        if(release.tracks && release.tracks.length > 0 && release.type !== 'Single') {
+          tracklistDiv.style.display = 'block';
+          tracklistDiv.innerHTML = `
+            <h3>Track List</h3>
+            <ol>
+              ${release.tracks.map(t => `<li>${t}</li>`).join('')}
+            </ol>
+          `;
+        } else {
+          tracklistDiv.style.display = 'none';
+          tracklistDiv.innerHTML = '';
+        }
+        
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        const modal = document.getElementById('release-modal');
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      function setupModalHandlers() {
+        const modal = document.getElementById('release-modal');
+        const overlay = document.querySelector('.modal-overlay');
+        const closeBtn = document.querySelector('.modal-close');
+        
+        closeBtn.addEventListener('click', closeModal);
+        overlay.addEventListener('click', closeModal);
+        
+        document.addEventListener('keydown', (e) => {
+          if(e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+          }
+        });
+      }
+
       function animateCounter(el, target, duration = 900){
         if(!el) return; const start = 0; const startTime = performance.now();
         function tick(now){ const t = Math.min((now - startTime) / duration, 1); el.textContent = Math.floor(start + (target - start) * t); if(t < 1) requestAnimationFrame(tick); else el.textContent = target; }
@@ -410,25 +647,26 @@
       }
 
       document.addEventListener('DOMContentLoaded', ()=>{ 
-        loadReleases(); 
+        loadReleases();
+        setupModalHandlers();
       });
     </script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const particleContainer = document.querySelector(".floating-particles");
         const layers = 3;
-        const particleCount = 20;
+        const particleCount = 10;
 
         for (let layer = 0; layer < layers; layer++) {
           for (let i = 0; i < particleCount; i++) {
             const particle = document.createElement("div");
             particle.classList.add("particle", `layer-${layer}`);
 
-            const size = Math.random() * 10 + 5 * (1 + layer * 0.5);
-            const top = Math.random() * 95;
-            const left = Math.random() * 95;
-            const duration = Math.random() * 5 + 5 * (1 + layer * 0.5);
-            const opacity = Math.random() * 0.3 + 0.2 * (1 - layer * 0.3);
+            const size = Math.random() * 12 + 6 * (1 + layer * 0.5);
+            const top = Math.random() * 100;
+            const left = Math.random() * 100;
+            const duration = Math.random() * 4 + 10 * (1 + layer * 0.3);
+            const opacity = Math.random() * 0.25 + 0.15 * (1 - layer * 0.25);
 
             particle.style.width = `${size}px`;
             particle.style.height = `${size}px`;

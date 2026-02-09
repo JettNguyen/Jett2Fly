@@ -10,13 +10,27 @@
     <link rel="stylesheet" href="../style.css">
     <style>
         /* Videos Page Specific Styles */
-        .hero-section {
-            text-align: center;
-            padding: 4rem 0;
+        .videos-section {
+            margin-bottom: 3rem;
         }
 
-        .videos-section {
-            margin-bottom: 5rem;
+        .section-header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(1.6rem, 5vw, 2rem);
+            font-weight: 700;
+            margin: 0 0 0.5rem 0;
+            color: var(--text-primary);
+        }
+
+        .section-header p {
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            color: var(--text-secondary);
+            margin: 0;
         }
 
         .video-grid {
@@ -44,6 +58,7 @@
             width: 100%;
             height: 280px;
             overflow: hidden;
+            z-index: 10;
         }
 
         .video-wrapper iframe {
@@ -58,7 +73,7 @@
 
         .video-info h3 {
             font-family: 'Poppins', sans-serif;
-            font-size: 1.25rem;
+            font-size: clamp(1.1rem, 2.5vw, 1.25rem);
             font-weight: 600;
             margin: 0 0 0.5rem 0;
             color: var(--text-primary);
@@ -71,7 +86,7 @@
         }
 
         .playlist-section {
-            margin-bottom: 5rem;
+            margin-bottom: 3rem;
         }
 
         .playlist-card {
@@ -94,6 +109,7 @@
             width: 100%;
             height: 400px;
             overflow: hidden;
+            z-index: 10;
         }
 
         .playlist-wrapper iframe {
@@ -109,7 +125,7 @@
 
         .playlist-info h3 {
             font-family: 'Poppins', sans-serif;
-            font-size: 1.5rem;
+            font-size: clamp(1.3rem, 3vw, 1.5rem);
             font-weight: 600;
             margin: 0 0 0.5rem 0;
             color: var(--text-primary);
@@ -143,7 +159,7 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: -1;
+            z-index: 1001;
         }
 
         .particle {
@@ -273,7 +289,9 @@
         </main>
     </div>
 
-    <div class="floating-particles"></div>
+    <div id="background-layer">
+        <div class="floating-particles"></div>
+    </div>
     
     <script>
         const logoContainer = document.querySelector('.logo-container');
@@ -290,18 +308,18 @@
         document.addEventListener("DOMContentLoaded", () => {
             const particleContainer = document.querySelector(".floating-particles");
             const layers = 3;
-            const particleCount = 20;
+            const particleCount = 10;
 
             for (let layer = 0; layer < layers; layer++) {
               for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement("div");
                 particle.classList.add("particle", `layer-${layer}`);
 
-                const size = Math.random() * 10 + 5 * (1 + layer * 0.5);
-                const top = Math.random() * 95;
-                const left = Math.random() * 95;
-                const duration = Math.random() * 5 + 5 * (1 + layer * 0.5);
-                const opacity = Math.random() * 0.3 + 0.2 * (1 - layer * 0.3);
+                const size = Math.random() * 12 + 6 * (1 + layer * 0.5);
+                const top = Math.random() * 100;
+                const left = Math.random() * 100;
+                const duration = Math.random() * 4 + 10 * (1 + layer * 0.3);
+                const opacity = Math.random() * 0.25 + 0.15 * (1 - layer * 0.25);
 
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
@@ -315,23 +333,18 @@
             }
           });
 
+          let scrollTimeout;
           document.addEventListener("scroll", () => {
-            const scrollPosition = window.scrollY;
-            const maxScroll = document.body.scrollHeight - window.innerHeight;
-            const scrollPercentage = scrollPosition / maxScroll;
+            if(scrollTimeout) return;
+            scrollTimeout = setTimeout(() => {
+                const scrollPosition = window.scrollY;
+                const maxScroll = document.body.scrollHeight - window.innerHeight;
+                const scrollPercentage = maxScroll > 0 ? scrollPosition / maxScroll : 0;
 
-            const lightAngleX = 50 + scrollPercentage * 50;
-            const lightAngleY = 50 - scrollPercentage * 50;
-
-            document.body.style.setProperty("--light-angle-x", `${lightAngleX}%`);
-            document.body.style.setProperty("--light-angle-y", `${lightAngleY}%`);
-
-            const particles = document.querySelectorAll(".particle");
-            particles.forEach((particle) => {
-              const inertiaX = (Math.random() - 0.5) * 10 * scrollPercentage;
-              const inertiaY = (Math.random() - 0.5) * 10 * scrollPercentage;
-              particle.style.transform = `translate(${inertiaX}px, ${inertiaY}px)`;
-            });
+                document.body.style.setProperty("--light-angle-x", `${50 + scrollPercentage * 50}%`);
+                document.body.style.setProperty("--light-angle-y", `${50 - scrollPercentage * 50}%`);
+                scrollTimeout = null;
+            }, 50);
           });
     </script>
 </body>

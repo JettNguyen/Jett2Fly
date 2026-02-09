@@ -5,7 +5,12 @@
     "date": "2025-11-14",
     "cover": "flame.jpeg",
     "link": "https://distrokid.com/hyperfollow/sywavy/flame",
-    "songs": 1
+    "songs": 1,
+    "streamingLinks": {
+      "spotify": "https://open.spotify.com/album/0WaLfswFe4BSvo4k22B4ai",
+      "apple": "https://music.apple.com/us/album/flame-single/1853813425?uo=4&app=music&at=1001lry3&ct=dashboard",
+      "youtube": "https://youtu.be/qJxKahnEGDY?si=g5o5KTHsAeIqa5Om"
+    }
   },
   {
     "title": "Wavy Deagle",
@@ -13,7 +18,12 @@
     "date": "2025-07-25",
     "cover": "cover deagle.png",
     "link": "https://distrokid.com/hyperfollow/sywavy/wavy-deagle",
-    "songs": 1
+    "songs": 1,
+    "streamingLinks": {
+      "spotify": "https://open.spotify.com/album/3uNqA3foeMEjVJFw5Rw1JI",
+      "apple": "https://music.apple.com/us/album/wavy-deagle-single/1827862972?uo=4&app=music&at=1001lry3&ct=dashboard",
+      "youtube": "https://youtu.be/PJ7GmOT6p5g?si=xI-twIzznTQ7iSO5"
+    }
   },
   {
     "title": "Put It On!",
@@ -21,7 +31,12 @@
     "date": "2025-05-09",
     "cover": "cover.png",
     "link": "https://distrokid.com/hyperfollow/sywavy/put-it-on-feat-the-part-time-models",
-    "songs": 1
+    "songs": 1,
+    "streamingLinks": {
+      "spotify": "https://open.spotify.com/album/2XFFQePnEMHqBNgDBCMKxq",
+      "apple": "https://music.apple.com/us/album/put-it-on-feat-the-part-time-models-single/1812873731?uo=4&app=music&at=1001lry3&ct=dashboard",
+      "youtube": "https://youtu.be/MBIr637uDH8?si=PzzJPMs2uFSBL9Lb"
+    }
   },
   {
     "title": "Awtside",
@@ -29,7 +44,12 @@
     "date": "2025-04-04",
     "cover": "awtside-min.png",
     "link": "https://distrokid.com/hyperfollow/sywavy/awtside",
-    "songs": 1
+    "songs": 1,
+    "streamingLinks": {
+      "spotify": "https://open.spotify.com/album/14ve923JA9HEX1tl9w8qWf",
+      "apple": "https://music.apple.com/us/album/awtside-single/1805478348?uo=4&app=music&at=1001lry3&ct=dashboard",
+      "youtube": "https://youtu.be/1HaIyHpOlDI?si=dEKEJLaqUu49BPrN"
+    }
   },
   {
     "title": "Imma Floridian",
@@ -37,7 +57,12 @@
     "date": "2025-02-28",
     "cover": "furnish cover 4 exp.png",
     "link": "https://distrokid.com/hyperfollow/sywavy/imma-floridian",
-    "songs": 1
+    "songs": 1,
+    "streamingLinks": {
+      "spotify": "https://open.spotify.com/album/5Rir6SkxpyUWHvdnU89fD8",
+      "apple": "https://music.apple.com/us/album/imma-floridian-single/1799066703?uo=4&app=music&at=1001lry3&ct=dashboard",
+      "youtube": "https://youtu.be/vq3Tf8Egytk?si=fsdII-CsSJXJVsVW"
+    }
   },
   {
     "title": "Flight 370",
@@ -45,7 +70,27 @@
     "date": "2024-11-29",
     "cover": "IMG_2743.jpeg",
     "link": "https://distrokid.com/hyperfollow/sywavy/flight-370",
-    "songs": 12
+    "songs": 12,
+    "streamingLinks": {
+      "spotify": "https://open.spotify.com/album/4B3OKpetlnrHKDg6HPNTUU",
+      "apple": "https://music.apple.com/us/album/flight-370/1782697824?uo=4&app=music&at=1001lry3&ct=dashboard",
+      "youtube": "https://www.youtube.com/watch?v=qGbaXxkGRGM&list=OLAK5uy_mERcFQWC0d4XLLWmh_k6GNV_OqZOAx7uE",
+      "soundcloud": "https://soundcloud.com/sywavy/sets/flight-370?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
+    },
+    "tracks": [
+      "Squish",
+      "Botanical Gardens (feat. The Part Time Models)",
+      "Tour",
+      "Bermuda's Artifact",
+      "Clairo",
+      "Catch Flights & CRY (feat. The Part Time Models)",
+      "Bulky Jewelry",
+      "We're Not SAFe",
+      "Self Melting Love",
+      "Shadows (feat. The Part Time Models)",
+      "The Shining",
+      "Can't Tell Me What It's Not"
+    ]
   },
   {
     "title": "Gentleman From Da South",
@@ -53,7 +98,17 @@
     "date": "2024-06-21",
     "cover": "gfds.jpg",
     "link": "https://distrokid.com/hyperfollow/sywavy/gentleman-from-da-south",
-    "songs": 3
+    "songs": 3,
+    "streamingLinks": {
+      "spotify": "https://open.spotify.com/album/4CHWxeIgdCqAIQ6Px0Pbn5",
+      "apple": "https://music.apple.com/us/album/gentleman-from-da-south-single/1752975738?uo=4&app=music&at=1001lry3&ct=dashboard",
+      "youtube": "https://www.youtube.com/watch?v=_yAGKWG1V6U&list=OLAK5uy_mQNeMqY-5afL5g8xuzrGCfpJd5ykwDIIs"
+    },
+    "tracks": [
+      "Stadium Music",
+      "I have to leave.",
+      "Talk, Money, Fashion"
+    ]
   },
   {
     "title": "Deep Voice Bastards",
@@ -61,7 +116,25 @@
     "date": "2023-12-22",
     "cover": "cover 2.png",
     "link": "https://distrokid.com/hyperfollow/sywavy/deep-voice-bastards",
-    "songs": 10
+    "songs": 10,
+    "streamingLinks": {
+      "spotify": "https://open.spotify.com/album/1WK4MQSYhBpgCjTI7LrP20",
+      "apple": "https://music.apple.com/us/album/deep-voice-bastards/1722652348?uo=4&app=music&at=1001lry3&ct=dashboard",
+      "youtube": "https://www.youtube.com/watch?v=ancx1bis_C0&list=OLAK5uy_mplCeMJZhAgAjcJZCQXOq5xMzxgHiAgVI",
+      "soundcloud": "https://soundcloud.com/sywavy/sets/deep-voice-bastards?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
+    },
+    "tracks": [
+      "Bang Me Up Again",
+      "Bruh I'm High asf xD",
+      "She's The Wettest",
+      "White Girls Call Me Hot",
+      "Del Rey",
+      "AudioSlave",
+      "You Better TELL ME.",
+      "This Headache Crazzzy",
+      "Intrusive Thoughts (feat. Kuy)",
+      "Coaster"
+    ]
   },
   {
     "title": "Alchemy",
@@ -69,7 +142,27 @@
     "date": "2023-05-26",
     "cover": "alchemy.jpg",
     "link": "https://distrokid.com/hyperfollow/kkilla11/alchemy",
-    "songs": 13
+    "songs": 13,
+    "streamingLinks": {
+      "spotify": "https://prf.hn/click/camref:1101ljvYv/pubref:albumuuid%3DA34B3B2A-9DBE-479B-96275D19169A9511/destination:https://open.spotify.com/album/3RujPGugSp1n2MHgzFjqoS",
+      "apple": "https://music.apple.com/us/album/alchemy/1686955546?uo=4",
+      "youtube": "https://www.youtube.com/watch?v=VJgzUkvSqhk&list=OLAK5uy_l9g3gTBT9WiIoVxBTbBwQdqGU1jM7AuRk"
+    },
+    "tracks": [
+      "Global",
+      "NPR",
+      "Killing Commentadore",
+      "Sir Sinner",
+      "Chaos",
+      "Serpent",
+      "Picture Perfect",
+      "Summer Snow",
+      "Shells",
+      "Ctrl",
+      "God's Hands",
+      "Fountain of Youth",
+      "Silver Surfer"
+    ]
   },
   {
     "title": "Wavy Life",
@@ -77,7 +170,27 @@
     "date": "2023-03-17",
     "cover": "wl.jpg",
     "link": "https://distrokid.com/hyperfollow/sywavy/wavy-life",
-    "songs": 12
+    "songs": 12,
+    "streamingLinks": {
+      "spotify": "https://open.spotify.com/album/7ePDLLrFzDw75kn738TLJZ",
+      "apple": "https://music.apple.com/us/album/wavy-life/1676929456?uo=4&app=music&at=1001lry3&ct=dashboard",
+      "youtube": "https://www.youtube.com/watch?v=gZfzifoETpQ&list=OLAK5uy_lluLKP6yU_8X1I6xkZxNfn2OK_qxeR0lU",
+      "soundcloud": "https://soundcloud.com/sywavy/sets/wavy-life?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
+    },
+    "tracks": [
+      "Whirlpool Window",
+      "Triad",
+      "71%",
+      "Out The Blue",
+      "Cruise Jam",
+      "Move That Ocean",
+      "Aqua Artist",
+      "Caution",
+      "Telly",
+      "3D",
+      "Fantasia",
+      "Wind Waker"
+    ]
   },
   {
     "title": "The",
@@ -85,7 +198,16 @@
     "date": "2022-10-12",
     "cover": "the.jpg",
     "link": "https://distrokid.com/hyperfollow/sywavy/the",
-    "songs": 2
+    "songs": 2,
+    "streamingLinks": {
+      "spotify": "https://open.spotify.com/album/5PMP9IA0iptvkT7WiL5bRC",
+      "apple": "https://music.apple.com/us/album/the-single/1649527868?uo=4&app=music&at=1001lry3&ct=dashboard",
+      "youtube": "https://www.youtube.com/watch?v=l1iCAX1qQbM&list=OLAK5uy_m9axrCQE_y5BW8xWZnBMQX4PL3AH02RmI"
+    },
+    "tracks": [
+      "The Team",
+      "The Oath"
+    ]
   },
   {
     "title": "High Speed",
@@ -93,7 +215,13 @@
     "date": "2022-07-15",
     "cover": "high.jpg",
     "link": "https://distrokid.com/hyperfollow/sywavy/high-speed",
-    "songs": 1
+    "songs": 1,
+    "streamingLinks": {
+      "spotify": "https://open.spotify.com/album/5w2M6HZbxkGoIBNWCnN7MI",
+      "apple": "https://music.apple.com/us/album/high-speed-single/1634319165?uo=4&app=music&at=1001lry3&ct=dashboard",
+      "youtube": "https://www.youtube.com/watch?v=YvJFZwjHElw&list=OLAK5uy_mPcx8Aftj2OmXwgh1ayA0DYQknWwdfGYY",
+      "soundcloud": "https://soundcloud.com/sywavy/high-speed?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
+    }
   },
   {
     "title": "Japanese Cherry Blossom",
@@ -101,7 +229,30 @@
     "date": "2022-04-15",
     "cover": "IMG_5893.jpg",
     "link": "https://distrokid.com/hyperfollow/sywavy/japanese-cherry-blossom-2",
-    "songs": 15
+    "songs": 15,
+    "streamingLinks": {
+      "spotify": "https://open.spotify.com/album/6Od5M29vOAG0Ls5cJTqlLY",
+      "apple": "https://music.apple.com/us/album/japanese-cherry-blossom/1753204541?uo=4&app=music&at=1001lry3&ct=dashboard",
+      "youtube": "https://www.youtube.com/watch?v=i1hygi2LiyE&list=OLAK5uy_kfK5dtZqFVoFRY8w6yUzd0x7P2SjI8M_g",
+      "soundcloud": "https://soundcloud.com/sywavy/sets/japanese-cherry-blossom?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
+    },
+    "tracks": [
+      "Overture",
+      "Losing Petals",
+      "Stigma",
+      "Partake",
+      "Chanel Fragrance",
+      "Advisor",
+      "Gold Tears",
+      "Far",
+      "Starfall",
+      "Blossom",
+      "Red Panda",
+      "Dreamland",
+      "Sable",
+      "ShapeShift",
+      "Postal"
+    ]
   },
   {
     "title": "Night Glow",
@@ -109,7 +260,12 @@
     "date": "2021-11-26",
     "cover": "night.jpg",
     "link": "https://distrokid.com/hyperfollow/sywavy/night-glow",
-    "songs": 1
+    "songs": 1,
+    "streamingLinks": {
+      "spotify": "https://open.spotify.com/album/7txiS2K2OhoWTKbfEFTBwM",
+      "apple": "https://music.apple.com/us/album/night-glow-single/1597280066?uo=4&app=music&at=1001lry3&ct=dashboard",
+      "youtube": "https://www.youtube.com/watch?v=Je2exdjU_g8&list=OLAK5uy_kwpQYJbAU0qlFWGbltiUzsOFSTIAxI9pU"
+    }
   },
   {
     "title": "Life Is Verses",
@@ -117,7 +273,20 @@
     "date": "2021-09-24",
     "cover": "LIV.jpg",
     "link": "https://distrokid.com/hyperfollow/sywavy/life-is-verses",
-    "songs": 6
+    "songs": 6,
+    "streamingLinks": {
+      "spotify": "https://open.spotify.com/album/52BJgCNnqPTqCuku5odNvs",
+      "apple": "https://music.apple.com/us/album/life-is-verses-ep/1586235736?uo=4&app=music&at=1001lry3&ct=dashboard",
+      "youtube": "https://www.youtube.com/watch?v=B_Brv7zcLuA&list=OLAK5uy_kN-81wLbPhl2AQouNbE_BsVHUOJNQ4Skk"
+    },
+    "tracks": [
+      "Under",
+      "Nick Fury",
+      "3AM",
+      "Live is Verses",
+      "Fall Out",
+      "Jorja"
+    ]
   },
   {
     "title": "Olympian",
@@ -125,7 +294,13 @@
     "date": "2021-07-02",
     "cover": "olym.jpg",
     "link": "https://distrokid.com/hyperfollow/sywavy/olympian",
-    "songs": 1
+    "songs": 1,
+    "streamingLinks": {
+      "spotify": "https://open.spotify.com/album/02davyhOLrc4t8QCiAH0I6",
+      "apple": "https://music.apple.com/us/album/olympian-single/1573528940?uo=4&app=music&at=1001lry3&ct=dashboard",
+      "youtube": "https://www.youtube.com/watch?v=RBwvApEWXHo&list=OLAK5uy_k11ZymaOWexYWk9jfH72OqE3lV3lZJIlU",
+      "soundcloud": "https://soundcloud.com/sywavy/olympian?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
+    }
   },
   {
     "title": "Hurts to Heal",
@@ -133,7 +308,18 @@
     "date": "2021-04-09",
     "cover": "phonto (2).JPG",
     "link": "https://distrokid.com/hyperfollow/sywavy/hurts-to-heal",
-    "songs": 4
+    "songs": 4,
+    "streamingLinks": {
+      "spotify": "https://open.spotify.com/album/6xXRTYCgEO0ri7tlsJuhTR",
+      "apple": "https://music.apple.com/us/album/hurts-to-heal-ep/1561704219?uo=4&app=music&at=1001lry3&ct=dashboard",
+      "youtube": "https://www.youtube.com/watch?v=iohhT1O-uoE&list=OLAK5uy_lZKoyHpYB401u8FRtCeBHb0XlNLFtvVRo"
+    },
+    "tracks": [
+      "7 Days",
+      "Traffic",
+      "Violet & Tate",
+      "1123"
+    ]
   },
   {
     "title": "Why Me?",
@@ -141,7 +327,18 @@
     "date": "2021-01-15",
     "cover": "whyme.jpg",
     "link": "https://distrokid.com/hyperfollow/sywavy/why-me",
-    "songs": 3
+    "songs": 3,
+    "streamingLinks": {
+      "spotify": "https://open.spotify.com/album/2COzO0DgaeNHGdb179ok5G",
+      "apple": "https://music.apple.com/us/album/why-me-single/1548137979?uo=4&app=music&at=1001lry3&ct=dashboard",
+      "youtube": "https://www.youtube.com/watch?v=1_kVZRAvuDk&list=OLAK5uy_mF_xJPU8NQaNPdeJHHDn5jS3zDbExSASg",
+      "soundcloud": "https://soundcloud.com/sywavy/sets/why-me?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
+    },
+    "tracks": [
+      "Why",
+      "Me",
+      "? (Cry)"
+    ]
   },
   {
     "title": "Family Ties",
@@ -149,7 +346,12 @@
     "date": "2020-12-09",
     "cover": "fam.jpg",
     "link": "https://distrokid.com/hyperfollow/sywavy/family-ties-3",
-    "songs": 1
+    "songs": 1,
+    "streamingLinks": {
+      "spotify": "https://open.spotify.com/album/25O2nPUI0yDmaTIcZvnkaM",
+      "apple": "https://music.apple.com/us/album/family-ties-single/1543475801?uo=4&app=music&at=1001lry3&ct=dashboard",
+      "youtube": "https://www.youtube.com/watch?v=BNCguCzvbMA&list=OLAK5uy_lUAiENfigxAYVhDOJl-9dqEA_6EOJU6L0"
+    }
   },
   {
     "title": "14th",
@@ -157,7 +359,12 @@
     "date": "2020-11-14",
     "cover": "14th.jpg",
     "link": "https://distrokid.com/hyperfollow/sywavy/14th",
-    "songs": 1
+    "songs": 1,
+    "streamingLinks": {
+      "spotify": "https://open.spotify.com/album/0gkbX42c7ApFBwXxZsn9T4",
+      "apple": "https://music.apple.com/us/album/14th-single/1539246012?uo=4&app=music&at=1001lry3&ct=dashboard",
+      "youtube": "https://www.youtube.com/watch?v=geIp4BKcUEI&list=OLAK5uy_mP90fpNATh02H5t8V-eWcAPyOJGWWDkfo"
+    }
   },
   {
     "title": "Red Lights",
@@ -165,7 +372,12 @@
     "date": "2020-09-19",
     "cover": "red.jpg",
     "link": "https://distrokid.com/hyperfollow/sywavy/red-lights-2",
-    "songs": 1
+    "songs": 1,
+    "streamingLinks": {
+      "spotify": "https://open.spotify.com/album/376UoQExNo7YRabzRleAr3",
+      "apple": "https://music.apple.com/us/album/red-lights-single/1531910812?uo=4&app=music&at=1001lry3&ct=dashboard",
+      "youtube": "https://www.youtube.com/watch?v=RvWwIEGMDTw&list=OLAK5uy_lwvjUyIemkgjIwmgvhEwzryXHPKhuLGqw"
+    }
   },
   {
     "title": "Saturn",
@@ -173,7 +385,16 @@
     "date": "2020-08-14",
     "cover": "sat.jpg",
     "link": "https://distrokid.com/hyperfollow/sywavy/saturn",
-    "songs": 2
+    "songs": 2,
+    "streamingLinks": {
+      "spotify": "https://open.spotify.com/album/0WKRqsyrGo8MtsiRGmQBo8",
+      "apple": "https://music.apple.com/us/album/saturn-single/1526896543?uo=4&app=music&at=1001lry3&ct=dashboard",
+      "youtube": "https://www.youtube.com/watch?v=UmkWdmw2M0E&list=OLAK5uy_k6-gPuHWzZ5dBisE78fjr3C2Z3NkRYrY8"
+    },
+    "tracks": [
+      "Float",
+      "Love to See It"
+    ]
   },
   {
     "title": "Ear Candi",
@@ -181,7 +402,19 @@
     "date": "2020-06-27",
     "cover": "ear.jpg",
     "link": "https://distrokid.com/hyperfollow/sywavy/ear-candi",
-    "songs": 5
+    "songs": 5,
+    "streamingLinks": {
+      "spotify": "https://open.spotify.com/album/0tB8oADagNJ4Tu3SACF2Uo",
+      "apple": "https://music.apple.com/us/album/ear-candi-ep/1519819721?uo=4&app=music&at=1001lry3&ct=dashboard",
+      "youtube": "https://www.youtube.com/watch?v=T5Ei0zREmnE&list=OLAK5uy_n84dtpPlF7MdMGgrg0t3yZky-3M3uxE9U"
+    },
+    "tracks": [
+      "Joy",
+      "Weeknd",
+      "Peace of Mind",
+      "I Know",
+      "No Change"
+    ]
   },
   {
     "title": "Keys",
@@ -189,6 +422,12 @@
     "date": "2020-03-28",
     "cover": "keys.jpg",
     "link": "https://distrokid.com/hyperfollow/sywavy/keys",
-    "songs": 1
+    "songs": 1,
+    "streamingLinks": {
+      "spotify": "https://open.spotify.com/album/4YTpjeI5wwDuqxhHOpiby9",
+      "apple": "https://music.apple.com/us/album/keys-single/1504976583?uo=4&app=music&at=1001lry3&ct=dashboard",
+      "youtube": "https://www.youtube.com/watch?v=yzqRsJyZNY4&list=OLAK5uy_mQVqMiGCKTTOBaXnBHWr0XUmZX3UTdJBQ",
+      "soundcloud": "https://soundcloud.com/sywavy/keys?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
+    }
   }
 ]
