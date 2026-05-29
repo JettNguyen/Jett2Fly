@@ -1,10 +1,43 @@
 [
   {
+    "title": "Magnum Opus",
+    "type": "Album",
+    "date": "2026-05-29",
+    "cover": "magnum opus explicit.png",
+    "link": "https://sywavy.com/release.html?id=magnum-opus",
+    "songs": 18,
+    "streamingLinks": {
+      "spotify": "",
+      "apple": "",
+      "youtube": ""
+    },
+    "tracks": [
+      "Vertex",
+      "Rust",
+      "To Two B*tches",
+      "SZA",
+      "Carolina Herrera",
+      "Slow? Never",
+      "YAMAHA RIDIN'",
+      "Shameless Guy",
+      "Proceed",
+      "Please lmk",
+      "Favorite Meme",
+      "Gorgeous So Fye",
+      "Steer",
+      "Tower of Tears",
+      "Wavy Deagle",
+      "Flame",
+      "Put It On! (feat. The Part Time Models)",
+      "Awtside"
+    ]
+  },
+  {
     "title": "Flame",
     "type": "Single",
     "date": "2025-11-14",
     "cover": "flame.jpeg",
-    "link": "https://distrokid.com/hyperfollow/sywavy/flame",
+    "link": "https://sywavy.com/release.html?id=flame",
     "songs": 1,
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/0WaLfswFe4BSvo4k22B4ai",
@@ -17,7 +50,7 @@
     "type": "Single",
     "date": "2025-07-25",
     "cover": "cover deagle.png",
-    "link": "https://distrokid.com/hyperfollow/sywavy/wavy-deagle",
+    "link": "https://sywavy.com/release.html?id=wavy-deagle",
     "songs": 1,
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/3uNqA3foeMEjVJFw5Rw1JI",
@@ -30,7 +63,7 @@
     "type": "Single",
     "date": "2025-05-09",
     "cover": "cover.png",
-    "link": "https://distrokid.com/hyperfollow/sywavy/put-it-on-feat-the-part-time-models",
+    "link": "https://sywavy.com/release.html?id=put-it-on",
     "songs": 1,
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/2XFFQePnEMHqBNgDBCMKxq",
@@ -43,7 +76,7 @@
     "type": "Single",
     "date": "2025-04-04",
     "cover": "awtside-min.png",
-    "link": "https://distrokid.com/hyperfollow/sywavy/awtside",
+    "link": "https://sywavy.com/release.html?id=awtside",
     "songs": 1,
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/14ve923JA9HEX1tl9w8qWf",
@@ -56,7 +89,7 @@
     "type": "Single",
     "date": "2025-02-28",
     "cover": "furnish cover 4 exp.png",
-    "link": "https://distrokid.com/hyperfollow/sywavy/imma-floridian",
+    "link": "https://sywavy.com/release.html?id=imma-floridian",
     "songs": 1,
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/5Rir6SkxpyUWHvdnU89fD8",
@@ -69,7 +102,7 @@
     "type": "Album",
     "date": "2024-11-29",
     "cover": "IMG_2743.jpeg",
-    "link": "https://distrokid.com/hyperfollow/sywavy/flight-370",
+    "link": "https://sywavy.com/release.html?id=flight-370",
     "songs": 12,
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/4B3OKpetlnrHKDg6HPNTUU",
@@ -97,7 +130,7 @@
     "type": "EP",
     "date": "2024-06-21",
     "cover": "gfds.jpg",
-    "link": "https://distrokid.com/hyperfollow/sywavy/gentleman-from-da-south",
+    "link": "https://sywavy.com/release.html?id=gentleman-from-da-south",
     "songs": 3,
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/4CHWxeIgdCqAIQ6Px0Pbn5",
@@ -115,7 +148,7 @@
     "type": "Mixtape",
     "date": "2023-12-22",
     "cover": "cover 2.png",
-    "link": "https://distrokid.com/hyperfollow/sywavy/deep-voice-bastards",
+    "link": "https://sywavy.com/release.html?id=deep-voice-bastards",
     "songs": 10,
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/1WK4MQSYhBpgCjTI7LrP20",
@@ -169,7 +202,7 @@
     "type": "Album",
     "date": "2023-03-17",
     "cover": "wl.jpg",
-    "link": "https://distrokid.com/hyperfollow/sywavy/wavy-life",
+    "link": "https://sywavy.com/release.html?id=wavy-life",
     "songs": 12,
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/7ePDLLrFzDw75kn738TLJZ",
@@ -197,7 +230,7 @@
     "type": "EP",
     "date": "2022-10-12",
     "cover": "the.jpg",
-    "link": "https://distrokid.com/hyperfollow/sywavy/the",
+    "link": "https://sywavy.com/release.html?id=the",
     "songs": 2,
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/5PMP9IA0iptvkT7WiL5bRC",
@@ -214,7 +247,7 @@
     "type": "Single",
     "date": "2022-07-15",
     "cover": "high.jpg",
-    "link": "https://distrokid.com/hyperfollow/sywavy/high-speed",
+    "link": "https://sywavy.com/release.html?id=high-speed",
     "songs": 1,
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/5w2M6HZbxkGoIBNWCnN7MI",
@@ -228,7 +261,7 @@
     "type": "Album",
     "date": "2022-04-15",
     "cover": "IMG_5893.jpg",
-    "link": "https://distrokid.com/hyperfollow/sywavy/japanese-cherry-blossom-2",
+    "link": "https://sywavy.com/release.html?id=japanese-cherry-blossom",
     "songs": 15,
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/6Od5M29vOAG0Ls5cJTqlLY",
@@ -259,7 +292,7 @@
     "type": "Single",
     "date": "2021-11-26",
     "cover": "night.jpg",
-    "link": "https://distrokid.com/hyperfollow/sywavy/night-glow",
+    "link": "https://sywavy.com/release.html?id=night-glow",
     "songs": 1,
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/7txiS2K2OhoWTKbfEFTBwM",
@@ -272,7 +305,7 @@
     "type": "EP",
     "date": "2021-09-24",
     "cover": "LIV.jpg",
-    "link": "https://distrokid.com/hyperfollow/sywavy/life-is-verses",
+    "link": "https://sywavy.com/release.html?id=life-is-verses",
     "songs": 6,
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/52BJgCNnqPTqCuku5odNvs",
@@ -293,7 +326,7 @@
     "type": "Single",
     "date": "2021-07-02",
     "cover": "olym.jpg",
-    "link": "https://distrokid.com/hyperfollow/sywavy/olympian",
+    "link": "https://sywavy.com/release.html?id=olympian",
     "songs": 1,
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/02davyhOLrc4t8QCiAH0I6",
@@ -307,7 +340,7 @@
     "type": "EP",
     "date": "2021-04-09",
     "cover": "phonto (2).JPG",
-    "link": "https://distrokid.com/hyperfollow/sywavy/hurts-to-heal",
+    "link": "https://sywavy.com/release.html?id=hurts-to-heal",
     "songs": 4,
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/6xXRTYCgEO0ri7tlsJuhTR",
@@ -326,7 +359,7 @@
     "type": "EP",
     "date": "2021-01-15",
     "cover": "whyme.jpg",
-    "link": "https://distrokid.com/hyperfollow/sywavy/why-me",
+    "link": "https://sywavy.com/release.html?id=why-me",
     "songs": 3,
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/2COzO0DgaeNHGdb179ok5G",
@@ -345,7 +378,7 @@
     "type": "Single",
     "date": "2020-12-09",
     "cover": "fam.jpg",
-    "link": "https://distrokid.com/hyperfollow/sywavy/family-ties-3",
+    "link": "https://sywavy.com/release.html?id=family-ties",
     "songs": 1,
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/25O2nPUI0yDmaTIcZvnkaM",
@@ -358,7 +391,7 @@
     "type": "Single",
     "date": "2020-11-14",
     "cover": "14th.jpg",
-    "link": "https://distrokid.com/hyperfollow/sywavy/14th",
+    "link": "https://sywavy.com/release.html?id=14th",
     "songs": 1,
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/0gkbX42c7ApFBwXxZsn9T4",
@@ -371,7 +404,7 @@
     "type": "Single",
     "date": "2020-09-19",
     "cover": "red.jpg",
-    "link": "https://distrokid.com/hyperfollow/sywavy/red-lights-2",
+    "link": "https://sywavy.com/release.html?id=red-lights",
     "songs": 1,
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/376UoQExNo7YRabzRleAr3",
@@ -384,7 +417,7 @@
     "type": "EP",
     "date": "2020-08-14",
     "cover": "sat.jpg",
-    "link": "https://distrokid.com/hyperfollow/sywavy/saturn",
+    "link": "https://sywavy.com/release.html?id=saturn",
     "songs": 2,
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/0WKRqsyrGo8MtsiRGmQBo8",
@@ -401,7 +434,7 @@
     "type": "EP",
     "date": "2020-06-27",
     "cover": "ear.jpg",
-    "link": "https://distrokid.com/hyperfollow/sywavy/ear-candi",
+    "link": "https://sywavy.com/release.html?id=ear-candi",
     "songs": 5,
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/0tB8oADagNJ4Tu3SACF2Uo",
@@ -421,7 +454,7 @@
     "type": "Single",
     "date": "2020-03-28",
     "cover": "keys.jpg",
-    "link": "https://distrokid.com/hyperfollow/sywavy/keys",
+    "link": "https://sywavy.com/release.html?id=keys",
     "songs": 1,
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/4YTpjeI5wwDuqxhHOpiby9",
