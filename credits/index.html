@@ -183,6 +183,29 @@
       transform: scale(1.03);
     }
 
+.media-wrapper {
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      max-width: 800px;
+      width: 100%;
+    }
+
+    .media-wrapper.single-video {
+      aspect-ratio: 16 / 9;
+    }
+
+    .media-wrapper.playlist {
+      height: 500px;
+    }
+
+    .media-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 15px;
+    }
+
     .youtube-embed {
       width: 400px;
       height: 250px;
@@ -283,10 +306,12 @@
 
       <div class="featured-video">
         <h3>Latest Production</h3>
-        <iframe class="youtube-embed"
-          src="https://www.youtube.com/embed/qJxKahnEGDY?si=eGv1MpTEHSkrrg9I"
-          allowfullscreen>
-        </iframe>
+        <div class="media-wrapper playlist">
+          <iframe
+            src="https://www.youtube.com/embed/n_QNxEcYUWs?list=OLAK5uy_k70JNhW_BgIx7tbXN1K1P4AXipevLgT-c"
+            allowfullscreen>
+          </iframe>
+        </div>
       </div>
     </div>
   </div>
