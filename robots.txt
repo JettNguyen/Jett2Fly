@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jett2fly.com/sitemap.xml
