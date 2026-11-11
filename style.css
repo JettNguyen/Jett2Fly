@@ -101,6 +101,7 @@ h3 { font-family: var(--display); font-weight: 700; font-size: 20px; letter-spac
 .page-head h1 { font-size: clamp(44px, 9vw, 112px); font-weight: 800; letter-spacing: -.035em; line-height: .92; }
 .page-head .eyebrow { margin-bottom: 20px; }
 .page-head .lede { margin-top: 22px; }
+.page-head .lede + .lede { margin-top: 12px; }
 
 /* ---------- Header ---------- */
 .site-header {
