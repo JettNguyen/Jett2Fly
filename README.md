@@ -8,6 +8,7 @@ Static site, hosted on GitHub Pages straight from `main`.
 | `render.js` | The markup for releases, videos and credits, shared by `site.js` and `build.js`. |
 | `site.js` | Shared behaviour: waveform, reveals, release dialog, video facades, clean addresses. |
 | `build.js` | Writes the releases, videos and credits into the pages, with structured data, so search engines and AI crawlers can read them without running scripts. |
+| `indexnow.js` | Tells Bing the pages changed. A workflow runs it after each deploy; the `<key>.txt` file at the root has to stay. |
 | `style.css` | Every style, for every page. |
 | `images/covers/` | 800px square cover JPEGs, named by slug. |
 | `images/thumbs/` | 240px versions of the same. |

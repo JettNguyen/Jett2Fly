@@ -1,0 +1,25 @@
+name: Tell Bing the site changed
+
+# Runs after GitHub Pages finishes deploying a push to main
+on:
+  workflow_run:
+    workflows: [pages-build-deployment]
+    types: [completed]
+
+permissions:
+  contents: read
+
+jobs:
+  indexnow:
+    if: github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Send the pages to IndexNow
+        run: node indexnow.js
+        continue-on-error: true
