@@ -1,48 +1,34 @@
 /* ==========================================================================
    Jett2Fly: site.js
    Shared behaviour for every page. Page-specific work is keyed off
-   <body data-page="…">. Data comes from releases.js.
+   <body data-page="…">. Data comes from releases.js and markup from
+   render.js. build.js has already written the same markup into each page
+   for search engines; this draws it again from releases.js, so a visitor
+   always sees the current data even if build.js wasn't run.
    ========================================================================== */
+
+/* An old link to /latest/index.html still loads, so show the clean address */
+if (/\/index\.html$/.test(location.pathname)) {
+  history.replaceState(null, '', location.pathname.replace(/index\.html$/, '') + location.search + location.hash);
+}
+
 (() => {
   'use strict';
   document.documentElement.classList.remove('no-js');
 
-  const RELEASES = (window.RELEASES || []).slice().sort((a, b) => b.date.localeCompare(a.date));
+  const R = window.J2F;
+  const RELEASES = R.newestFirst(window.RELEASES || []);
   const VIDEOS = window.VIDEOS || [];
   const PLAYLISTS = window.PLAYLISTS || {};
   const FILMS = window.FILMS || [];
-  const PLATFORMS = [['spotify', 'Spotify', 'spotify'], ['apple', 'Apple Music', 'applemusic'], ['youtube', 'YouTube', 'youtube'], ['soundcloud', 'SoundCloud', 'soundcloud']];
-  const icon = n => `<svg class="ico ico-${n}" aria-hidden="true"><use href="#i-${n}"/></svg>`;
+  const { esc, cover, fmtDate, year, tracksOf, plural, dot } = R;
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const page = document.body.dataset.page;
 
   /* ---------- helpers ---------- */
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
-  const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  const cover = (r, size = 'covers') => `/images/${size}/${r.slug}.jpg`;
-  const fmtDate = iso => { const [y, m, d] = iso.split('-').map(Number); return new Date(y, m - 1, d).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }); };
-  const year = r => r.date.slice(0, 4);
-  const tracksOf = r => r.tracks ? r.tracks.length : (r.songs || 1);
-  const plural = (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`;
-  const meta = r => `${r.type} · ${plural(tracksOf(r), 'track')} · ${year(r)}`;
-  const dot = ' <span class="dot">·</span> ';
-
-  function platformPills(r) {
-    const links = r.streamingLinks || {};
-    const pills = PLATFORMS.filter(([k]) => links[k]).map(([k, name, ic]) =>
-      `<a class="pill pill-stream" data-platform="${k}" href="${esc(links[k])}" target="_blank" rel="noopener">${icon(ic)}${name}</a>`);
-    if (r.link) pills.push(`<a class="pill" href="${esc(r.link)}" target="_blank" rel="noopener">All platforms <span class="arrow">↗</span></a>`);
-    return pills.join('');
-  }
-  const trackList = r => r.tracks && r.tracks.length ? `<ol class="tracklist">${r.tracks.map(t => `<li>${esc(t)}</li>`).join('')}</ol>` : '';
-
-  function releaseCard(r, i, tag = 'a') {
-    const attrs = tag === 'a' ? `href="/latest/#${r.slug}"` : `type="button" data-slug="${r.slug}"`;
-    return `<${tag} class="card card-btn" ${attrs} data-reveal style="--i:${i % 6}">
-      <div class="cover"><img src="${cover(r)}" alt="${esc(r.title)} cover art" loading="lazy" width="800" height="800"></div>
-      <div class="body"><h3>${esc(r.title)}</h3><div class="mono">${esc(meta(r))}</div></div>
-    </${tag}>`;
-  }
+  const fill = (sel, html) => { const el = $(sel); if (el) el.innerHTML = html; return el; };
 
   /* ---------- header ---------- */
   const header = $('.site-header');
@@ -81,18 +67,10 @@
   }), { threshold: .4 });
 
   function fillStats() {
-    const years = RELEASES.map(r => +year(r));
-    const values = {
-      releases: RELEASES.length,
-      tracks: RELEASES.reduce((n, r) => n + tracksOf(r), 0),
-      years: years.length ? Math.max(...years) - Math.min(...years) + 1 : 0,
-      artists: new Set(RELEASES.map(r => r.artist)).size,
-      videos: VIDEOS.length,
-      films: FILMS.length
-    };
+    const values = R.stats(RELEASES, VIDEOS, FILMS);
     $$('[data-count]').forEach(el => {
       el.dataset.target = values[el.dataset.count] ?? 0;
-      el.textContent = '0';
+      if (!reduceMotion) el.textContent = '0';
       cio.observe(el);
     });
   }
@@ -204,27 +182,85 @@
       el.innerHTML = `<iframe src="${url}" title="${esc(title)}" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
     });
   }
-  const videoCard = (v, i) => `<div data-reveal style="--i:${i % 6}">
-      <div class="yt" data-id="${esc(v.id)}" data-title="${esc(v.title + ' by ' + v.artist)}"></div>
-      <div class="video-caption"><h3>${esc(v.title)}</h3><span class="mono">${esc(v.artist)} · ${esc(v.kind)}</span></div>
-    </div>`;
 
   /* ---------- Film work ---------- */
-  function filmCard(f, i) {
-    const bits = [f.year, f.role, f.runtime, f.director && `dir. ${f.director}`].filter(Boolean).map(esc).join(' · ');
-    const media = f.youtube
-      ? `<div class="yt" data-id="${esc(f.youtube)}" data-title="${esc(f.title)}"${f.poster ? ` data-poster="${esc(f.poster)}"` : ''}></div>`
-      : `<a class="card" href="${esc(f.url || '#')}" target="_blank" rel="noopener"><div class="cover" style="aspect-ratio:16/9">${f.poster ? `<img src="${esc(f.poster)}" alt="" loading="lazy">` : ''}</div></a>`;
-    return `<div data-reveal style="--i:${i % 6}">${media}
-      <div class="video-caption stack"><h3>${esc(f.title)}</h3><span class="mono">${bits}</span></div>
-      ${f.note ? `<p class="film-note">${esc(f.note)}</p>` : ''}</div>`;
-  }
   function renderFilms() {
     const sec = $('#film'), grid = $('#film-grid');
     if (!sec || !grid || !FILMS.length) return;
-    grid.innerHTML = FILMS.map(filmCard).join('');
+    grid.innerHTML = FILMS.map(R.filmCard).join('');
     sec.hidden = false;
   }
+
+  /* ---------- clean addresses ----------
+     Jett wants no # in the address bar (11/10/2026, same as sywavy.com). Links
+     keep their # so they still work in a new tab or without scripts, but a
+     plain click scrolls on the same page, or hands the section or release to
+     the next page in sessionStorage. Any # that arrives anyway (an old or
+     shared link) is used, then dropped from the address. */
+  const GOTO = 'j2f_goto';
+  const hashId = h => { try { return decodeURIComponent(h.slice(1)); } catch (_) { return ''; } };
+  const dirOf = p => p.replace(/index\.html$/, '');
+  const dropHash = () => history.replaceState(history.state, '', location.pathname + location.search);
+  function take() {
+    try { const v = sessionStorage.getItem(GOTO); sessionStorage.removeItem(GOTO); return v; } catch (_) { return null; }
+  }
+  function keep(v) {
+    try { sessionStorage.setItem(GOTO, v); return true; } catch (_) { return false; }
+  }
+
+  // The stylesheet makes scrolling glide, but landing on a spot as a page opens shouldn't
+  function jump(scroll) {
+    const root = document.documentElement;
+    root.style.scrollBehavior = 'auto';
+    scroll();
+    root.style.scrollBehavior = '';
+  }
+
+  // Scroll to a section and move keyboard focus there, the way following a #link does
+  function goToSection(el, glide) {
+    const scroll = () => el.scrollIntoView({ behavior: glide && !reduceMotion ? 'smooth' : 'auto', block: 'start' });
+    if (glide && !reduceMotion) scroll(); else jump(scroll);
+    if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '-1');
+    el.focus({ preventScroll: true });
+  }
+
+  // Land on a section as the page opens. Fonts and images that arrive afterwards
+  // can still move it, so land again once they're in, unless the visitor has
+  // started scrolling by then.
+  function landOn(el) {
+    let touched = false;
+    ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(type =>
+      addEventListener(type, () => { touched = true; }, { once: true, passive: true }));
+    const land = () => { if (!touched) goToSection(el, false); };
+    requestAnimationFrame(() => requestAnimationFrame(land));
+    if (document.fonts) document.fonts.ready.then(land);
+    addEventListener('load', land, { once: true });
+  }
+
+  // What each page does with a # it is handed: a section id, or on the Music page, a release
+  let handleTarget = id => {
+    const el = id && document.getElementById(id);
+    if (el) landOn(el);
+    return !!el;
+  };
+
+  document.addEventListener('click', e => {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const link = e.target.closest('a[href*="#"]');
+    if (!link || link.target === '_blank') return;
+    const url = new URL(link.href, location.href);
+    if (url.origin !== location.origin || !url.hash) return;
+    const id = hashId(url.hash);
+    if (dirOf(url.pathname) === dirOf(location.pathname)) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      e.preventDefault();
+      goToSection(el, true);
+    } else if (keep(id)) {
+      e.preventDefault();
+      location.href = url.pathname + url.search;
+    }
+  });
 
   /* ==========================================================================
      Pages
@@ -238,33 +274,21 @@
       if (wave) waveform(wave);
       if (latest) {
         accentFrom(cover(latest, 'thumbs'));
-        const cta = $('#hero-cta');
-        if (cta) cta.innerHTML = `Listen to ${esc(latest.title)} <span class="arrow">↓</span>`;
-        $('#featured').innerHTML = `
-          <a class="featured-cover" href="/latest/#${latest.slug}" data-reveal>
-            <img src="${cover(latest)}" alt="${esc(latest.title)} cover art" width="800" height="800" fetchpriority="high">
-            <span class="tag">Latest release</span>
-          </a>
-          <div class="featured-info" data-reveal style="--i:1">
-            <div class="eyebrow">${latest.type}${dot}${fmtDate(latest.date)}${dot}${plural(tracksOf(latest), 'track')}</div>
-            <h2>${esc(latest.title)}</h2>
-            <p class="with">with ${esc(latest.artist)}</p>
-            ${trackList(latest)}
-            <div class="featured-actions">${platformPills(latest)}</div>
-          </div>`;
+        fill('#hero-cta', R.heroCta(latest));
+        fill('#featured', R.featured(latest));
       }
-      $('#recent').innerHTML = RELEASES.slice(1, 5).map((r, i) => releaseCard(r, i)).join('');
+      fill('#recent', R.recent(RELEASES));
       const group = list => `<div class="marquee-group">${list.map(r =>
-        `<a href="/latest/#${r.slug}" aria-label="${esc(r.title)}"><img src="${cover(r, 'thumbs')}" alt="" loading="lazy" width="240" height="240"></a>`).join('')}</div>`;
+        `<a href="${R.releaseHref(r)}" aria-label="${esc(r.title)}"><img src="${cover(r, 'thumbs')}" alt="" loading="lazy" width="240" height="240"></a>`).join('')}</div>`;
       const a = RELEASES, b = RELEASES.slice().reverse();
-      $('#marquee-a').innerHTML = group(a) + group(a);
-      $('#marquee-b').innerHTML = group(b) + group(b);
-      const v = VIDEOS[0], vb = $('#latest-video');
-      if (v && vb) vb.innerHTML = `<div class="yt" data-id="${esc(v.id)}" data-title="${esc(v.title + ' by ' + v.artist)}"></div>`;
-      const vt = $('#latest-video-title');
-      if (v && vt) vt.textContent = v.title;
-      const vm = $('#latest-video-meta');
-      if (v && vm) vm.textContent = `${v.artist} · ${v.kind}`;
+      fill('#marquee-a', group(a) + group(a));
+      fill('#marquee-b', group(b) + group(b));
+      const v = VIDEOS[0];
+      if (v) {
+        fill('#latest-video', R.videoBox(v));
+        fill('#latest-video-title', esc(v.title));
+        fill('#latest-video-meta', `${esc(v.artist)} · ${esc(v.kind)}`);
+      }
     },
 
     music() {
@@ -283,13 +307,7 @@
       const render = () => {
         const list = RELEASES.filter(r => (type === 'All' || r.type === type) && (yr === 'all' || year(r) === yr));
         $('#count').textContent = plural(list.length, 'release');
-        if (!list.length) { catalog.innerHTML = '<p class="empty">Nothing matches those filters.</p>'; return; }
-        const groups = new Map();
-        list.forEach(r => { const y = year(r); if (!groups.has(y)) groups.set(y, []); groups.get(y).push(r); });
-        catalog.innerHTML = [...groups].map(([y, rs]) => `<section class="year-group">
-            <h2 class="year-label">${y}</h2>
-            <div class="release-grid">${rs.map((r, i) => releaseCard(r, i, 'button')).join('')}</div>
-          </section>`).join('');
+        catalog.innerHTML = list.length ? R.catalog(list) : '<p class="empty">Nothing matches those filters.</p>';
         observeReveals(catalog);
       };
       filters.addEventListener('click', e => {
@@ -302,19 +320,20 @@
       render();
 
       const open = slug => {
-        const r = RELEASES.find(x => x.slug === slug); if (!r) return;
+        const r = RELEASES.find(x => x.slug === slug); if (!r) return false;
         content.innerHTML = `
           <div class="dialog-cover"><img src="${cover(r)}" alt="${esc(r.title)} cover art" width="800" height="800"></div>
           <div class="dialog-body">
             <div class="eyebrow">${r.type}${dot}${fmtDate(r.date)}${dot}${plural(tracksOf(r), 'track')}</div>
             <h2 id="dialog-title">${esc(r.title)}</h2>
             <p class="with">with ${esc(r.artist)}</p>
-            <div class="pills">${platformPills(r)}</div>
-            ${trackList(r)}
+            <div class="pills">${R.platformPills(r)}</div>
+            ${R.trackList(r)}
           </div>`;
         if (!dialog.open) dialog.showModal();
         $('.dialog-body', dialog).scrollTop = 0;
-        history.replaceState(null, '', `#${slug}`);
+        $('.dialog-grid', dialog).scrollTop = 0;
+        return true;
       };
       catalog.addEventListener('click', e => {
         const card = e.target.closest('[data-slug]'); if (!card) return;
@@ -322,32 +341,24 @@
       });
       dialog.addEventListener('click', e => { if (e.target === dialog || e.target.closest('[data-close]')) dialog.close(); });
       dialog.addEventListener('close', () => {
-        history.replaceState(null, '', location.pathname);
         if (opener) { opener.focus(); opener = null; }
       });
-      const fromHash = () => { const s = location.hash.slice(1); if (s) open(s); };
-      addEventListener('hashchange', fromHash);
-      fromHash();
+      // A release handed over from another page opens in the dialog
+      const sectionTarget = handleTarget;
+      handleTarget = id => open(id) || sectionTarget(id);
     },
 
     videos() {
       const [first, ...rest] = VIDEOS;
-      if (first) {
-        $('#video-featured').innerHTML = `<div class="yt" data-id="${esc(first.id)}" data-title="${esc(first.title + ' by ' + first.artist)}"></div>
-          <div class="video-caption"><h3>${esc(first.title)}</h3><span class="mono">${esc(first.artist)} · ${esc(first.kind)}</span></div>`;
-      }
-      $('#video-grid').innerHTML = rest.map(videoCard).join('');
+      if (first) fill('#video-featured', `${R.videoBox(first)}
+          ${R.videoCaption(first)}`);
+      fill('#video-grid', rest.map(R.videoCard).join(''));
       const pl = $('#playlist');
       if (pl && PLAYLISTS.youtube) pl.dataset.list = PLAYLISTS.youtube;
     },
 
     credits() {
-      $('#credits').innerHTML = RELEASES.map((r, i) => `
-        <a class="credit" href="/latest/#${r.slug}" data-reveal style="--i:${i % 6}">
-          <img src="${cover(r, 'thumbs')}" alt="" loading="lazy" width="56" height="56">
-          <div><h3>${esc(r.title)}</h3><div class="mono">${esc(r.artist)} · ${r.type} · ${plural(tracksOf(r), 'track')}</div></div>
-          <span class="year"><span class="full">${fmtDate(r.date)}</span><span class="short">${year(r)}</span></span>
-        </a>`).join('');
+      fill('#credits', R.credits(RELEASES));
       const sp = $('#spotify-playlist');
       if (sp && PLAYLISTS.spotify) sp.href = PLAYLISTS.spotify;
       const yt = $('#youtube-playlist');
@@ -355,11 +366,22 @@
     }
   };
 
-  const page = document.body.dataset.page;
   if (pages[page]) pages[page]();
   if (RELEASES[0] && page !== 'home') accentFrom(cover(RELEASES[0], 'thumbs'));
   renderFilms();
   $$('.yt[data-id], .yt[data-list]').forEach(ytFacade);
   fillStats();
   observeReveals();
+
+  /* ---------- the section or release this page was opened for ---------- */
+  const arrived = take() || hashId(location.hash);
+  if (location.hash) dropHash();
+  if (arrived) handleTarget(arrived);
+  // A # typed into the address while already on the page
+  addEventListener('hashchange', () => {
+    const id = hashId(location.hash);
+    if (!id) return;
+    dropHash();
+    handleTarget(id);
+  });
 })();

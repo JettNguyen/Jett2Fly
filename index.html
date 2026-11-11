@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
+  <script>document.documentElement.classList.remove('no-js')</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0b0b0c">
@@ -11,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
   <script src="/releases.js" defer></script>
+  <script src="/render.js" defer></script>
   <script src="/site.js" defer></script>
   <title>Jett2Fly | Producer, Sound Designer & Composer</title>
   <meta name="description" content="Jett2Fly is a producer, sound designer and composer. Two dozen releases since 2020, most recently the album Magnum Opus with SyWavy, plus original score and sound design for short film.">
@@ -22,6 +24,49 @@
   <meta property="og:url" content="https://jett2fly.com/">
   <meta property="og:image" content="https://jett2fly.com/images/og.jpg">
   <meta name="twitter:card" content="summary_large_image">
+  <!-- build:data --><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://jett2fly.com/#website",
+      "url": "https://jett2fly.com/",
+      "name": "Jett2Fly",
+      "publisher": {
+        "@id": "https://jett2fly.com/#person"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://jett2fly.com/#person",
+      "name": "Jett2Fly",
+      "url": "https://jett2fly.com/",
+      "image": "https://jett2fly.com/images/logo.png",
+      "jobTitle": [
+        "Music producer",
+        "Sound designer",
+        "Film composer"
+      ],
+      "description": "Jett2Fly is a producer, sound designer and composer. Two dozen releases since 2020, most recently the album Magnum Opus with SyWavy, plus original score and sound design for short film.",
+      "email": "jett2fly@gmail.com",
+      "sameAs": [
+        "https://www.instagram.com/jett2fly",
+        "#i-instagram",
+        "https://www.youtube.com/@jett2fly",
+        "#i-youtube",
+        "https://www.tiktok.com/@jett2fly",
+        "#i-tiktok",
+        "https://open.spotify.com/artist/1Q0CQN1Z6DCWk3MtXseWtr",
+        "#i-spotify",
+        "https://www.linkedin.com/in/jett-nguyen/",
+        "#i-linkedin",
+        "https://musicbrainz.org/artist/e065c1e5-39be-4824-9a4c-f59d3e79d0da"
+      ]
+    }
+  ]
+}
+  </script><!-- /build:data -->
 </head>
 <body data-page="home">
   <!-- Brand icons: Font Awesome Free (CC BY 4.0) and Simple Icons (CC0) -->
@@ -58,7 +103,7 @@
           <div data-reveal>
             <p class="lede">Producer, sound designer and composer. Two dozen releases since 2020, from the first single <em>Keys'</em> to <em>Magnum Opus</em>, an 18‑track album with SyWavy, plus sound design and original score for short film.</p>
             <div class="hero-actions">
-              <a class="btn btn-accent" id="hero-cta" href="#latest">Listen <span class="arrow">↓</span></a>
+              <a class="btn btn-accent" id="hero-cta" href="#latest"><!-- build:cta -->Listen to Magnum Opus <span class="arrow">↓</span><!-- /build:cta --></a>
               <a class="btn btn-ghost" href="#contact">Work with me</a>
             </div>
           </div>
@@ -78,7 +123,18 @@
 
     <section class="section" id="latest">
       <div class="wrap">
-        <div class="featured" id="featured"></div>
+        <div class="featured" id="featured"><!-- build:featured -->
+          <a class="featured-cover" href="/latest/#magnum-opus" data-reveal>
+            <img src="/images/covers/magnum-opus.jpg" alt="Magnum Opus cover art" width="800" height="800" fetchpriority="high">
+            <span class="tag">Latest release</span>
+          </a>
+          <div class="featured-info" data-reveal style="--i:1">
+            <div class="eyebrow">Album <span class="dot">·</span> May 29, 2026 <span class="dot">·</span> 18 tracks</div>
+            <h2>Magnum Opus</h2>
+            <p class="with">with SyWavy</p>
+            <ol class="tracklist"><li>Vertex</li><li>Rust</li><li>To Two B*tches</li><li>SZA</li><li>Carolina Herrera</li><li>Slow? Never</li><li>YAMAHA RIDIN&#39;</li><li>Shameless Guy</li><li>Proceed</li><li>Please lmk</li><li>Favorite Meme</li><li>Gorgeous So Fye</li><li>Steer</li><li>Tower of Tears</li><li>Wavy Deagle</li><li>Flame</li><li>Put It On! (feat. The Part Time Models)</li><li>Awtside</li></ol>
+            <div class="featured-actions"><a class="pill pill-stream" data-platform="spotify" href="https://open.spotify.com/album/4hAfaZSwoKQpMaJV4LDgR4" target="_blank" rel="noopener"><svg class="ico ico-spotify" aria-hidden="true"><use href="#i-spotify"/></svg>Spotify</a><a class="pill pill-stream" data-platform="apple" href="https://music.apple.com/us/album/magnum-opus/6772945346?uo=4&amp;app=music&amp;at=1001lry3&amp;ct=dashboard" target="_blank" rel="noopener"><svg class="ico ico-applemusic" aria-hidden="true"><use href="#i-applemusic"/></svg>Apple Music</a><a class="pill pill-stream" data-platform="youtube" href="https://www.youtube.com/playlist?list=OLAK5uy_k70JNhW_BgIx7tbXN1K1P4AXipevLgT-c" target="_blank" rel="noopener"><svg class="ico ico-youtube" aria-hidden="true"><use href="#i-youtube"/></svg>YouTube</a><a class="pill" href="https://sywavy.com/magnum-opus" target="_blank" rel="noopener">All platforms <span class="arrow">↗</span></a></div>
+          </div><!-- /build:featured --></div>
       </div>
     </section>
 
@@ -88,7 +144,19 @@
           <h2>More music</h2>
           <a class="link" href="/latest/">Full discography <span class="arrow">→</span></a>
         </div>
-        <div class="release-grid four" id="recent"></div>
+        <div class="release-grid four" id="recent"><!-- build:recent --><a class="card card-btn" href="/latest/#flame" data-reveal style="--i:0">
+      <div class="cover"><img src="/images/covers/flame.jpg" alt="Flame cover art" loading="lazy" width="800" height="800"></div>
+      <div class="body"><h3>Flame</h3><div class="mono">Single · 1 track · 2025</div></div>
+    </a><a class="card card-btn" href="/latest/#wavy-deagle" data-reveal style="--i:1">
+      <div class="cover"><img src="/images/covers/wavy-deagle.jpg" alt="Wavy Deagle cover art" loading="lazy" width="800" height="800"></div>
+      <div class="body"><h3>Wavy Deagle</h3><div class="mono">Single · 1 track · 2025</div></div>
+    </a><a class="card card-btn" href="/latest/#put-it-on" data-reveal style="--i:2">
+      <div class="cover"><img src="/images/covers/put-it-on.jpg" alt="Put It On! cover art" loading="lazy" width="800" height="800"></div>
+      <div class="body"><h3>Put It On!</h3><div class="mono">Single · 1 track · 2025</div></div>
+    </a><a class="card card-btn" href="/latest/#awtside" data-reveal style="--i:3">
+      <div class="cover"><img src="/images/covers/awtside.jpg" alt="Awtside cover art" loading="lazy" width="800" height="800"></div>
+      <div class="body"><h3>Awtside</h3><div class="mono">Single · 1 track · 2025</div></div>
+    </a><!-- /build:recent --></div>
       </div>
     </section>
 
@@ -100,9 +168,9 @@
     <section class="section">
       <div class="wrap">
         <div class="stats" data-reveal>
-          <div class="stat"><div class="num"><span data-count="releases">0</span></div><div class="eyebrow">Releases</div></div>
-          <div class="stat"><div class="num"><span data-count="tracks">0</span><sup>+</sup></div><div class="eyebrow">Tracks produced</div></div>
-          <div class="stat"><div class="num"><span data-count="years">0</span></div><div class="eyebrow">Years releasing</div></div>
+          <div class="stat"><div class="num"><span data-count="releases">25</span></div><div class="eyebrow">Releases</div></div>
+          <div class="stat"><div class="num"><span data-count="tracks">117</span><sup>+</sup></div><div class="eyebrow">Tracks produced</div></div>
+          <div class="stat"><div class="num"><span data-count="years">7</span></div><div class="eyebrow">Years releasing</div></div>
         </div>
       </div>
     </section>
@@ -113,8 +181,8 @@
           <div id="latest-video" data-reveal></div>
           <div data-reveal style="--i:1">
             <div class="eyebrow">Latest visual</div>
-            <h2 id="latest-video-title"></h2>
-            <p id="latest-video-meta"></p>
+            <h2 id="latest-video-title"><!-- build:video-title -->Slow? Never<!-- /build:video-title --></h2>
+            <p id="latest-video-meta"><!-- build:video-meta -->SyWavy · Official Music Video<!-- /build:video-meta --></p>
             <a class="btn btn-ghost" href="/videos/">All videos <span class="arrow">→</span></a>
           </div>
         </div>
@@ -126,7 +194,7 @@
         <div class="section-head" data-reveal>
           <div><h2>Sound for film</h2><p class="lede">Sound design and original score for short films.</p></div>
         </div>
-        <div class="video-grid" id="film-grid"></div>
+        <div class="video-grid" id="film-grid"><!-- build:films --><!-- /build:films --></div>
       </div>
     </section>
 

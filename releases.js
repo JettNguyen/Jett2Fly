@@ -489,13 +489,14 @@ window.RELEASES = [
   }
 ];
 
-/* Official videos, newest first. id = the YouTube video id. The first entry is featured on the home page. */
+/* Official videos, newest first. The first entry is featured on the home page.
+   id = the YouTube video id, date = the day it went up on YouTube (YYYY-MM-DD). */
 window.VIDEOS = [
-  { "id": "5mAE4k32Hpg", "title": "Slow? Never", "artist": "SyWavy", "kind": "Official Music Video", "release": "magnum-opus" },
-  { "id": "SOnLkK8uM10", "title": "YAMAHA RIDIN'", "artist": "SyWavy", "kind": "Official Music Video", "release": "magnum-opus" },
-  { "id": "u5F1GKy1FKo", "title": "Rust", "artist": "SyWavy", "kind": "Official Music Video", "release": "magnum-opus" },
-  { "id": "cNYZxzDjoUE", "title": "Carolina Herrera", "artist": "SyWavy", "kind": "Official Music Video", "release": "magnum-opus" },
-  { "id": "EEbRq_fPUnE", "title": "SZA", "artist": "SyWavy", "kind": "Official Music Video", "release": "magnum-opus" }
+  { "id": "5mAE4k32Hpg", "title": "Slow? Never", "artist": "SyWavy", "kind": "Official Music Video", "date": "2026-11-06", "release": "magnum-opus" },
+  { "id": "SOnLkK8uM10", "title": "YAMAHA RIDIN'", "artist": "SyWavy", "kind": "Official Music Video", "date": "2026-10-03", "release": "magnum-opus" },
+  { "id": "u5F1GKy1FKo", "title": "Rust", "artist": "SyWavy", "kind": "Official Music Video", "date": "2026-08-29", "release": "magnum-opus" },
+  { "id": "cNYZxzDjoUE", "title": "Carolina Herrera", "artist": "SyWavy", "kind": "Official Music Video", "date": "2026-07-03", "release": "magnum-opus" },
+  { "id": "EEbRq_fPUnE", "title": "SZA", "artist": "SyWavy", "kind": "Official Music Video", "date": "2026-05-30", "release": "magnum-opus" }
 ];
 
 window.PLAYLISTS = {

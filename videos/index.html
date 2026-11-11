@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
+  <script>document.documentElement.classList.remove('no-js')</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0b0b0c">
@@ -11,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
   <script src="/releases.js" defer></script>
+  <script src="/render.js" defer></script>
   <script src="/site.js" defer></script>
   <title>Videos | Jett2Fly</title>
   <meta name="description" content="Official music videos for songs produced by Jett2Fly, and short films with Jett2Fly sound design and score.">
@@ -22,6 +24,111 @@
   <meta property="og:url" content="https://jett2fly.com/videos/">
   <meta property="og:image" content="https://jett2fly.com/images/og.jpg">
   <meta name="twitter:card" content="summary_large_image">
+  <!-- build:data --><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Music videos for songs produced by Jett2Fly",
+  "numberOfItems": 5,
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "VideoObject",
+        "name": "Slow? Never (Official Music Video)",
+        "description": "Official Music Video for SyWavy's \"Slow? Never\", produced by Jett2Fly.",
+        "thumbnailUrl": "https://i.ytimg.com/vi/5mAE4k32Hpg/maxresdefault.jpg",
+        "uploadDate": "2026-11-06",
+        "url": "https://www.youtube.com/watch?v=5mAE4k32Hpg",
+        "embedUrl": "https://www.youtube.com/embed/5mAE4k32Hpg",
+        "creator": {
+          "@type": "MusicGroup",
+          "@id": "https://sywavy.com/#artist",
+          "name": "SyWavy",
+          "url": "https://sywavy.com/"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "VideoObject",
+        "name": "YAMAHA RIDIN' (Official Music Video)",
+        "description": "Official Music Video for SyWavy's \"YAMAHA RIDIN'\", produced by Jett2Fly.",
+        "thumbnailUrl": "https://i.ytimg.com/vi/SOnLkK8uM10/maxresdefault.jpg",
+        "uploadDate": "2026-10-03",
+        "url": "https://www.youtube.com/watch?v=SOnLkK8uM10",
+        "embedUrl": "https://www.youtube.com/embed/SOnLkK8uM10",
+        "creator": {
+          "@type": "MusicGroup",
+          "@id": "https://sywavy.com/#artist",
+          "name": "SyWavy",
+          "url": "https://sywavy.com/"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": {
+        "@type": "VideoObject",
+        "name": "Rust (Official Music Video)",
+        "description": "Official Music Video for SyWavy's \"Rust\", produced by Jett2Fly.",
+        "thumbnailUrl": "https://i.ytimg.com/vi/u5F1GKy1FKo/maxresdefault.jpg",
+        "uploadDate": "2026-08-29",
+        "url": "https://www.youtube.com/watch?v=u5F1GKy1FKo",
+        "embedUrl": "https://www.youtube.com/embed/u5F1GKy1FKo",
+        "creator": {
+          "@type": "MusicGroup",
+          "@id": "https://sywavy.com/#artist",
+          "name": "SyWavy",
+          "url": "https://sywavy.com/"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "item": {
+        "@type": "VideoObject",
+        "name": "Carolina Herrera (Official Music Video)",
+        "description": "Official Music Video for SyWavy's \"Carolina Herrera\", produced by Jett2Fly.",
+        "thumbnailUrl": "https://i.ytimg.com/vi/cNYZxzDjoUE/maxresdefault.jpg",
+        "uploadDate": "2026-07-03",
+        "url": "https://www.youtube.com/watch?v=cNYZxzDjoUE",
+        "embedUrl": "https://www.youtube.com/embed/cNYZxzDjoUE",
+        "creator": {
+          "@type": "MusicGroup",
+          "@id": "https://sywavy.com/#artist",
+          "name": "SyWavy",
+          "url": "https://sywavy.com/"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "item": {
+        "@type": "VideoObject",
+        "name": "SZA (Official Music Video)",
+        "description": "Official Music Video for SyWavy's \"SZA\", produced by Jett2Fly.",
+        "thumbnailUrl": "https://i.ytimg.com/vi/EEbRq_fPUnE/maxresdefault.jpg",
+        "uploadDate": "2026-05-30",
+        "url": "https://www.youtube.com/watch?v=EEbRq_fPUnE",
+        "embedUrl": "https://www.youtube.com/embed/EEbRq_fPUnE",
+        "creator": {
+          "@type": "MusicGroup",
+          "@id": "https://sywavy.com/#artist",
+          "name": "SyWavy",
+          "url": "https://sywavy.com/"
+        }
+      }
+    }
+  ]
+}
+  </script><!-- /build:data -->
 </head>
 <body data-page="videos">
   <!-- Brand icons: Font Awesome Free (CC BY 4.0) and Simple Icons (CC0) -->
@@ -55,14 +162,27 @@
       <p class="lede">Official videos for the catalog. Nothing loads until you press play.</p>
     </div>
 
-    <div class="video-featured" id="video-featured" data-reveal></div>
-    <div class="video-grid" id="video-grid"></div>
+    <div class="video-featured" id="video-featured" data-reveal><!-- build:video-featured --><div class="yt" data-id="5mAE4k32Hpg" data-title="Slow? Never by SyWavy"></div>
+          <div class="video-caption"><h3>Slow? Never</h3><span class="mono">SyWavy · Official Music Video</span></div><!-- /build:video-featured --></div>
+    <div class="video-grid" id="video-grid"><!-- build:video-grid --><div data-reveal style="--i:0">
+      <div class="yt" data-id="SOnLkK8uM10" data-title="YAMAHA RIDIN&#39; by SyWavy"></div>
+      <div class="video-caption"><h3>YAMAHA RIDIN&#39;</h3><span class="mono">SyWavy · Official Music Video</span></div>
+    </div><div data-reveal style="--i:1">
+      <div class="yt" data-id="u5F1GKy1FKo" data-title="Rust by SyWavy"></div>
+      <div class="video-caption"><h3>Rust</h3><span class="mono">SyWavy · Official Music Video</span></div>
+    </div><div data-reveal style="--i:2">
+      <div class="yt" data-id="cNYZxzDjoUE" data-title="Carolina Herrera by SyWavy"></div>
+      <div class="video-caption"><h3>Carolina Herrera</h3><span class="mono">SyWavy · Official Music Video</span></div>
+    </div><div data-reveal style="--i:3">
+      <div class="yt" data-id="EEbRq_fPUnE" data-title="SZA by SyWavy"></div>
+      <div class="video-caption"><h3>SZA</h3><span class="mono">SyWavy · Official Music Video</span></div>
+    </div><!-- /build:video-grid --></div>
 
     <section class="section" id="film" hidden>
         <div class="section-head" data-reveal>
           <div><h2>Sound for film</h2><p class="lede">Sound design and original score for short films.</p></div>
         </div>
-        <div class="video-grid" id="film-grid"></div>
+        <div class="video-grid" id="film-grid"><!-- build:films --><!-- /build:films --></div>
     </section>
 
     <section class="section">
