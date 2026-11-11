@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Jett2Fly — releases.js
+   Jett2Fly: releases.js
    The single source of truth for music on the site. Every page reads this.
 
    To add a release, add an object at the top of RELEASES:
@@ -17,7 +17,7 @@ window.RELEASES = [
     "artist": "SyWavy",
     "type": "Album",
     "date": "2026-05-29",
-    "link": "https://sywavy.com/release.html?id=magnum-opus",
+    "link": "https://sywavy.com/magnum-opus",
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/4hAfaZSwoKQpMaJV4LDgR4",
       "apple": "https://music.apple.com/us/album/magnum-opus/6772945346?uo=4&app=music&at=1001lry3&ct=dashboard",
@@ -50,7 +50,7 @@ window.RELEASES = [
     "artist": "SyWavy",
     "type": "Single",
     "date": "2025-11-14",
-    "link": "https://sywavy.com/release.html?id=flame",
+    "link": "https://sywavy.com/flame",
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/0WaLfswFe4BSvo4k22B4ai",
       "apple": "https://music.apple.com/us/album/flame-single/1853813425?uo=4&app=music&at=1001lry3&ct=dashboard",
@@ -64,7 +64,7 @@ window.RELEASES = [
     "artist": "SyWavy",
     "type": "Single",
     "date": "2025-07-25",
-    "link": "https://sywavy.com/release.html?id=wavy-deagle",
+    "link": "https://sywavy.com/wavy-deagle",
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/3uNqA3foeMEjVJFw5Rw1JI",
       "apple": "https://music.apple.com/us/album/wavy-deagle-single/1827862972?uo=4&app=music&at=1001lry3&ct=dashboard",
@@ -78,7 +78,7 @@ window.RELEASES = [
     "artist": "SyWavy",
     "type": "Single",
     "date": "2025-05-09",
-    "link": "https://sywavy.com/release.html?id=put-it-on",
+    "link": "https://sywavy.com/put-it-on",
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/2XFFQePnEMHqBNgDBCMKxq",
       "apple": "https://music.apple.com/us/album/put-it-on-feat-the-part-time-models-single/1812873731?uo=4&app=music&at=1001lry3&ct=dashboard",
@@ -92,7 +92,7 @@ window.RELEASES = [
     "artist": "SyWavy",
     "type": "Single",
     "date": "2025-04-04",
-    "link": "https://sywavy.com/release.html?id=awtside",
+    "link": "https://sywavy.com/awtside",
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/14ve923JA9HEX1tl9w8qWf",
       "apple": "https://music.apple.com/us/album/awtside-single/1805478348?uo=4&app=music&at=1001lry3&ct=dashboard",
@@ -106,7 +106,7 @@ window.RELEASES = [
     "artist": "SyWavy",
     "type": "Single",
     "date": "2025-02-28",
-    "link": "https://sywavy.com/release.html?id=imma-floridian",
+    "link": "https://sywavy.com/imma-floridian",
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/5Rir6SkxpyUWHvdnU89fD8",
       "apple": "https://music.apple.com/us/album/imma-floridian-single/1799066703?uo=4&app=music&at=1001lry3&ct=dashboard",
@@ -120,7 +120,7 @@ window.RELEASES = [
     "artist": "SyWavy",
     "type": "Album",
     "date": "2024-11-29",
-    "link": "https://sywavy.com/release.html?id=flight-370",
+    "link": "https://sywavy.com/flight-370",
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/4B3OKpetlnrHKDg6HPNTUU",
       "apple": "https://music.apple.com/us/album/flight-370/1782697824?uo=4&app=music&at=1001lry3&ct=dashboard",
@@ -135,7 +135,7 @@ window.RELEASES = [
       "Clairo",
       "Catch Flights & CRY (feat. The Part Time Models)",
       "Bulky Jewelry",
-      "We're Not SAFe",
+      "We're Not sAFe",
       "Self Melting Love",
       "Shadows (feat. The Part Time Models)",
       "The Shining",
@@ -148,7 +148,7 @@ window.RELEASES = [
     "artist": "SyWavy",
     "type": "EP",
     "date": "2024-06-21",
-    "link": "https://sywavy.com/release.html?id=gentleman-from-da-south",
+    "link": "https://sywavy.com/gentleman-from-da-south",
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/4CHWxeIgdCqAIQ6Px0Pbn5",
       "apple": "https://music.apple.com/us/album/gentleman-from-da-south-single/1752975738?uo=4&app=music&at=1001lry3&ct=dashboard",
@@ -164,9 +164,9 @@ window.RELEASES = [
     "slug": "deep-voice-bastards",
     "title": "Deep Voice Bastards",
     "artist": "SyWavy",
-    "type": "Mixtape",
+    "type": "Album",
     "date": "2023-12-22",
-    "link": "https://sywavy.com/release.html?id=deep-voice-bastards",
+    "link": "https://sywavy.com/deep-voice-bastards",
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/1WK4MQSYhBpgCjTI7LrP20",
       "apple": "https://music.apple.com/us/album/deep-voice-bastards/1722652348?uo=4&app=music&at=1001lry3&ct=dashboard",
@@ -220,7 +220,7 @@ window.RELEASES = [
     "artist": "SyWavy",
     "type": "Album",
     "date": "2023-03-17",
-    "link": "https://sywavy.com/release.html?id=wavy-life",
+    "link": "https://sywavy.com/wavy-life",
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/7ePDLLrFzDw75kn738TLJZ",
       "apple": "https://music.apple.com/us/album/wavy-life/1676929456?uo=4&app=music&at=1001lry3&ct=dashboard",
@@ -248,7 +248,7 @@ window.RELEASES = [
     "artist": "SyWavy",
     "type": "EP",
     "date": "2022-10-12",
-    "link": "https://sywavy.com/release.html?id=the",
+    "link": "https://sywavy.com/the",
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/5PMP9IA0iptvkT7WiL5bRC",
       "apple": "https://music.apple.com/us/album/the-single/1649527868?uo=4&app=music&at=1001lry3&ct=dashboard",
@@ -265,7 +265,7 @@ window.RELEASES = [
     "artist": "SyWavy",
     "type": "Single",
     "date": "2022-07-15",
-    "link": "https://sywavy.com/release.html?id=high-speed",
+    "link": "https://sywavy.com/high-speed",
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/5w2M6HZbxkGoIBNWCnN7MI",
       "apple": "https://music.apple.com/us/album/high-speed-single/1634319165?uo=4&app=music&at=1001lry3&ct=dashboard",
@@ -280,7 +280,7 @@ window.RELEASES = [
     "artist": "SyWavy",
     "type": "Album",
     "date": "2022-04-15",
-    "link": "https://sywavy.com/release.html?id=japanese-cherry-blossom",
+    "link": "https://sywavy.com/japanese-cherry-blossom",
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/6Od5M29vOAG0Ls5cJTqlLY",
       "apple": "https://music.apple.com/us/album/japanese-cherry-blossom/1753204541?uo=4&app=music&at=1001lry3&ct=dashboard",
@@ -311,7 +311,7 @@ window.RELEASES = [
     "artist": "SyWavy",
     "type": "Single",
     "date": "2021-11-26",
-    "link": "https://sywavy.com/release.html?id=night-glow",
+    "link": "https://sywavy.com/night-glow",
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/7txiS2K2OhoWTKbfEFTBwM",
       "apple": "https://music.apple.com/us/album/night-glow-single/1597280066?uo=4&app=music&at=1001lry3&ct=dashboard",
@@ -321,11 +321,11 @@ window.RELEASES = [
   },
   {
     "slug": "life-is-verses",
-    "title": "Life Is Verses",
+    "title": "Life is Verses",
     "artist": "SyWavy",
     "type": "EP",
     "date": "2021-09-24",
-    "link": "https://sywavy.com/release.html?id=life-is-verses",
+    "link": "https://sywavy.com/life-is-verses",
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/52BJgCNnqPTqCuku5odNvs",
       "apple": "https://music.apple.com/us/album/life-is-verses-ep/1586235736?uo=4&app=music&at=1001lry3&ct=dashboard",
@@ -335,7 +335,7 @@ window.RELEASES = [
       "Under",
       "Nick Fury",
       "3AM",
-      "Live is Verses",
+      "Life is Verses",
       "Fall Out",
       "Jorja"
     ]
@@ -346,7 +346,7 @@ window.RELEASES = [
     "artist": "SyWavy",
     "type": "Single",
     "date": "2021-07-02",
-    "link": "https://sywavy.com/release.html?id=olympian",
+    "link": "https://sywavy.com/olympian",
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/02davyhOLrc4t8QCiAH0I6",
       "apple": "https://music.apple.com/us/album/olympian-single/1573528940?uo=4&app=music&at=1001lry3&ct=dashboard",
@@ -361,7 +361,7 @@ window.RELEASES = [
     "artist": "SyWavy",
     "type": "EP",
     "date": "2021-04-09",
-    "link": "https://sywavy.com/release.html?id=hurts-to-heal",
+    "link": "https://sywavy.com/hurts-to-heal",
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/6xXRTYCgEO0ri7tlsJuhTR",
       "apple": "https://music.apple.com/us/album/hurts-to-heal-ep/1561704219?uo=4&app=music&at=1001lry3&ct=dashboard",
@@ -380,7 +380,7 @@ window.RELEASES = [
     "artist": "SyWavy",
     "type": "EP",
     "date": "2021-01-15",
-    "link": "https://sywavy.com/release.html?id=why-me",
+    "link": "https://sywavy.com/why-me",
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/2COzO0DgaeNHGdb179ok5G",
       "apple": "https://music.apple.com/us/album/why-me-single/1548137979?uo=4&app=music&at=1001lry3&ct=dashboard",
@@ -395,11 +395,11 @@ window.RELEASES = [
   },
   {
     "slug": "family-ties",
-    "title": "Family Ties",
+    "title": "Family Ties.",
     "artist": "SyWavy",
     "type": "Single",
     "date": "2020-12-09",
-    "link": "https://sywavy.com/release.html?id=family-ties",
+    "link": "https://sywavy.com/family-ties",
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/25O2nPUI0yDmaTIcZvnkaM",
       "apple": "https://music.apple.com/us/album/family-ties-single/1543475801?uo=4&app=music&at=1001lry3&ct=dashboard",
@@ -413,7 +413,7 @@ window.RELEASES = [
     "artist": "SyWavy",
     "type": "Single",
     "date": "2020-11-14",
-    "link": "https://sywavy.com/release.html?id=14th",
+    "link": "https://sywavy.com/14th",
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/0gkbX42c7ApFBwXxZsn9T4",
       "apple": "https://music.apple.com/us/album/14th-single/1539246012?uo=4&app=music&at=1001lry3&ct=dashboard",
@@ -427,7 +427,7 @@ window.RELEASES = [
     "artist": "SyWavy",
     "type": "Single",
     "date": "2020-09-19",
-    "link": "https://sywavy.com/release.html?id=red-lights",
+    "link": "https://sywavy.com/red-lights",
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/376UoQExNo7YRabzRleAr3",
       "apple": "https://music.apple.com/us/album/red-lights-single/1531910812?uo=4&app=music&at=1001lry3&ct=dashboard",
@@ -441,7 +441,7 @@ window.RELEASES = [
     "artist": "SyWavy",
     "type": "EP",
     "date": "2020-08-14",
-    "link": "https://sywavy.com/release.html?id=saturn",
+    "link": "https://sywavy.com/saturn",
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/0WKRqsyrGo8MtsiRGmQBo8",
       "apple": "https://music.apple.com/us/album/saturn-single/1526896543?uo=4&app=music&at=1001lry3&ct=dashboard",
@@ -458,7 +458,7 @@ window.RELEASES = [
     "artist": "SyWavy",
     "type": "EP",
     "date": "2020-06-27",
-    "link": "https://sywavy.com/release.html?id=ear-candi",
+    "link": "https://sywavy.com/ear-candi",
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/0tB8oADagNJ4Tu3SACF2Uo",
       "apple": "https://music.apple.com/us/album/ear-candi-ep/1519819721?uo=4&app=music&at=1001lry3&ct=dashboard",
@@ -474,11 +474,11 @@ window.RELEASES = [
   },
   {
     "slug": "keys",
-    "title": "Keys",
+    "title": "Keys'",
     "artist": "SyWavy",
     "type": "Single",
     "date": "2020-03-28",
-    "link": "https://sywavy.com/release.html?id=keys",
+    "link": "https://sywavy.com/keys",
     "streamingLinks": {
       "spotify": "https://open.spotify.com/album/4YTpjeI5wwDuqxhHOpiby9",
       "apple": "https://music.apple.com/us/album/keys-single/1504976583?uo=4&app=music&at=1001lry3&ct=dashboard",
@@ -489,8 +489,11 @@ window.RELEASES = [
   }
 ];
 
-/* Official videos. id = the YouTube video id. The first entry is featured on the home page. */
+/* Official videos, newest first. id = the YouTube video id. The first entry is featured on the home page. */
 window.VIDEOS = [
+  { "id": "5mAE4k32Hpg", "title": "Slow? Never", "artist": "SyWavy", "kind": "Official Music Video", "release": "magnum-opus" },
+  { "id": "SOnLkK8uM10", "title": "YAMAHA RIDIN'", "artist": "SyWavy", "kind": "Official Music Video", "release": "magnum-opus" },
+  { "id": "u5F1GKy1FKo", "title": "Rust", "artist": "SyWavy", "kind": "Official Music Video", "release": "magnum-opus" },
   { "id": "cNYZxzDjoUE", "title": "Carolina Herrera", "artist": "SyWavy", "kind": "Official Music Video", "release": "magnum-opus" },
   { "id": "EEbRq_fPUnE", "title": "SZA", "artist": "SyWavy", "kind": "Official Music Video", "release": "magnum-opus" }
 ];

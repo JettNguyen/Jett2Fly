@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Jett2Fly — site.js
+   Jett2Fly: site.js
    Shared behaviour for every page. Page-specific work is keyed off
    <body data-page="…">. Data comes from releases.js.
    ========================================================================== */
@@ -205,7 +205,7 @@
     });
   }
   const videoCard = (v, i) => `<div data-reveal style="--i:${i % 6}">
-      <div class="yt" data-id="${esc(v.id)}" data-title="${esc(v.artist + ' – ' + v.title)}"></div>
+      <div class="yt" data-id="${esc(v.id)}" data-title="${esc(v.title + ' by ' + v.artist)}"></div>
       <div class="video-caption"><h3>${esc(v.title)}</h3><span class="mono">${esc(v.artist)} · ${esc(v.kind)}</span></div>
     </div>`;
 
@@ -260,7 +260,7 @@
       $('#marquee-a').innerHTML = group(a) + group(a);
       $('#marquee-b').innerHTML = group(b) + group(b);
       const v = VIDEOS[0], vb = $('#latest-video');
-      if (v && vb) vb.innerHTML = `<div class="yt" data-id="${esc(v.id)}" data-title="${esc(v.artist + ' – ' + v.title)}"></div>`;
+      if (v && vb) vb.innerHTML = `<div class="yt" data-id="${esc(v.id)}" data-title="${esc(v.title + ' by ' + v.artist)}"></div>`;
       const vt = $('#latest-video-title');
       if (v && vt) vt.textContent = v.title;
       const vm = $('#latest-video-meta');
@@ -333,7 +333,7 @@
     videos() {
       const [first, ...rest] = VIDEOS;
       if (first) {
-        $('#video-featured').innerHTML = `<div class="yt" data-id="${esc(first.id)}" data-title="${esc(first.artist + ' – ' + first.title)}"></div>
+        $('#video-featured').innerHTML = `<div class="yt" data-id="${esc(first.id)}" data-title="${esc(first.title + ' by ' + first.artist)}"></div>
           <div class="video-caption"><h3>${esc(first.title)}</h3><span class="mono">${esc(first.artist)} · ${esc(first.kind)}</span></div>`;
       }
       $('#video-grid').innerHTML = rest.map(videoCard).join('');
