@@ -432,15 +432,17 @@ html:not(.no-js) [data-reveal].in { opacity: 1; transform: none; }
   border-radius: var(--r);
   overflow: hidden;
 }
+/* While a dialog is open the page behind it holds still, and only the dialog scrolls */
+html:has(.release-dialog[open]) { overflow: hidden; scrollbar-gutter: stable; }
 .release-dialog::backdrop { background: rgba(0, 0, 0, .72); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
 .release-dialog[open] { animation: pop .45s var(--ease); }
 .release-dialog[open]::backdrop { animation: fade .3s ease; }
 @keyframes pop { from { opacity: 0; transform: translateY(18px) scale(.98); } }
 @keyframes fade { from { opacity: 0; } }
-.dialog-grid { display: grid; grid-template-columns: 360px 1fr; max-height: calc(100dvh - 24px); }
+.dialog-grid { display: grid; grid-template-columns: 360px 1fr; grid-template-rows: minmax(0, 1fr); max-height: calc(100dvh - 26px); }
 .dialog-cover { background: var(--bg-2); align-self: start; position: sticky; top: 0; }
 .dialog-cover img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; }
-.dialog-body { padding: clamp(22px, 3vw, 36px); overflow: auto; }
+.dialog-body { padding: clamp(22px, 3vw, 36px); overflow: auto; overscroll-behavior: contain; }
 .dialog-body h2 { font-size: clamp(30px, 4vw, 46px); letter-spacing: -.03em; margin: 10px 0 8px; padding-right: 44px; }
 .dialog-body .with { color: var(--text-2); margin-bottom: 22px; }
 .dialog-body .tracklist { columns: 1; margin-top: 26px; }
@@ -591,7 +593,8 @@ a, button, select, [role="button"] { -webkit-tap-highlight-color: transparent; t
   .contact .actions { justify-self: start; }
   .year-group { grid-template-columns: 1fr; gap: 14px; }
   .year-label { position: static; font-size: 30px; }
-  .dialog-grid { grid-template-columns: 1fr; overflow: auto; }
+  .dialog-grid { grid-template-columns: 1fr; grid-template-rows: none; overflow: auto; overscroll-behavior: contain; }
+  .dialog-body { overflow: visible; }
   .dialog-cover img { aspect-ratio: 16 / 9; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
