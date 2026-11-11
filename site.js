@@ -30,7 +30,7 @@
   function platformPills(r) {
     const links = r.streamingLinks || {};
     const pills = PLATFORMS.filter(([k]) => links[k]).map(([k, name, ic]) =>
-      `<a class="pill" href="${esc(links[k])}" target="_blank" rel="noopener">${icon(ic)}${name}</a>`);
+      `<a class="pill pill-stream" data-platform="${k}" href="${esc(links[k])}" target="_blank" rel="noopener">${icon(ic)}${name}</a>`);
     if (r.link) pills.push(`<a class="pill" href="${esc(r.link)}" target="_blank" rel="noopener">All platforms <span class="arrow">↗</span></a>`);
     return pills.join('');
   }
