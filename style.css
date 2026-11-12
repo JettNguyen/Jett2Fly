@@ -126,7 +126,7 @@ h3 { font-family: var(--display); font-weight: 700; font-size: 20px; letter-spac
 }
 .brand { display: inline-flex; align-items: center; gap: 12px; font-family: var(--display); font-weight: 800; font-size: 19px; letter-spacing: -.02em; }
 .brand-mark { width: 30px; height: 20px; fill: var(--text); overflow: visible; }
-.brand-logo { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line-2); object-fit: cover; transition: transform .35s var(--ease), border-color .25s; }
+.brand-logo { width: 56px; height: 56px; transition: transform .35s var(--ease); }
 .brand-mark rect { transform-box: fill-box; transform-origin: center; }
 .brand-mark rect:nth-child(2n) { animation-delay: -.25s; }
 .brand-mark rect:nth-child(3n) { animation-delay: -.5s; }
@@ -541,7 +541,7 @@ html:has(.release-dialog[open]) { overflow: hidden; scrollbar-gutter: stable; }
 @media (hover: hover) {
   .link:hover { background-size: 100% 1px; }
   a:hover .arrow, button:hover .arrow { transform: translateX(4px); }
-  .brand:hover .brand-logo { transform: scale(1.06); border-color: var(--text-2); }
+  .brand:hover .brand-logo { transform: scale(1.06); }
   .brand:hover .brand-mark rect { animation: eq .8s ease-in-out infinite alternate; }
   .site-nav a:not(.btn):hover { color: var(--text); background-size: 100% 1px; }
   .btn:hover { transform: translateY(-1px); }
