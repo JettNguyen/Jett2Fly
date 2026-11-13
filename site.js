@@ -311,11 +311,17 @@ if (/\/index\.html$/.test(location.pathname)) {
         <span class="spacer"></span>
         <span class="year-pick"><label class="mono" for="year-filter">Year</label>
         <select class="select" id="year-filter"><option value="all">Any</option>${years.map(y => `<option>${y}</option>`).join('')}</select></span>
-        <span class="count" id="count"></span>`;
+        <span class="count" id="count"></span>
+        <span class="sr-only" role="status" id="filter-status"></span>`;
 
+      // Screen readers hear how many releases match after a filter changes,
+      // instead of the whole catalog being read out again
+      let firstDraw = true;
       const render = () => {
         const list = RELEASES.filter(r => (type === 'All' || r.type === type) && (yr === 'all' || year(r) === yr));
         $('#count').textContent = plural(list.length, 'release');
+        if (!firstDraw) $('#filter-status').textContent = list.length ? `${plural(list.length, 'release')} shown` : 'Nothing matches those filters.';
+        firstDraw = false;
         catalog.innerHTML = list.length ? R.catalog(list) : '<p class="empty">Nothing matches those filters.</p>';
         observeReveals(catalog);
       };
