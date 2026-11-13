@@ -132,7 +132,8 @@ function write(file, html) {
   let html = read(file);
   const latest = RELEASES[0], video = VIDEOS[0];
   // Who he is: the follow links on the home page, plus his MusicBrainz entry
-  const follow = [...(html.match(/<ul class="social-list">[\s\S]*?<\/ul>/) || [''])[0].matchAll(/href="([^"]+)"/g)].map(m => m[1]);
+  // (only the links: the icons inside them have hrefs like #i-instagram too)
+  const follow = [...(html.match(/<ul class="social-list">[\s\S]*?<\/ul>/) || [''])[0].matchAll(/<a\b[^>]*\shref="(https?:[^"]+)"/g)].map(m => m[1]);
   if (!follow.length) throw new Error('index.html has no follow links in .social-list');
   const description = (html.match(/<meta name="description" content="([^"]*)"/) || [])[1];
   html = region(html, file, 'data', jsonLd({
