@@ -176,12 +176,17 @@ if (/\/index\.html$/.test(location.pathname)) {
   /* ---------- YouTube facade: poster + play, iframe only on click ---------- */
   function ytFacade(el) {
     const { id, list, title = 'Video', poster } = el.dataset;
-    const src = poster || `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`;
+    const still = size => `https://i.ytimg.com/vi/${id}/${size}.jpg`;
+    const src = poster || still('maxresdefault');
+    // YouTube's 640px still is enough for a small box (a phone, or the grid on a normal
+    // screen); the browser picks it or the 1280px one from the box's width
+    const set = poster ? '' : ` srcset="${still('sddefault')} 640w, ${still('maxresdefault')} 1280w" sizes="${el.clientWidth || 640}px"`;
     el.innerHTML = `<button class="yt-btn" type="button" aria-label="Play ${esc(title)}">
-      <img src="${esc(src)}" alt="" loading="lazy" width="1280" height="720">
+      <img src="${esc(src)}"${set} alt="" loading="lazy" width="1280" height="720">
       <span class="yt-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></button>`;
     const img = $('img', el);
-    img.addEventListener('load', () => { if (!poster && img.naturalWidth < 200) img.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`; }, { once: true });
+    // A video without that still gets YouTube's tiny gray stand-in, so use the one every video has
+    img.addEventListener('load', () => { if (!poster && img.naturalWidth < 200) { img.removeAttribute('srcset'); img.src = still('hqdefault'); } }, { once: true });
     $('button', el).addEventListener('click', () => {
       const url = list
         ? `https://www.youtube-nocookie.com/embed/videoseries?list=${encodeURIComponent(list)}&autoplay=1`
