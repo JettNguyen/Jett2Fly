@@ -530,8 +530,12 @@ html:has(.release-dialog[open]) { overflow: hidden; scrollbar-gutter: stable; }
   line-height: .78;
   letter-spacing: -.05em;
   text-transform: uppercase;
-  color: transparent;
-  -webkit-text-stroke: 1px var(--line-2);
+  /* The display font draws some letters from overlapping pieces, and a bare stroke
+     shows every seam. Filling with the page color over a double-width stroke leaves
+     only the outer edge, a 1px outline of each letter. */
+  color: var(--bg);
+  -webkit-text-stroke: 2px var(--line-2);
+  paint-order: stroke fill;
   text-align: center;
   user-select: none;
   margin-bottom: -.12em;
