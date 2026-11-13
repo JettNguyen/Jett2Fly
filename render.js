@@ -18,7 +18,8 @@ window.J2F = (() => {
   const fmtDate = iso => { const [y, m, d] = iso.split('-').map(Number); return new Date(y, m - 1, d).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }); };
   const year = r => r.date.slice(0, 4);
   const tracksOf = r => r.tracks ? r.tracks.length : (r.songs || 1);
-  const plural = (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`;
+  // A no-break space, so "18 tracks" never splits across two lines
+  const plural = (n, w) => `${n}\u00a0${w}${n === 1 ? '' : 's'}`;
   const meta = r => `${r.type} · ${plural(tracksOf(r), 'track')} · ${year(r)}`;
   const dot = ' <span class="dot">·</span> ';
   const newestFirst = list => list.slice().sort((a, b) => b.date.localeCompare(a.date));
