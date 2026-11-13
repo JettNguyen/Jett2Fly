@@ -278,8 +278,10 @@ if (/\/index\.html$/.test(location.pathname)) {
         fill('#featured', R.featured(latest));
       }
       fill('#recent', R.recent(RELEASES));
+      // The marquee is hidden from screen readers, so its links stay out of the
+      // tab order too. Every release is still a link on the Music page.
       const group = list => `<div class="marquee-group">${list.map(r =>
-        `<a href="${R.releaseHref(r)}" aria-label="${esc(r.title)}"><img src="${cover(r, 'thumbs')}" alt="" loading="lazy" width="240" height="240"></a>`).join('')}</div>`;
+        `<a href="${R.releaseHref(r)}" tabindex="-1" aria-label="${esc(r.title)}"><img src="${cover(r, 'thumbs')}" alt="" loading="lazy" width="240" height="240"></a>`).join('')}</div>`;
       const a = RELEASES, b = RELEASES.slice().reverse();
       fill('#marquee-a', group(a) + group(a));
       fill('#marquee-b', group(b) + group(b));
