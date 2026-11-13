@@ -25,6 +25,13 @@ if (/\/index\.html$/.test(location.pathname)) {
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const page = document.body.dataset.page;
 
+  // Covers list their smaller copies in srcset. If one of those is missing (a new
+  // release whose cards/ copy wasn't saved yet), show the full-size cover instead.
+  document.addEventListener('error', e => {
+    const img = e.target;
+    if (img.tagName === 'IMG' && img.srcset) { img.removeAttribute('srcset'); img.removeAttribute('sizes'); }
+  }, true);
+
   /* ---------- helpers ---------- */
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];

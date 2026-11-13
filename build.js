@@ -33,7 +33,7 @@ const FILMS = sandbox.window.FILMS || [];
 
 /* ---------- check the data before writing anything ---------- */
 for (const r of RELEASES) {
-  for (const size of ['covers', 'thumbs']) {
+  for (const size of ['covers', 'cards', 'thumbs']) {
     if (!fs.existsSync(path.join(ROOT, 'images', size, `${r.slug}.jpg`))) throw new Error(`${r.slug} has no images/${size}/${r.slug}.jpg`);
   }
 }

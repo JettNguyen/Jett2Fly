@@ -13,6 +13,8 @@ window.J2F = (() => {
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const icon = n => `<svg class="ico ico-${n}" aria-hidden="true"><use href="#i-${n}"/></svg>`;
   const cover = (r, size = 'covers') => `/images/${size}/${r.slug}.jpg`;
+  // Every size of a cover, so the browser loads the smallest one that is still sharp
+  const coverSet = r => `${cover(r, 'thumbs')} 240w, ${cover(r, 'cards')} 480w, ${cover(r)} 800w`;
   const fmtDate = iso => { const [y, m, d] = iso.split('-').map(Number); return new Date(y, m - 1, d).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }); };
   const year = r => r.date.slice(0, 4);
   const tracksOf = r => r.tracks ? r.tracks.length : (r.songs || 1);
@@ -34,10 +36,10 @@ window.J2F = (() => {
   }
   const trackList = r => r.tracks && r.tracks.length ? `<ol class="tracklist">${r.tracks.map(t => `<li>${esc(t)}</li>`).join('')}</ol>` : '';
 
-  function releaseCard(r, i, tag = 'a') {
+  function releaseCard(r, i, tag = 'a', eager = false) {
     const attrs = tag === 'a' ? `href="${releaseHref(r)}"` : `type="button" data-slug="${r.slug}"`;
     return `<${tag} class="card card-btn" ${attrs} data-reveal style="--i:${i % 6}">
-      <div class="cover"><img src="${cover(r)}" alt="${esc(r.title)} cover art" loading="lazy" width="800" height="800"></div>
+      <div class="cover"><img src="${cover(r)}" srcset="${coverSet(r)}" sizes="(max-width: 640px) 45vw, 300px" alt="${esc(r.title)} cover art"${eager ? '' : ' loading="lazy"'} width="800" height="800"></div>
       <div class="body"><h3>${esc(r.title)}</h3><div class="mono">${esc(meta(r))}</div></div>
     </${tag}>`;
   }
@@ -47,7 +49,7 @@ window.J2F = (() => {
 
   const featured = r => `
           <a class="featured-cover" href="${releaseHref(r)}" data-reveal>
-            <img src="${cover(r)}" alt="${esc(r.title)} cover art" width="800" height="800" fetchpriority="high">
+            <img src="${cover(r)}" srcset="${coverSet(r)}" sizes="(max-width: 640px) 132px, (max-width: 900px) 90vw, 544px" alt="${esc(r.title)} cover art" width="800" height="800" fetchpriority="high">
             <span class="tag">Latest release</span>
           </a>
           <div class="featured-info" data-reveal style="--i:1">
@@ -64,9 +66,10 @@ window.J2F = (() => {
   function catalog(list) {
     const groups = new Map();
     list.forEach(r => { const y = year(r); if (!groups.has(y)) groups.set(y, []); groups.get(y).push(r); });
+    let n = 0; // the first two covers sit at the top of the page, so they load right away
     return [...groups].map(([y, rs]) => `<section class="year-group">
             <h2 class="year-label">${y}</h2>
-            <div class="release-grid">${rs.map((r, i) => releaseCard(r, i, 'button')).join('')}</div>
+            <div class="release-grid">${rs.map((r, i) => releaseCard(r, i, 'button', n++ < 2)).join('')}</div>
           </section>`).join('');
   }
 

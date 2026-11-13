@@ -11,12 +11,14 @@ Static site, hosted on GitHub Pages straight from `main`.
 | `indexnow.js` | Tells Bing the pages changed. A workflow runs it after each deploy; the `<key>.txt` file at the root has to stay. |
 | `style.css` | Every style, for every page. |
 | `images/covers/` | 800px square cover JPEGs, named by slug. |
+| `images/cards/` | 480px versions of the same. Phones and the release cards load these. |
 | `images/thumbs/` | 240px versions of the same. |
 | `images/original/` | Untouched source art (not used by the site). |
 
 ## Adding a release
 
-1. Save the cover as `images/covers/<slug>.jpg` (800×800) and `images/thumbs/<slug>.jpg` (240×240).
+1. Save the cover as `images/covers/<slug>.jpg` (800×800), `images/cards/<slug>.jpg` (480×480) and
+   `images/thumbs/<slug>.jpg` (240×240). `node build.js` stops and names any that are missing.
 2. Add an entry to the top of `RELEASES` in `releases.js`. The comment at the top of that file lists the fields.
 3. Run `node build.js` and commit the pages it changes along with `releases.js`.
 
