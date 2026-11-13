@@ -250,6 +250,8 @@ html:not(.no-js) [data-reveal].in { opacity: 1; transform: none; }
   padding-top: clamp(40px, 9vh, 96px);
   padding-bottom: clamp(24px, 4vw, 48px);
   isolation: isolate;
+  /* The glow is wider than a phone screen; without this the page scrolls sideways */
+  overflow-x: clip;
 }
 .hero::before {
   content: '';
