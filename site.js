@@ -302,8 +302,8 @@ if (/\/index\.html$/.test(location.pathname)) {
       filters.innerHTML = `${['All', ...order].map(t =>
         `<button class="chip" type="button" data-type="${t}" aria-pressed="${t === 'All'}">${t === 'All' ? 'All' : t + 's'}</button>`).join('')}
         <span class="spacer"></span>
-        <label class="mono" for="year-filter">Year</label>
-        <select class="select" id="year-filter"><option value="all">Any</option>${years.map(y => `<option>${y}</option>`).join('')}</select>
+        <span class="year-pick"><label class="mono" for="year-filter">Year</label>
+        <select class="select" id="year-filter"><option value="all">Any</option>${years.map(y => `<option>${y}</option>`).join('')}</select></span>
         <span class="count" id="count"></span>`;
 
       const render = () => {

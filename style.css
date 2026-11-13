@@ -418,6 +418,7 @@ html:not(.no-js) [data-reveal].in { opacity: 1; transform: none; }
    ========================================================================== */
 .filters { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding-block: 18px; border-block: 1px solid var(--line); position: sticky; top: var(--header-h); z-index: 5; background: var(--bg); }
 .filters .spacer { flex: 1; }
+.filters .year-pick { display: flex; align-items: center; gap: 8px; }
 .filters .count { font-family: var(--mono); font-size: 12px; color: var(--text-3); }
 .year-group { display: grid; grid-template-columns: 120px 1fr; gap: 24px; padding-block: clamp(28px, 4vw, 48px); border-bottom: 1px solid var(--line); }
 .year-group:last-child { border-bottom: 0; }
